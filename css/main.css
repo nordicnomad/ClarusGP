@@ -4,8 +4,28 @@
    Author's custom styles
    ========================================================================== */
 
+   body {
+   	background-image: url('../img/FB.png');
+   	background-repeat: repeat;
+   }
 
+      /* Replace with rest of nav into side config*/
+   .logo {
+   	width: 65%;
+   }
 
+   /* back grounds for paralax div containers*/
+   .slideContain {
+      background-color: #fff;
+      margin: 0;
+      margin-bottom: 10%;
+      padding: 0;
+      width: 100%;
+   }
+   /* Targetable paralax objects */
+   #slide1 {
+
+   }
 
 
 
