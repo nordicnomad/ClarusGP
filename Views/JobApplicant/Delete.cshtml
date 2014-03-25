@@ -1,0 +1,93 @@
+﻿@model ClarusBlogBoard.Models.JobApplicant
+@{
+    ViewBag.Title = "Delete Job Seeker";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+<div id="heading" class="page-header">
+    <h2>Delete Job Seeker</h2>
+</div>
+
+<div class="col-lg-6 jobDeleteInfo">
+    <h3 class="deleteQuestion">Are you sure you want to delete this?</h3>
+
+    <fieldset>
+        <legend>Job Applicant Information</legend>
+
+        <div class="display-label">
+            <h4>First Name</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ApplicantFirstName)
+        </div>
+
+        <div class="display-label">
+            <h4>Last Name</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ApplicantLastName)
+        </div>
+
+        <div class="display-label">
+            <h4>Phone</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ApplicantPhone)
+        </div>
+
+        <div class="display-label">
+            <h4>Email</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ApplicantEmail)
+        </div>
+
+        <div class="display-label">
+            <h4>Address</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ApplicantAddress)
+        </div>
+
+        <div class="display-label">
+            <h4>City</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ApplicantCity)
+        </div>
+
+        <div class="display-label">
+            <h4>State</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ApplicantState.StateName)
+        </div>
+
+        <div class="display-label">
+            <h4>Zip</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ApplicantZip)
+        </div>
+
+        <div class="display-label">
+            <h4>Resume File</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ResumePath)
+        </div>
+
+        <div class="display-label">
+            <h4>Resume Text</h4>
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.ResumeText)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+        </p>
+    }
+</div>

@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Clarus Admin Panel";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<!-- Charts plugins -->
+    
+
+    <script src="@Url.Content("~/Scripts/js/pages/dashboard.js")"></script><!-- Init plugins only for page -->
+
+
+<div id="heading" class="page-header">
+    <h2>Clarus Group Admin Panel</h2>
+</div>
+
+<!-- Job Posts -->
+<div class="row">
+    <div class="col-lg-3 campaign-title"><h3>Job Post Stats</h3></div>
+    <div class="col-lg-9">
+    <div class="campaign-stats">
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="100" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobCount</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Total</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.JobCat1Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobCategory1</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Analysis</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.JobCat2Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobCategory2</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Development</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.JobCat3Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobCategory3</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Security</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.JobCat4Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobCategory4</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Infrastructure</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.JobCat5Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobCategory5</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Management</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.JobCat6Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobCategory6</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Assurance</div>
+        </div>
+        <div class="items borderLeft">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.JobLoc1Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobLocation1</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Kansas City</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.JobLoc2Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobLocation2</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Denver</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.JobLoc3Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.JobLocation3</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Baltimore</div>
+        </div>
+    </div>
+    </div>
+</div><!-- /Job Posts -->
+
+<!-- Job Applications -->
+<div class="row">
+    <div class="col-lg-3 campaign-title"><h3>Applications Stats</h3></div>
+    <div class="col-lg-9">
+    <div class="campaign-stats">
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="100" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.AppCount</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Applications</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="100" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.SeekerCount</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Job Seekers</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.AppCat1Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.AppCategory1</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Unprocessed</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.AppCat2Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.AppCategory2</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Phone<br />Scheduled</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.AppCat3Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.AppCategory3</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Phone<br />Completed</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.AppCat4Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.AppCategory4</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Interview<br />Scheduled</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.AppCat5Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.AppCategory5</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Interview<br />Completed</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.AppCat6Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.AppCategory6</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Pending<br />Placement</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.AppCat7Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.AppCategory7</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Placed</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.AppCat8Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.AppCategory8</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Unavailable</div>
+        </div>
+        
+    </div>
+    </div>
+</div> <!-- /Job Applications -->
+
+<!-- Blog Posts -->
+<div class="row">
+    <div class="col-lg-3 campaign-title"><h3>Blog Post Stats</h3></div>
+    <div class="col-lg-9">
+    <div class="campaign-stats">
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="100" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.BlogCount</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Total</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.BlogCat1Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.BlogCategory1</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">News</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.BlogCat2Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.BlogCategory2</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Community</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.BlogCat3Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.BlogCategory3</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Job Info</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.BlogCat4Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.BlogCategory4</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Profiles</div>
+        </div>
+        <div class="items">
+            <div class="percentage easyPieChart" data-percent="@ViewBag.BlogCat5Percent" style="width: 80px; height: 80px; line-height: 80px;"><span>@ViewBag.BlogCategory5</span><canvas width="80" height="80"></canvas></div>
+            <div class="txt">Announcements</div>
+        </div>
+        
+    </div>
+    </div>
+</div> <!-- /Blog Posts -->

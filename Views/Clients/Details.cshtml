@@ -1,0 +1,161 @@
+﻿@model ClarusBlogBoard.Models.ContentClients
+@{
+    ViewBag.Title = "Clarus Group Clients";
+}
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li><a href="@Url.Action("Details", "Legal", new { id = 1 })">Legal</a></li>
+                    <li><a href="@Url.Action("Community", "BlogPost")">Community</a></li>
+                    <li><a href="#clients">Public</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                    <li><a href="@Url.Action("Jobs", "JobPost")">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @*<div class="scrollPast2 hidden-xs hidden-sm"></div>*@
+
+    <section class="main wrapper" id="publicClients" id="clients">
+        <h1>Public Sector</h1>
+        <hr />
+        <h2>Client Agencies</h2>
+        <div class="row clientRow">
+            <div class="col-lg-4">
+                <a href="http://www.cms.gov/" target="_blank">
+                    <img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/" + @Html.DisplayFor(model => model.ClientsImage1))" alt="@Html.DisplayFor(model => model.ClientsTitle1)" />
+                </a>
+            </div>
+            <div class="col-lg-8">
+                <h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle1)</h4>
+                <p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent1)</p>
+            </div>
+        </div>
+        <div class="row clientRow">
+            <div class="col-lg-4">
+                <a href="http://www.doi.gov/index.cfm" target="_blank">
+                    <img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/" + @Html.DisplayFor(model => model.ClientsImage2))" alt="@Html.DisplayFor(model => model.ClientsTitle2)" />
+                </a>
+            </div>
+            <div class="col-lg-8">
+                <h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle2)</h4>
+                <p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent2)</p>
+            </div>
+        </div>
+        <div class="row clientRow">
+            <div class="col-lg-4">
+                <a href="http://www.dol.gov/" target="_blank">
+                    <img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/" + @Html.DisplayFor(model => model.ClientsImage3))" alt="@Html.DisplayFor(model => model.ClientsTitle3)" />
+                </a>
+            </div>
+            <div class="col-lg-8">
+                <h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle3)</h4>
+                <p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent3)</p>
+            </div>
+        </div>
+        <div class="row clientRow">
+            <div class="col-lg-4">
+                <a href="http://www.fsa.usda.gov" target="_blank">
+                    <img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/" + @Html.DisplayFor(model => model.ClientsImage4))" alt="@Html.DisplayFor(model => model.ClientsTitle4)" />
+                </a>
+            </div>
+            <div class="col-lg-8">
+                <h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle4)</h4>
+                <p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent4)</p>
+            </div>
+        </div>
+        <div class="row clientRow">
+            <div class="col-lg-4">
+                <a href="http://www.ssa.gov/" target="_blank">
+                    <img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/" + @Html.DisplayFor(model => model.ClientsImage5))" alt="@Html.DisplayFor(model => model.ClientsTitle5)" />
+                </a>
+            </div>
+            <div class="col-lg-8">
+                <h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle5)</h4>
+                <p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent5)</p>
+            </div>
+        </div>
+        <div class="row clientRow">
+            <div class="col-lg-4">
+                <a href="http://www.usda.gov/" target="_blank">
+                    <img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/" + @Html.DisplayFor(model => model.ClientsImage6))" alt="@Html.DisplayFor(model => model.ClientsTitle6)" />
+                </a>
+            </div>
+            <div class="col-lg-8">
+                <h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle6)</h4>
+                <p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent6)</p>
+            </div>
+        </div>
+        <div class="row clientRow">
+            <div class="col-lg-4">
+                <a href="http://www.marines.mil/" target="_blank">
+                    <img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/" + @Html.DisplayFor(model => model.ClientsImage7))" alt="@Html.DisplayFor(model => model.ClientsTitle7)" />
+                </a>
+            </div>
+            <div class="col-lg-8">
+                <h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle7)</h4>
+                <p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent7)</p>
+            </div>
+        </div>
+    </section>
+    @*<section class="wrapper" id="privateClients">
+            	<h2>Private Client Companies</h2>
+            	<div class="row clientRow">
+                    <div class="col-lg-4">
+                		<a href="#" target="_blank">
+                			<img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/"+@Html.DisplayFor(model => model.ClientsImage8))" alt="@Html.DisplayFor(model => model.ClientsTitle8)" />
+                		</a>
+                    </div>
+            		<div class="col-lg-8">
+            			<h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle8)</h4>
+            			<p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent8)</p>
+            		</div>
+            	</div>
+            	<div class="row clientRow">
+                    <div class="col-lg-4">
+                		<a href="#" target="_blank">
+                			<img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/"+@Html.DisplayFor(model => model.ClientsImage9))" alt="@Html.DisplayFor(model => model.ClientsTitle9)" />
+                		</a>
+                    </div>
+            		<div class="col-lg-8">
+            			<h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle9)</h4>
+            			<p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent9)</p>
+            		</div>
+            	</div>
+            	<div class="row clientRow">
+                    <div class="col-lg-4">
+                		<a href="#" target="_blank">
+                			<img class="clientLogo" src="@Url.Content("~/Content/img/clientLogos/"+@Html.DisplayFor(model => model.ClientsImage10))" alt="@Html.DisplayFor(model => model.ClientsTitle10)" />
+                		</a>
+                    </div>
+            		<div class="col-lg-8">
+            			<h4 class="clientHeader">@Html.DisplayFor(model => model.ClientsTitle10)</h4>
+            			<p class="whitespaced">@Html.DisplayFor(model => model.ClientsContent10)</p>
+            		</div>
+            	</div>
+			</section>*@
+
+    @if (User.IsInRole("admin, superadmin"))
+    {
+        <div class="wrapper">
+            <p>
+                @Html.ActionLink("Edit", "Clients", new { id = 1 })
+            </p>
+        </div>
+    }
+
+</div>

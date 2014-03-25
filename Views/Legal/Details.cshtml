@@ -1,0 +1,67 @@
+﻿@model ClarusBlogBoard.Models.ContentLegal
+@{
+    ViewBag.Title = "Legal Notices";
+}
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                    <li><a href="#legal">Legal</a></li>
+                    <li><a href="@Url.Action("Community", "BlogPost")">Community</a></li>
+                    <li><a href="@Url.Action("Details", "Clients", new { id = 1 })">Clients</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                    <li><a href="@Url.Action("Jobs", "JobPost")">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    @*<div class="scrollPast1 hidden-xs hidden-sm"></div>*@
+
+    <!-- Legal -->
+    <section class="main clearfix wrapper" id="legal">
+        <h1>Legal Information</h1>
+        <hr />
+        <h3 id="terms">@Html.DisplayFor(model => model.LegalTitle1)</h3>
+
+        <p class="whitespaced">@Html.DisplayFor(model => model.LegalContent1)</p>
+    </section>
+    <!-- End Terms -->
+
+    <section class="main clearfix wrapper" id="privacy">
+        <h3>@Html.DisplayFor(model => model.LegalTitle2)</h3>
+
+        <p class="whitespaced">@Html.DisplayFor(model => model.LegalContent2)</p>
+    </section>
+    <!-- End Privacy-->
+
+    <section class="main clearfix wrapper" id="attribution">
+        <h3>@Html.DisplayFor(model => model.LegalTitle3)</h3>
+
+        <p class="whitespaced">@Html.DisplayFor(model => model.LegalContent3)</p>
+    </section>
+    <!-- End Attribution -->
+
+    @if (User.IsInRole("admin, superadmin"))
+    {
+        <div class="wrapper">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.LegalID })
+            </p>
+        </div>
+    }
+
+</div>

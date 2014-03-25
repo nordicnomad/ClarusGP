@@ -1,0 +1,88 @@
+﻿@model ClarusBlogBoard.Models.ContentSecurity
+
+@{
+    ViewBag.Title = "Edit IT Security Content";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+    <div id="heading" class="page-header">
+        <h2>Edit IT Security</h2>
+    </div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>IT Security Content</legend>
+
+        <div class="editor-label">
+            <h4>Security Slide 1 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityTitle1)
+            @Html.ValidationMessageFor(model => model.SecurityTitle1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Security Slide 1 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityContent1)
+            @Html.ValidationMessageFor(model => model.SecurityContent1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Security Slide 2 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityTitle2)
+            @Html.ValidationMessageFor(model => model.SecurityTitle2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Security Slide 2 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityContent2)
+            @Html.ValidationMessageFor(model => model.SecurityContent2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Security Slide 3 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityTitle3)
+            @Html.ValidationMessageFor(model => model.SecurityTitle3)
+        </div>
+
+        <div class="editor-label">
+            <h4>Security Slide 3 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityContent3)
+            @Html.ValidationMessageFor(model => model.SecurityContent3)
+        </div>
+
+        <div class="editor-label">
+            <h4>Security Slide 4 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityTitle4)
+            @Html.ValidationMessageFor(model => model.SecurityTitle4)
+        </div>
+
+        <div class="editor-label">
+            <h4>Security Slide 4 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityContent4)
+            @Html.ValidationMessageFor(model => model.SecurityContent4)
+        </div>
+
+        @Html.HiddenFor(model => model.SecurityID)
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+

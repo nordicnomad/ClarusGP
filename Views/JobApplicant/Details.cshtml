@@ -1,0 +1,57 @@
+﻿@model ClarusBlogBoard.Models.JobApplicant
+
+@{
+    ViewBag.Title = "Resume Manager Detail";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+    <div id="heading" class="page-header">
+        <h2>Detailed Candidate Information</h2>
+    </div>
+
+<fieldset class="resumeFieldset">
+    <legend>@Html.DisplayFor(model => model.ApplicantFirstName) @Html.DisplayFor(model => model.ApplicantLastName)</legend>
+
+    
+    <div class="display-label"><h4>Phone Number</h4></div>
+    <div class="display-field">
+        <p>
+            @Html.DisplayFor(model => model.ApplicantPhone)
+        </p>
+    </div>
+
+    <div class="display-label"><h4>Email Address</h4></div>
+    <div class="display-field">
+        <p>
+            @Html.DisplayFor(model => model.ApplicantEmail)
+        </p>
+    </div>
+
+    <div class="display-label"><h4>Mailing Address</h4></div>
+    <div class="display-field">
+        <p>
+            @Html.DisplayFor(model => model.ApplicantAddress)<br />
+            @Html.DisplayFor(model => model.ApplicantCity), @Html.DisplayFor(model => model.ApplicantState.StateName)<br />
+            @Html.DisplayFor(model => model.ApplicantZip)
+        </p>
+    </div>
+    
+    @if (Model.ResumePath != null)
+    {
+    <div class="display-label"><h4>Open Resume File</h4></div>
+    <div class="display-field">
+        <a href="@Url.Content("~/Content/resumes/"+@Html.DisplayFor(model => model.ResumePath))" target="blank">Click Here to View</a>
+    </div>
+    }
+
+    <div class="display-label"><h4>Text Resume</h4></div>
+    <div class="display-field">
+        <p class="whitespaced">
+            @Html.DisplayFor(model => model.ResumeText)
+        </p>
+    </div>
+</fieldset>
+<p>
+    <a href="@Url.Action("Edit", "JobApplicant", new { id=Model.ApplicantID })" class="btn btn-info">Edit</a> &nbsp;
+    <a href="@Url.Action("Index", "JobApplicant")" class="btn btn-primary">Back</a>
+</p>

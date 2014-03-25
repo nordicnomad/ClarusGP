@@ -1,0 +1,120 @@
+﻿@model ClarusBlogBoard.Models.JobApplicant
+@{
+    ViewBag.Title = "Apply with Clarus Group";
+}
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="@Url.Action("Details", "About", new { id = 1 })">About</a></li>
+                    <li><a href="@Url.Action("Details", "Project", new { id = 1 })">BPM</a></li>
+                    <li><a href="@Url.Action("Details", "Security", new { id = 1 })">Security</a></li>
+                    <li><a href="@Url.Action("Details", "Consulting", new { id = 1 })">Consulting</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                    <li class="active"><a href="@Url.Action("Careers", "JobPost")">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="wrapper">
+        <h2 class="applyTitle">Apply for @ViewBag.CurrentJobName</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h4>First Name *</h4>
+                </div>
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.ApplicantFirstName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApplicantFirstName)
+                </div>
+            </div>
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h4>Last Name *</h4>
+                </div>
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.ApplicantLastName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApplicantLastName)
+                </div>
+            </div>
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h4>Phone Number</h4>
+                </div>
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.ApplicantPhone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApplicantPhone)
+                </div>
+            </div>
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h4>Email Address *</h4>
+                </div>
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.ApplicantEmail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApplicantEmail)
+                </div>
+            </div>
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h4>Street Address</h4>
+                </div>
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.ApplicantAddress, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApplicantAddress)
+                </div>
+            </div>
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h4>City *</h4>
+                </div>
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.ApplicantCity, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApplicantCity)
+                </div>
+            </div>
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h4>State *</h4>
+                </div>
+                <div class="col-lg-9">
+                    @Html.DropDownList("ApplicantStateID", String.Empty)
+                    @Html.ValidationMessageFor(model => model.ApplicantStateID)
+                </div>
+            </div>
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h4>ZIP Code</h4>
+                </div>
+                <div class="col-lg-9">
+                    @Html.TextBoxFor(model => model.ApplicantZip, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ApplicantZip)
+                </div>
+            </div>
+            
+            <div class="row applyRow">
+                <p class="applyButton">
+                    <input type="submit" value="Continue to Upload Resume" class="btn btn-primary" />
+                </p>
+            </div>
+        }
+
+
+    </section>
+
+</div>

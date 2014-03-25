@@ -1,0 +1,28 @@
+﻿@model ClarusBlogBoard.Models.BlogAuthor
+
+@{
+    ViewBag.Title = "Author Detail";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Blog Author Detail</h2>
+</div>
+
+<fieldset>
+    <legend>Author Information</legend>
+
+    <div class="display-label"><h4>Author Name</h4></div>
+    <div class="display-field">
+        <p>@Html.DisplayFor(model => model.AuthorName)</p>
+    </div>
+
+    <div class="display-label"><h4>Author Email</h4></div>
+    <div class="display-field">
+        <p>@Html.DisplayFor(model => model.AuthorEmail)</p>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AuthorID }, new { @class = "btn btn-primary" }) 
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+</p>

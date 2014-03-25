@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ClarusBlogBoard.Models.Application>
+
+@{
+    ViewBag.Title = "Applications";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+        <h2>Applications Manager</h2>
+    </div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+        <div class="row col-lg-12">
+            @using (Html.BeginForm())
+            {
+                <div class="input-group col-lg-3 col-md-6 col-sm-12 col-xs-12 searchButton" id="search">
+                    <div class="input-group-btn">
+                        <input type="button" id="clear" value="Reset" class="btn btn-xs btn-default" />
+                    </div>
+                    <div class="input-group-btn">
+                        <input id="go" type="submit" value="Filter Applications" class="btn btn-xs btn-primary" tabindex="-1" />
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Job", "Filter By Job")
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Status", "Filter By Status")
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Assigned", "Filter By Assigned")
+                </div>
+            }
+        </div>
+
+    @foreach (var item in Model) {
+        <div class="col-lg-5 jobIndexInfo">
+            <div>
+                <h4>
+                     @Html.DisplayFor(modelItem => item.JobApplicant.ApplicantFirstName) @Html.DisplayFor(modelItem => item.JobApplicant.ApplicantLastName)
+                </h4>
+            </div>
+            <div>
+                <strong>For Job:</strong> @Html.DisplayFor(modelItem => item.JobPost.JobName)  <br />
+                <strong>Assigned To:</strong> @Html.DisplayFor(modelItem => item.AssignedTo.AssignedName)  <br />
+                <strong>Status:</strong> @Html.DisplayFor(modelItem => item.ApplicationStatus.ApplicationStatusName)
+            </div>
+            <div class="jobIndexBtns">
+                <a href="@Url.Action("Edit", "Application", new { id=item.ApplicationID })" class="btn btn-xs btn-primary">Edit</a> 
+                <a href="@Url.Action("Details", "Application", new { id=item.ApplicationID })" class="btn btn-xs btn-info">View</a>
+                @if(User.IsInRole("superadmin")) {
+                    <a href="@Url.Action("Delete", "Application", new { id=item.ApplicationID })" class="btn btn-xs btn-warning">Delete</a>
+                }
+            </div>
+        </div>
+    }

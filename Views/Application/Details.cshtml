@@ -1,0 +1,51 @@
+﻿@model ClarusBlogBoard.Models.Application
+
+@{
+    ViewBag.Title = "Application Manager Details";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Application Manager Details</h2>
+</div>
+
+<fieldset class="applicationFieldset">
+    <legend>@Html.DisplayFor(model => model.JobApplicant.ApplicantFirstName) @Html.DisplayFor(model => model.JobApplicant.ApplicantLastName) Application for @Html.DisplayFor(model => model.JobPost.JobName)</legend>
+
+    <div class="display-label"><h4>Applicant Name</h4></div>
+    <div class="display-field">
+        <a href="@Url.Action("Details", "JobApplicant", new { id = Html.DisplayFor(model => model.ApplicationApplicantID) })" target="_blank">@Html.DisplayFor(model => model.JobApplicant.ApplicantFirstName) @Html.DisplayFor(model => model.JobApplicant.ApplicantLastName)</a>
+    </div>
+
+    <div class="display-label"><h4>Job Applied For</h4></div>
+    <div class="display-field">
+        <a href="@Url.Action("Details", "JobPost", new { id = Html.DisplayFor(model => model.ApplicationJobID) })" target="_blank">@Html.DisplayFor(model => model.JobPost.JobName)</a>
+    </div>
+
+    <div class="display-label"><h4>Application Status</h4></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicationStatus.ApplicationStatusName)
+    </div>    
+
+    <div class="display-label"><h4>Interview Date</h4></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InterviewDate)
+    </div>
+
+    <div class="display-label"><h4>Assigned To</h4></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AssignedTo.AssignedName)
+    </div>
+
+    <div class="display-label"><h4>Notes</h4></div>
+    <div class="display-field">
+        <p class="whitespaced">
+            @Html.DisplayFor(model => model.ApplicationNotes)
+        </p>
+    </div>
+</fieldset>
+
+    <p>
+        <a href="@Url.Action("Edit", "Application", new { id=Model.ApplicationID })" class="btn btn-info">Edit</a> &nbsp;
+        <a href="@Url.Action("Index", "Application")" class="btn btn-primary">Back</a>
+    </p>

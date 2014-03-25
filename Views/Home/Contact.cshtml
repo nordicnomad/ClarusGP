@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Contact Clarus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="@Url.Action("Details", "About", new { id = 1 })">About</a></li>
+                    <li><a href="@Url.Action("Details", "Project", new { id = 1 })">BPM</a></li>
+                    <li><a href="@Url.Action("Details", "Security", new { id = 1 })">Security</a></li>
+                    <li><a href="@Url.Action("Details", "Consulting", new { id = 1 })">Consulting</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                    <li><a href="@Url.Action("Jobs", "JobPost")">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @*<div class="scrollPast2 hidden-xs hidden-sm"></div>*@
+
+    <section class="main clearfix wrapper" id="contact">
+        <h1>Contact Us</h1>
+        <hr />
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 contactInfoContainer">
+                <i class="icon-phone footIcon"></i><strong>Phone:</strong> (913) 599-5255<br />
+                <i class="icon-phone-sign footIcon"></i><strong>Fax:</strong> (913) 548-4856<br />
+                <i class="icon-envelope footIcon"></i><strong>Email:</strong> info@clarusgp.com<br />
+                <i class="icon-time footIcon"></i><strong>Hours:</strong><br />
+                <span class="contactHours"><strong>Monday – Friday:</strong> 8:00am – 5:00pm</span><br />
+                <span class="contactHours"><strong>Saturday – Sunday:</strong> Closed</span>
+            </div>
+            <div class="col-lg-6 mapContainer">
+                <div id="locationKCMO" class="wide"><a title="Kansas City Jobs" href="@Url.Action("Careers", "JobPost", new { Location = "1" })"></a></div>
+                <div id="locationBLMD" class="wide"><a title="Baltimore Jobs" href="@Url.Action("Careers", "JobPost", new { Location = "3" })"></a></div>
+                <div id="locationDNCO" class="wide"><a title="Denver Jobs" href="@Url.Action("Careers", "JobPost", new { Location = "2" })"></a></div>
+                <img src="@Url.Content("~/Content/img/LocationMapWhite.png")" alt="Clarus Group Locations Map" class="locationsMap wide" />
+            </div>
+        </div>
+        <div class="row">
+            <h2>Clarus Group Locations</h2>
+            <div class="col-sm-4 col-lg-4">
+                <div class="thumbnail locationThumbnail">
+                    <img src="@Url.Content("~/Content/img/contact1.jpg")" alt="...">
+                    <h3>Kansas City, MO</h3>
+                    <div class="caption">
+
+                        <address>
+                            
+                            10801 Mastin St.<br />
+                            Suite 1040<br />
+                            Overland Park, KS. 66210<br />
+                            <br />
+                            <i class="icon-phone footIcon"></i><strong>Phone:</strong> (913) 599-5255<br />
+                        </address>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-lg-4">
+                <div class="thumbnail locationThumbnail">
+                    <img src="@Url.Content("~/Content/img/contact2.jpg")" alt="...">
+                    <h3>Baltimore, MD</h3>
+                    <div class="caption">
+
+                        <address>
+                            
+                            1405 Forge Ave<br />
+                            Baltimore, MD. 21209<br />
+                            <br />
+                            <i class="icon-phone footIcon"></i><strong>Phone:</strong> (443) 856-4660
+                        </address>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-lg-4">
+                <div class="thumbnail locationThumbnail">
+                    <img src="@Url.Content("~/Content/img/contact3.jpg")" alt="...">
+                    <h3>Denver, CO</h3>
+                    <div class="caption">
+
+                        <address>
+                            
+                            14143 Denver West Pkwy,
+                            <br />
+                            Ste 100. 
+                        Golden, CO. 80401<br />
+                            <br />
+                            <i class="icon-phone footIcon"></i><strong>Phone:</strong> (303) 827-2405<br>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

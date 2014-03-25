@@ -1,0 +1,99 @@
+﻿@model ClarusBlogBoard.Models.JobPost
+
+@{
+    ViewBag.Title = "Edit Job Post";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+    <div id="heading" class="page-header">
+        <h2>Edit Job Post #@Html.DisplayFor(model => model.JobID)</h2>
+    </div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Job Post Information</legend>
+
+        @Html.HiddenFor(model => model.JobID)
+        @Html.HiddenFor(model => model.PostToBlog)
+
+        <div class="editor-label">
+            <h4>Job Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobName)
+            @Html.ValidationMessageFor(model => model.JobName)
+        </div>
+
+        <div class="editor-label">
+            <h4>Description</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JobDescription)
+            @Html.ValidationMessageFor(model => model.JobDescription)
+        </div>
+
+        <div class="editor-label">
+            <h4>Date Posted</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DatePosted)
+            @Html.ValidationMessageFor(model => model.DatePosted)
+        </div>
+
+        <div class="editor-label">
+            <h4>Closing Date</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClosingDate)
+            @Html.ValidationMessageFor(model => model.ClosingDate)
+        </div>
+
+        <div class="editor-label">
+            <h4>Job Post Status</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("JobPostStatusID", String.Empty)
+            @Html.ValidationMessageFor(model => model.JobPostStatusID)
+        </div>
+
+        <div class="editor-label">
+            <h4>Assigned To Office</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("JobOfficeID", String.Empty)
+            @Html.ValidationMessageFor(model => model.JobOfficeID)
+        </div>
+
+        <div class="editor-label">
+            <h4>Assigned To Recruiter</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("RecruiterAssignedTo", String.Empty)
+            @Html.ValidationMessageFor(model => model.RecruiterAssignedTo)
+        </div>
+
+        <div class="editor-label">
+            <h4>Job Location</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LocationDescription)
+            @Html.ValidationMessageFor(model => model.LocationDescription)
+        </div>
+
+        <div class="editor-label">
+            <h4>Job Category</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("JobCategoryID", String.Empty)
+            @Html.ValidationMessageFor(model => model.JobCategoryID)
+        </div>
+            
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+

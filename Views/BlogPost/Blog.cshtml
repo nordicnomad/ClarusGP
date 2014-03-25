@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ClarusBlogBoard.Models.BlogPost>
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_BlogLayout.cshtml";
+}
+
+<div id="blogHome" class="row-fluid blogContain">
+    <!--Open Main Container-->
+    <div class="container blogWrapper">
+
+        @if (Model.Count() > 0)
+        {
+
+
+        foreach (var item in Model)
+        {
+                    
+            <div class="col-lg-5 blogPreview">
+                <div class="previewThumb" style="background:url(@Url.Content("~/Content/img/blogImages/" + @Html.DisplayFor(modelItem => item.BlogImageURL))) no-repeat center center;">
+                    <h2 class="blogTitle">@Html.DisplayFor(modelItem => item.BlogTitle)</h2>
+                    <a href="@Url.Action("Details", "BlogPost", new { ID = item.BlogPostID })" class="btn btn-default blogButton">Read More</a>
+                </div>
+                <div>
+
+                    @{
+                            
+            if (item.BlogArticle.Length > 100)
+            {
+                string articleSnippet = item.BlogArticle.Substring(0, 99);
+                ViewBag.ArticleSnippet = articleSnippet;
+
+            }
+            else
+            {
+                string articleSnippet = item.BlogArticle;
+                ViewBag.ArticleSnippet = articleSnippet;
+            }
+                                
+                    }
+
+                    <p>@ViewBag.ArticleSnippet<a href="@Url.Action("Details", "BlogPost", new { ID = item.BlogPostID })">...</a></p>
+                </div>
+            </div>
+                    
+        }
+        @*<button class="btn btn-default loadMore">Load More Articles</button>*@ 
+        }
+        else
+        {
+            <h2>No Articles Match Your Search</h2>
+        }
+    </div>
+    
+</div>
+<!--End Main Container-->
+
+

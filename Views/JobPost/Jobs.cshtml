@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "Jobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="@Url.Action("Details", "About", new { id = 1 })">About</a></li>
+                    <li><a href="@Url.Action("Details", "Project", new { id = 1 })">BPM</a></li>
+                    <li><a href="@Url.Action("Details", "Security", new { id = 1 })">Security</a></li>
+                    <li><a href="@Url.Action("Details", "Consulting", new { id = 1 })">Consulting</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                    <li><a href="#careers">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="wrapper clearfix careerWrapper" id="careers">
+        <h2>Job Search</h2>
+        <hr />
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                <div class="jobSearchBox col-lg-12">
+                    <div class="col-lg-9 col-md-8 col-sm-8">
+                        <input type="text" class="form-control" name="jobSearch">
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-4">
+                        <input id="go" type="submit" value="Search" class="btn btn-primary btn-block jobsSearchButton" tabindex="-1" />
+                    </div>
+                </div>
+            }
+        </div>
+        <hr />
+        <div class="row-fluid">
+            <h2>Career Categories</h2>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="jobsButtonContainer">
+                    <a href="@Url.Action("Careers", "JobPost", new { Category = "1" })" class="jobsButton">
+                        <div class="hoverWrap">
+                            <span class="jobsImageOverlay"></span>
+                            <span class="jobsOverlay">Business Analysis</span>
+                        </div>
+                        <img src="@Url.Content("~/Content/img/businessAnalysis.jpg")" />
+                    </a>
+                    <h3>Business Analysis</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="jobsButtonContainer">
+                    <a href="@Url.Action("Careers", "JobPost", new { Category = "2" })" class="jobsButton">
+                        <div class="hoverWrap">
+                            <span class="jobsImageOverlay"></span>
+                            <span class="jobsOverlay">Software Development</span>
+                        </div>
+                        <img src="@Url.Content("~/Content/img/softwareDevelopment.jpg")" />
+                    </a>
+                    <h3>Software Development</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="jobsButtonContainer">
+                    <a href="@Url.Action("Careers", "JobPost", new { Category = "3" })" class="jobsButton">
+                        <div class="hoverWrap">
+                            <span class="jobsImageOverlay"></span>
+                            <span class="jobsOverlay">Information Security</span>
+                        </div>
+                        <img src="@Url.Content("~/Content/img/informationSecurity.jpg")" />
+                    </a>
+                    <h3>Information Security</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="jobsButtonContainer">
+                    <a href="@Url.Action("Careers", "JobPost", new { Category = "4" })" class="jobsButton">
+                        <div class="hoverWrap">
+                            <span class="jobsImageOverlay"></span>
+                            <span class="jobsOverlay">IT Infrastructure</span>
+                        </div>
+                        <img src="@Url.Content("~/Content/img/itInfrastructure.jpg")" />
+                    </a>
+                    <h3>IT Infrastructure</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="jobsButtonContainer">
+                    <a href="@Url.Action("Careers", "JobPost", new { Category = "5" })" class="jobsButton">
+                        <div class="hoverWrap">
+                            <span class="jobsImageOverlay"></span>
+                            <span class="jobsOverlay">Project Management</span>
+                        </div>
+                        <img src="@Url.Content("~/Content/img/projectManagement.jpg")" />
+                    </a>
+                    <h3>Project Management</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="jobsButtonContainer">
+                    <a href="@Url.Action("Careers", "JobPost", new { Category = "6" })" class="jobsButton">
+                        <div class="hoverWrap">
+                            <span class="jobsImageOverlay"></span>
+                            <span class="jobsOverlay">Quality Assurance</span>
+                        </div>
+                        <img src="@Url.Content("~/Content/img/qualityAssurance.jpg")" />
+                    </a>
+                    <h3>Quality Assurance</h3>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <h2>Clarus Regional Offices</h2>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="jobsButtonContainer">
+                    <a href="@Url.Action("Careers", "JobPost", new { Location = "1" })" class="jobsButton">
+                        <div class="hoverWrap">
+                            <span class="jobsImageOverlay"></span>
+                            <span class="jobsOverlay">Kansas City</span>
+                        </div>
+                        <img src="@Url.Content("~/Content/img/contact1.jpg")" />
+                    </a>
+                    <h3>Kansas City Region</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="jobsButtonContainer">
+                    <a href="@Url.Action("Careers", "JobPost", new { Location = "2" })" class="jobsButton">
+                        <div class="hoverWrap">
+                            <span class="jobsImageOverlay"></span>
+                            <span class="jobsOverlay">Denver</span>
+                        </div>
+                        <img src="@Url.Content("~/Content/img/contact3.jpg")" />
+                    </a>
+                    <h3>Denver Region</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="jobsButtonContainer">
+                    <a href="@Url.Action("Careers", "JobPost", new { Location = "3" })" class="jobsButton">
+                        <div class="hoverWrap">
+                            <span class="jobsImageOverlay"></span>
+                            <span class="jobsOverlay">Baltimore</span>
+                        </div>
+                        <img src="@Url.Content("~/Content/img/contact2.jpg")" />
+                    </a>
+                    <h3>Baltimore Region</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

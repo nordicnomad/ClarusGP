@@ -1,0 +1,42 @@
+﻿@model ClarusBlogBoard.Models.LogOnModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+    
+
+    @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
+    @if (User.IsInRole("inactive"))
+    {
+        <h3 class="red">The account credentials for @User.Identity.Name has been deactivated</h3>
+    }
+    <section class="loginContainer container" id="login">
+        <div class="wrapper loginFields">
+            <img src="@Url.Content("~/Content/img/loginLogo.png")" alt="clarus logo" />
+        @using (Html.BeginForm()) {
+            <div class="loginForm">
+                    <div class="input-group">
+                    <span class="input-group-addon"><i class="icon-user"></i></span>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </div>
+
+                    <div class="input-group">
+                    <span class="input-group-addon"><i class="icon-lock"></i></span>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+
+                    @*<div class="editor-label">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>*@
+
+                    <input class="btn btn-medium btn-primary" type="submit" value="Log On" />
+            
+            </div>
+        }
+
+            </div>
+    </section>

@@ -1,0 +1,155 @@
+﻿@model PagedList.IPagedList<ClarusBlogBoard.Models.JobPost>
+
+@{
+    ViewBag.Title = "Careers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container">
+
+        <nav class="navbar" id="navbar" role="navigation">
+            <div class="container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand pull-left" href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+                <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                    <ul class="nav nav-pills">
+                        <li><a href="@Url.Action("Details","About", new { id=1 })">About</a></li>
+                        <li><a href="@Url.Action("Details","Project", new { id=1 })">BPM</a></li>
+                        <li><a href="@Url.Action("Details","Security", new { id=1 })">Security</a></li>
+                        <li><a href="@Url.Action("Details","Consulting", new { id=1 })">Consulting</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                        @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                        <li class="active"><a href="@Url.Action("Jobs", "JobPost")">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    @if (ViewBag.isApplication == true )
+    {
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Congratulations!</strong> You successfully applied for the position. <a href="@Url.Action("Contact", "Home")" class="alert-link">Contact Us</a> if you have questions.
+        </div>
+    }
+
+    <section class="wrapper clearfix careerWrapper" id="careers">
+        <h2>Clarus Group Careers</h2>
+        <hr />
+        <p>The Clarus Group helps to place highly qualified applicants with exciting opportunities in the technology sector across the entire country. Our public and private client organizations have a variety of shifting technological needs that can greatly effect the number and type of openings we have to offer at any one time.</p> 
+        <p>If you don't see the type of position you're looking for, reach out to our <a href="@Url.Action("Contact", "Home")">team of recruiters</a> with your information and they can help you find the perfect job for your qualifications and experience.</p>
+        <hr />
+        <div class="row careerControls col-lg-12">
+            @using (Html.BeginForm())
+            {
+                <div class="input-group col-lg-6 searchButton" id="search">
+                    <div class="input-group-btn">
+                        <input id="go" type="submit" value="Search" class="btn btn-primary" tabindex="-1" />
+                    </div>
+                    <input type="text" class="form-control" name="searchString">
+                    <div class="input-group-btn">
+                        <input type="button" id="clear" value="Reset" class="btn btn-default" />
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 filterButton">
+                        @Html.DropDownList("Category", "Filter By Category")
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 filterButton">
+                        @Html.DropDownList("Location", "Filter By Location")
+                </div>
+            }
+        </div>
+        <div class="fluid-row careerHeader">
+            <div class="col-lg-12 wide">        
+                <div class="col-lg-5">
+                    Title
+                </div>
+                <div class="col-lg-4">
+                    Category
+                </div>
+                <div class="col-lg-3">
+                    Location
+                </div>
+            </div>
+        </div>
+        <hr class="narrow" />
+    
+@if (Model.Count() > 0)
+{
+    foreach (var item in Model) {
+        <div class="row">
+            <div class="col-lg-12 careerRow">
+                <a href="@Url.Action("Details", "JobPost", new { id = item.JobID })" class="">
+                    @*<div class="col-lg-4">
+                        @Html.DisplayFor(modelItem => item.DatePosted)
+                    </div>*@
+                    <div class="col-lg-5">
+                        @Html.DisplayFor(modelItem => item.JobName)
+                    </div>
+                    <div class="col-lg-4">
+                        @Html.DisplayFor(modelItem => item.JobCategory.CategoryName)
+                    </div>
+                    <div class="col-lg-3">
+                        @Html.DisplayFor(modelItem => item.LocationDescription)
+                    </div>
+                </a>
+            </div>
+        </div>
+        <hr class="narrow" />
+    }
+}
+else
+{
+    <h2>No jobs matched your search.</h2>
+}
+        <div class="row careerFooterRow">
+            <div class="col-lg-12 careerFooter">
+                <ul class="pagination">
+                    @if (Model.HasPreviousPage)
+                    {
+                        <li>@Html.ActionLink("<<", "Careers", new { page = Model.PageNumber - 1, searchString = ViewBag.CurrentSearchString, Location = ViewBag.CurrentLocation, Category = ViewBag.CurrentCategory })</li>
+                    }
+                    else
+                    {
+                        <li class="disabled"><a href="#" class="disabled"><<</a></li>
+                    }
+                    @if (Model.PageCount > 0)
+                    {
+                        
+                        <li>@Html.ActionLink("1", "Careers", new { page = 1, searchString = ViewBag.CurrentSearchString, Location = ViewBag.CurrentLocation, Category = ViewBag.CurrentCategory })</li>
+                    }
+                    @if (Model.PageCount > 1)
+                    {
+                        <li>@Html.ActionLink("2", "Careers", new { page = 2, searchString = ViewBag.CurrentSearchString, Location = ViewBag.CurrentLocation, Category = ViewBag.CurrentCategory })</li>
+                    }
+                    @if (Model.PageCount > 2)
+                    {
+                        <li>@Html.ActionLink("3", "Careers", new { page = 3, searchString = ViewBag.CurrentSearchString, Location = ViewBag.CurrentLocation, Category = ViewBag.CurrentCategory })</li>
+                    }
+                    @if (Model.PageCount > 3)
+                    {
+                        <li>@Html.ActionLink("4", "Careers", new { page = 4, searchString = ViewBag.CurrentSearchString, Location = ViewBag.CurrentLocation, Category = ViewBag.CurrentCategory })</li>
+                    }
+                    @if (Model.PageCount > 4)
+                    {
+                        <li>@Html.ActionLink("5", "Careers", new { page =  5, searchString = ViewBag.CurrentSearchString, Location = ViewBag.CurrentLocation, Category = ViewBag.CurrentCategory })</li>
+                    }
+                    @if (Model.HasNextPage)
+                    {
+                        <li>@Html.ActionLink(">>", "Careers", new { page = Model.PageNumber + 1, searchString = ViewBag.CurrentSearchString, Location = ViewBag.CurrentLocation, Category = ViewBag.CurrentCategory })</li>
+                    }
+                    else
+                    {
+                        <li class="disabled"><a href="#" class="disabled">>></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+</div>

@@ -1,0 +1,17 @@
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\ClarusBlogBoard.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\ClarusBlogBoard.pdb
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\EntityFramework.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\Microsoft.Web.Infrastructure.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\System.Web.Helpers.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\System.Web.Mvc.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\System.Web.Providers.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\System.Web.Razor.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\System.Web.WebPages.Deployment.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\System.Web.WebPages.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\System.Web.WebPages.Razor.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\EntityFramework.xml
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\obj\Debug\ClarusBlogBoard.csprojResolveAssemblyReference.cache
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\obj\Debug\ClarusBlogBoard.dll
+c:\users\troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\obj\Debug\ClarusBlogBoard.pdb
+C:\Users\Troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\PagedList.dll
+C:\Users\Troy\documents\visual studio 2012\Projects\ClarusBlogBoard\ClarusBlogBoard\bin\PagedList.xml

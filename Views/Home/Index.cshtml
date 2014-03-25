@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Clarus Group";
+}
+
+<nav class="navbar" id="navbar" role="navigation">
+    <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+            <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+        <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+            <ul class="nav nav-pills">
+                <li><a href="@Url.Action("Details", "About", new { id = 1 })">About</a></li>
+                <li><a href="@Url.Action("Details", "Project", new { id = 1 })">BPM</a></li>
+                <li><a href="@Url.Action("Details", "Security", new { id = 1 })">Security</a></li>
+                <li><a href="@Url.Action("Details", "Consulting", new { id = 1 })">Consulting</a></li>
+                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                <li><a href="@Url.Action("Jobs", "JobPost")">Careers</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="header-container" id="home">
+    <header class="clearfix container">
+        <div class="row-fluid">
+            <div class="col-lg-5">
+                <div class="logoContain">
+                    <img src="@Url.Content("~/Content/img/homeLogo.png")" alt="clarus group logo" class="logoImage wide" />
+                    <img src="@Url.Content("~/Content/img/wordLogo.png")" alt="clarus group logo" class="wordLogoImage narrow" />
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <h1 class="title wide">Clarus Group</h1>
+                <h1 class="wide"><small>Kansas City, Denver, &amp; Baltimore</small></h1>
+            </div>
+        </div>
+    </header>
+    <div class="homeContain row-fluid container">
+        <div class="col-lg-10 noPadding homeWhite">
+            <div class="col-lg-12 noPadding">
+                <h2 class="homeTagLine">A Different Kind of Consulting Company</h2>
+            </div>
+            
+            <div class="col-lg-4 noPadding wide">
+                <fieldset class="homeMessage" id="blogMessage">
+                    <legend class="zeroLegend"></legend>
+                    <div class="view view-fifth">
+                        <img src="@Url.Content("~/Content/img/h2.jpg")" />
+                        <div class="mask">
+                            <h2>About Us</h2>
+                            <p>We're a veteran owned small business that connects technology professionals to great opportunities.</p>
+                            <a href="@Url.Action("Details", "AboutUs", new { id = 1 })" class="info">Learn More</a>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-lg-4 noPadding wide">
+                <fieldset class="homeMessage" id="contactMessage">
+                    <legend class="zeroLegend"></legend>
+                    <div class="view view-fifth">
+                        <img src="@Url.Content("~/Content/img/h3.jpg")" />
+                        <div class="mask">
+                            <h2>What We Do</h2>
+                            <p>Have a project, contract, or technology related need? See how we can help!</p>
+                            <a href="@Url.Action("Details", "Services", new { id = 1 })" class="info">Our Services</a>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-lg-4 noPadding">
+                <fieldset class="homeMessage" id="careerMessage">
+                    <legend class="zeroLegend"></legend>
+                    <div class="view view-fifth">
+                        <img src="@Url.Content("~/Content/img/h1.jpg")" />
+                        <div class="mask">
+                            <h2>Clarus Careers</h2>
+
+                            <a href="@Url.Action("Jobs", "JobPost")" class="bigInfo"><i class="icon-power-off icon-3x"></i>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                See if we have the job you've been looking for</a>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="btn-group-vertical wide col-lg-2 noPadding">
+            <a href="@Url.Action("Details", "About", new { id = 1 })" type="button" class="btn btn-clarus">About</a>
+            <a href="@Url.Action("Jobs", "JobPost")" type="button" class="btn btn-clarus">Job Search</a>
+            <a href="@Url.Action("Details", "Project", new { id = 1 })" type="button" class="btn btn-clarus">Business Process</a>
+            <a href="@Url.Action("Details", "Security", new { id = 1 })" type="button" class="btn btn-clarus">Security</a>
+            <a href="@Url.Action("Details", "Consulting", new { id = 1 })" type="button" class="btn btn-clarus">Consulting</a>
+            <a href="@Url.Action("Details", "Consulting", new { id = 1 })" type="button" class="btn btn-clarus">Clients</a>
+            @*<a href="@Url.Action("Blog", "BlogPost")" type="button" class="btn btn-clarus">Blog</a>*@
+            <a href="#twitter" type="button" class="btn btn-clarus">
+                <img src="@Url.Content("~/Content/img/nextArrow.png")" alt="Next Section"/></a>
+        </div>
+    </div>
+
+</section>
+
+    <div id="twitter">
+        <div class="row wrapper">
+            <div class="col-12">
+                <h3 class="clearfix">Recent Tweets</h3>
+                
+                <a class="twitter-timeline" href="https://twitter.com/Clarusgp" data-widget-id="364774265842712577" data-chrome="noscrollbar nofooter noheader transparent" width="100%" height="100%" data-tweet-limit="3">Tweets by @@Clarusgp</a>
+                
+            </div>
+        </div>
+    </div>
+
+

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ClarusBlogBoard.Models.AssignedTo>
+
+@{
+    ViewBag.Title = "Recruiter List";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Recruiter List</h2>
+</div>
+
+<p>
+    @Html.ActionLink("Create New Recruiter", "Create", null,  new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Recruiter Name
+        </th>
+        <th>
+            Recruiter Email
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignedName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignedEmail)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AssignedID }, new { @class = "btn btn-xs btn-info" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AssignedID }, new { @class="btn btn-xs btn-primary" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AssignedID }, new { @class = "btn btn-xs btn-warning" })
+        </td>
+    </tr>
+}
+
+</table>

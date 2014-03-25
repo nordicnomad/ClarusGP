@@ -1,0 +1,44 @@
+﻿@model ClarusBlogBoard.Models.AssignedTo
+
+@{
+    ViewBag.Title = "Edit Recruiter";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+
+<div id="heading" class="page-header">
+    <h2>Edit Recruiter</h2>
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Recruiter Information</legend>
+
+        @Html.HiddenFor(model => model.AssignedID)
+
+        <div class="editor-label">
+            <h4>Recruiter Name</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AssignedName)
+            @Html.ValidationMessageFor(model => model.AssignedName)
+        </div>
+
+        <div class="editor-label">
+            <h4>Recruiter Email</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AssignedEmail)
+            @Html.ValidationMessageFor(model => model.AssignedEmail)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Recruiter List", "Index", null, new { @class = "btn btn-info" })
+</div>

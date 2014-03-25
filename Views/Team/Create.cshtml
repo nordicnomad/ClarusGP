@@ -1,0 +1,56 @@
+﻿@model ClarusBlogBoard.Models.ContentTeam
+
+@{
+    ViewBag.Title = "Create Team Member";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+<div id="heading" class="page-header">
+    <h2>Create New</h2>
+</div>
+
+@using (Html.BeginForm("Create", "Team", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Team Member Create</legend>
+        
+        <div class="editor-label">
+            <h4>Team Member Name</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TeamName)
+            @Html.ValidationMessageFor(model => model.TeamName)
+        </div>
+
+        <div class="editor-label">
+            <h4>Team Member Image</h4>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="image" id="image" />
+        </div>
+
+        <div class="editor-label">
+            <h4>Team Member Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TeamTitle)
+            @Html.ValidationMessageFor(model => model.TeamTitle)
+        </div>
+
+        <div class="editor-label">
+            <h4>Team Member Description</h4>
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.TeamDescription)
+            @Html.ValidationMessageFor(model => model.TeamDescription)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+</div>

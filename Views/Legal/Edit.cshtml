@@ -1,0 +1,72 @@
+﻿@model ClarusBlogBoard.Models.ContentLegal
+
+@{
+    ViewBag.Title = "Edit Legal Information";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+    <div id="heading" class="page-header">
+        <h2>Edit Legal Information</h2>
+    </div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Legal Content</legend>
+
+        <div class="editor-label">
+            <h4>Terms Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LegalTitle1)
+            @Html.ValidationMessageFor(model => model.LegalTitle1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Terms Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LegalContent1)
+            @Html.ValidationMessageFor(model => model.LegalContent1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Privacy Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LegalTitle2)
+            @Html.ValidationMessageFor(model => model.LegalTitle2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Privacy Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LegalContent2)
+            @Html.ValidationMessageFor(model => model.LegalContent2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Attributions Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LegalTitle3)
+            @Html.ValidationMessageFor(model => model.LegalTitle3)
+        </div>
+
+        <div class="editor-label">
+            <h4>Attributions Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LegalContent3)
+            @Html.ValidationMessageFor(model => model.LegalContent3)
+        </div>
+
+        @Html.HiddenFor(model => model.LegalID)
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary"/>
+        </p>
+    </fieldset>
+}
+

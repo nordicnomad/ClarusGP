@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BlogBoardModelStoreContainer" CdmEntityContainer="BlogBoardEntities">
+    <EntitySetMapping Name="ApplicantStates">
+      <EntityTypeMapping TypeName="BlogBoardModel.ApplicantState">
+        <MappingFragment StoreEntitySet="ApplicantState">
+          <ScalarProperty Name="StateID" ColumnName="StateID" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="BlogBoardModel.Application">
+        <MappingFragment StoreEntitySet="Application">
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="ApplicationApplicantID" ColumnName="ApplicationApplicantID" />
+          <ScalarProperty Name="ApplicationJobID" ColumnName="ApplicationJobID" />
+          <ScalarProperty Name="ApplicationAssignedID" ColumnName="ApplicationAssignedID" />
+          <ScalarProperty Name="ApplicationNotes" ColumnName="ApplicationNotes" />
+          <ScalarProperty Name="InterviewDate" ColumnName="InterviewDate" />
+          <ScalarProperty Name="ApplicationStatusID" ColumnName="ApplicationStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicationStatus1">
+      <EntityTypeMapping TypeName="BlogBoardModel.ApplicationStatus">
+        <MappingFragment StoreEntitySet="ApplicationStatus">
+          <ScalarProperty Name="AppStatusID" ColumnName="AppStatusID" />
+          <ScalarProperty Name="ApplicationStatusName" ColumnName="ApplicationStatusName" />
+          <ScalarProperty Name="ApplicationStatusDescription" ColumnName="ApplicationStatusDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssignedToes">
+      <EntityTypeMapping TypeName="BlogBoardModel.AssignedTo">
+        <MappingFragment StoreEntitySet="AssignedTo">
+          <ScalarProperty Name="AssignedID" ColumnName="AssignedID" />
+          <ScalarProperty Name="AssignedName" ColumnName="AssignedName" />
+          <ScalarProperty Name="AssignedEmail" ColumnName="AssignedEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogAuthors">
+      <EntityTypeMapping TypeName="BlogBoardModel.BlogAuthor">
+        <MappingFragment StoreEntitySet="BlogAuthor">
+          <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+          <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+          <ScalarProperty Name="AuthorEmail" ColumnName="AuthorEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPosts">
+      <EntityTypeMapping TypeName="BlogBoardModel.BlogPost">
+        <MappingFragment StoreEntitySet="BlogPost">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="BlogPostID" ColumnName="BlogPostID" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="BlogArticle" ColumnName="BlogArticle" />
+          <ScalarProperty Name="DatePublished" ColumnName="DatePublished" />
+          <ScalarProperty Name="BlogAuthorID" ColumnName="BlogAuthorID" />
+          <ScalarProperty Name="BlogStatusID" ColumnName="BlogStatusID" />
+          <ScalarProperty Name="TweetTotal" ColumnName="TweetTotal" />
+          <ScalarProperty Name="PlusTotal" ColumnName="PlusTotal" />
+          <ScalarProperty Name="LikeTotal" ColumnName="LikeTotal" />
+          <ScalarProperty Name="BlogImageURL" ColumnName="BlogImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPostStatus1">
+      <EntityTypeMapping TypeName="BlogBoardModel.BlogPostStatus">
+        <MappingFragment StoreEntitySet="BlogPostStatus">
+          <ScalarProperty Name="PubStatusID" ColumnName="PubStatusID" />
+          <ScalarProperty Name="BlogStatusName" ColumnName="BlogStatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentAbouts">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentAbout">
+        <MappingFragment StoreEntitySet="ContentAbout">
+          <ScalarProperty Name="AboutTitle1" ColumnName="AboutTitle1" />
+          <ScalarProperty Name="AboutContent1" ColumnName="AboutContent1" />
+          <ScalarProperty Name="AboutImage1" ColumnName="AboutImage1" />
+          <ScalarProperty Name="AboutTitle2" ColumnName="AboutTitle2" />
+          <ScalarProperty Name="AboutContent2" ColumnName="AboutContent2" />
+          <ScalarProperty Name="AboutImage2" ColumnName="AboutImage2" />
+          <ScalarProperty Name="AboutTitle3" ColumnName="AboutTitle3" />
+          <ScalarProperty Name="AboutContent3" ColumnName="AboutContent3" />
+          <ScalarProperty Name="AboutImage3" ColumnName="AboutImage3" />
+          <ScalarProperty Name="AboutTitle4" ColumnName="AboutTitle4" />
+          <ScalarProperty Name="AboutContent4" ColumnName="AboutContent4" />
+          <ScalarProperty Name="AboutImage4" ColumnName="AboutImage4" />
+          <ScalarProperty Name="AboutTitle5" ColumnName="AboutTitle5" />
+          <ScalarProperty Name="AboutContent5" ColumnName="AboutContent5" />
+          <ScalarProperty Name="AboutImage5" ColumnName="AboutImage5" />
+          <ScalarProperty Name="AboutID" ColumnName="AboutID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentClients1">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentClients">
+        <MappingFragment StoreEntitySet="ContentClients">
+          <ScalarProperty Name="ClientsTitle1" ColumnName="ClientsTitle1" />
+          <ScalarProperty Name="ClientsImage1" ColumnName="ClientsImage1" />
+          <ScalarProperty Name="ClientsContent1" ColumnName="ClientsContent1" />
+          <ScalarProperty Name="ClientsTitle2" ColumnName="ClientsTitle2" />
+          <ScalarProperty Name="ClientsImage2" ColumnName="ClientsImage2" />
+          <ScalarProperty Name="ClientsContent2" ColumnName="ClientsContent2" />
+          <ScalarProperty Name="ClientsTitle3" ColumnName="ClientsTitle3" />
+          <ScalarProperty Name="ClientsImage3" ColumnName="ClientsImage3" />
+          <ScalarProperty Name="ClientsContent3" ColumnName="ClientsContent3" />
+          <ScalarProperty Name="ClientsTitle4" ColumnName="ClientsTitle4" />
+          <ScalarProperty Name="ClientsImage4" ColumnName="ClientsImage4" />
+          <ScalarProperty Name="ClientsContent4" ColumnName="ClientsContent4" />
+          <ScalarProperty Name="ClientsTitle5" ColumnName="ClientsTitle5" />
+          <ScalarProperty Name="ClientsImage5" ColumnName="ClientsImage5" />
+          <ScalarProperty Name="ClientsContent5" ColumnName="ClientsContent5" />
+          <ScalarProperty Name="ClientsTitle6" ColumnName="ClientsTitle6" />
+          <ScalarProperty Name="ClientsImage6" ColumnName="ClientsImage6" />
+          <ScalarProperty Name="ClientsContent6" ColumnName="ClientsContent6" />
+          <ScalarProperty Name="ClientsTitle7" ColumnName="ClientsTitle7" />
+          <ScalarProperty Name="ClientsImage7" ColumnName="ClientsImage7" />
+          <ScalarProperty Name="ClientsContent7" ColumnName="ClientsContent7" />
+          <ScalarProperty Name="ClientsTitle8" ColumnName="ClientsTitle8" />
+          <ScalarProperty Name="ClientsImage8" ColumnName="ClientsImage8" />
+          <ScalarProperty Name="ClientsContent8" ColumnName="ClientsContent8" />
+          <ScalarProperty Name="ClientsTitle9" ColumnName="ClientsTitle9" />
+          <ScalarProperty Name="ClientsImage9" ColumnName="ClientsImage9" />
+          <ScalarProperty Name="ClientsContent9" ColumnName="ClientsContent9" />
+          <ScalarProperty Name="ClientsTitle10" ColumnName="ClientsTitle10" />
+          <ScalarProperty Name="ClientsImage10" ColumnName="ClientsImage10" />
+          <ScalarProperty Name="ClientsContent10" ColumnName="ClientsContent10" />
+          <ScalarProperty Name="ClientsID" ColumnName="ClientsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentCommunities">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentCommunity">
+        <MappingFragment StoreEntitySet="ContentCommunity">
+          <ScalarProperty Name="CommunityTitle1" ColumnName="CommunityTitle1" />
+          <ScalarProperty Name="CommunityImage1" ColumnName="CommunityImage1" />
+          <ScalarProperty Name="CommunityContent1" ColumnName="CommunityContent1" />
+          <ScalarProperty Name="CommunityTitle2" ColumnName="CommunityTitle2" />
+          <ScalarProperty Name="CommunityImage2" ColumnName="CommunityImage2" />
+          <ScalarProperty Name="CommunityContent2" ColumnName="CommunityContent2" />
+          <ScalarProperty Name="CommunityTitle3" ColumnName="CommunityTitle3" />
+          <ScalarProperty Name="CommunityImage3" ColumnName="CommunityImage3" />
+          <ScalarProperty Name="CommunityContent3" ColumnName="CommunityContent3" />
+          <ScalarProperty Name="CommunityTitle4" ColumnName="CommunityTitle4" />
+          <ScalarProperty Name="CommunityImage4" ColumnName="CommunityImage4" />
+          <ScalarProperty Name="CommunityContent4" ColumnName="CommunityContent4" />
+          <ScalarProperty Name="CommunityID" ColumnName="CommunityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentConsultings">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentConsulting">
+        <MappingFragment StoreEntitySet="ContentConsulting">
+          <ScalarProperty Name="ConsultingTitle1" ColumnName="ConsultingTitle1" />
+          <ScalarProperty Name="ConsultingContent1" ColumnName="ConsultingContent1" />
+          <ScalarProperty Name="ConsultingImage1" ColumnName="ConsultingImage1" />
+          <ScalarProperty Name="ConsultingTitle2" ColumnName="ConsultingTitle2" />
+          <ScalarProperty Name="ConsultingContent2" ColumnName="ConsultingContent2" />
+          <ScalarProperty Name="ConsultingImage2" ColumnName="ConsultingImage2" />
+          <ScalarProperty Name="ConsultingTitle3" ColumnName="ConsultingTitle3" />
+          <ScalarProperty Name="ConsultingContent3" ColumnName="ConsultingContent3" />
+          <ScalarProperty Name="ConsultingImage3" ColumnName="ConsultingImage3" />
+          <ScalarProperty Name="ConsultingID" ColumnName="ConsultingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentLegals">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentLegal">
+        <MappingFragment StoreEntitySet="ContentLegal">
+          <ScalarProperty Name="LegalTitle1" ColumnName="LegalTitle1" />
+          <ScalarProperty Name="LegalContent1" ColumnName="LegalContent1" />
+          <ScalarProperty Name="LegalTitle2" ColumnName="LegalTitle2" />
+          <ScalarProperty Name="LegalContent2" ColumnName="LegalContent2" />
+          <ScalarProperty Name="LegalTitle3" ColumnName="LegalTitle3" />
+          <ScalarProperty Name="LegalContent3" ColumnName="LegalContent3" />
+          <ScalarProperty Name="LegalID" ColumnName="LegalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentProjects">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentProject">
+        <MappingFragment StoreEntitySet="ContentProject">
+          <ScalarProperty Name="ProjectTitle1" ColumnName="ProjectTitle1" />
+          <ScalarProperty Name="ProjectContent1" ColumnName="ProjectContent1" />
+          <ScalarProperty Name="ProjectImage1" ColumnName="ProjectImage1" />
+          <ScalarProperty Name="ProjectTitle2" ColumnName="ProjectTitle2" />
+          <ScalarProperty Name="ProjectContent2" ColumnName="ProjectContent2" />
+          <ScalarProperty Name="ProjectImage2" ColumnName="ProjectImage2" />
+          <ScalarProperty Name="ProjectTitle3" ColumnName="ProjectTitle3" />
+          <ScalarProperty Name="ProjectContent3" ColumnName="ProjectContent3" />
+          <ScalarProperty Name="ProjectImage3" ColumnName="ProjectImage3" />
+          <ScalarProperty Name="ProjectTitle4" ColumnName="ProjectTitle4" />
+          <ScalarProperty Name="ProjectContent4" ColumnName="ProjectContent4" />
+          <ScalarProperty Name="ProjectImage4" ColumnName="ProjectImage4" />
+          <ScalarProperty Name="ProjectTitle5" ColumnName="ProjectTitle5" />
+          <ScalarProperty Name="ProjectContent5" ColumnName="ProjectContent5" />
+          <ScalarProperty Name="ProjectImage5" ColumnName="ProjectImage5" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentSecurities">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentSecurity">
+        <MappingFragment StoreEntitySet="ContentSecurity">
+          <ScalarProperty Name="SecurityTitle1" ColumnName="SecurityTitle1" />
+          <ScalarProperty Name="SecurityContent1" ColumnName="SecurityContent1" />
+          <ScalarProperty Name="SecurityTitle2" ColumnName="SecurityTitle2" />
+          <ScalarProperty Name="SecurityContent2" ColumnName="SecurityContent2" />
+          <ScalarProperty Name="SecurityTitle3" ColumnName="SecurityTitle3" />
+          <ScalarProperty Name="SecurityContent3" ColumnName="SecurityContent3" />
+          <ScalarProperty Name="SecurityTitle4" ColumnName="SecurityTitle4" />
+          <ScalarProperty Name="SecurityContent4" ColumnName="SecurityContent4" />
+          <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobApplicants">
+      <EntityTypeMapping TypeName="BlogBoardModel.JobApplicant">
+        <MappingFragment StoreEntitySet="JobApplicant">
+          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+          <ScalarProperty Name="ApplicantFirstName" ColumnName="ApplicantFirstName" />
+          <ScalarProperty Name="ApplicantLastName" ColumnName="ApplicantLastName" />
+          <ScalarProperty Name="ApplicantPhone" ColumnName="ApplicantPhone" />
+          <ScalarProperty Name="ApplicantEmail" ColumnName="ApplicantEmail" />
+          <ScalarProperty Name="ApplicantAddress" ColumnName="ApplicantAddress" />
+          <ScalarProperty Name="ApplicantCity" ColumnName="ApplicantCity" />
+          <ScalarProperty Name="ApplicantStateID" ColumnName="ApplicantStateID" />
+          <ScalarProperty Name="ApplicantZip" ColumnName="ApplicantZip" />
+          <ScalarProperty Name="ResumePath" ColumnName="ResumePath" />
+          <ScalarProperty Name="ResumeText" ColumnName="ResumeText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobCategories">
+      <EntityTypeMapping TypeName="BlogBoardModel.JobCategory">
+        <MappingFragment StoreEntitySet="JobCategory">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobPosts">
+      <EntityTypeMapping TypeName="BlogBoardModel.JobPost">
+        <MappingFragment StoreEntitySet="JobPost">
+          <ScalarProperty Name="RecruiterAssignedTo" ColumnName="RecruiterAssignedTo" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="JobName" ColumnName="JobName" />
+          <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+          <ScalarProperty Name="DatePosted" ColumnName="DatePosted" />
+          <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+          <ScalarProperty Name="JobPostStatusID" ColumnName="JobPostStatusID" />
+          <ScalarProperty Name="JobOfficeID" ColumnName="JobOfficeID" />
+          <ScalarProperty Name="LocationDescription" ColumnName="LocationDescription" />
+          <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
+          <ScalarProperty Name="PostToBlog" ColumnName="PostToBlog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobPostStatus1">
+      <EntityTypeMapping TypeName="BlogBoardModel.JobPostStatus">
+        <MappingFragment StoreEntitySet="JobPostStatus">
+          <ScalarProperty Name="PostStatusID" ColumnName="PostStatusID" />
+          <ScalarProperty Name="JobPostStatusName" ColumnName="JobPostStatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OfficeAssigneds">
+      <EntityTypeMapping TypeName="BlogBoardModel.OfficeAssigned">
+        <MappingFragment StoreEntitySet="OfficeAssigned">
+          <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+          <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogCategories">
+      <EntityTypeMapping TypeName="BlogBoardModel.BlogCategory">
+        <MappingFragment StoreEntitySet="BlogCategory">
+          <ScalarProperty Name="BlogCategoryName" ColumnName="BlogCategoryName" />
+          <ScalarProperty Name="BlogCategoryID" ColumnName="BlogCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentAboutUs">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentAboutU">
+        <MappingFragment StoreEntitySet="ContentAboutUs">
+          <ScalarProperty Name="AboutUsImage" ColumnName="AboutUsImage" />
+          <ScalarProperty Name="AboutUsContent" ColumnName="AboutUsContent" />
+          <ScalarProperty Name="AboutUsTitle" ColumnName="AboutUsTitle" />
+          <ScalarProperty Name="AboutUsID" ColumnName="AboutUsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentServices">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentService">
+        <MappingFragment StoreEntitySet="ContentServices">
+          <ScalarProperty Name="ServicesImage" ColumnName="ServicesImage" />
+          <ScalarProperty Name="ServicesContent" ColumnName="ServicesContent" />
+          <ScalarProperty Name="ServicesTitle" ColumnName="ServicesTitle" />
+          <ScalarProperty Name="ServicesID" ColumnName="ServicesID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentTeams">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentTeam">
+        <MappingFragment StoreEntitySet="ContentTeam">
+          <ScalarProperty Name="TeamDescription" ColumnName="TeamDescription" />
+          <ScalarProperty Name="TeamTitle" ColumnName="TeamTitle" />
+          <ScalarProperty Name="TeamImage" ColumnName="TeamImage" />
+          <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+          <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentArchitectures">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentArchitecture">
+        <MappingFragment StoreEntitySet="ContentArchitecture">
+          <ScalarProperty Name="ArchitectureImage" ColumnName="ArchitectureImage" />
+          <ScalarProperty Name="ArchitectureContent" ColumnName="ArchitectureContent" />
+          <ScalarProperty Name="ArchitectureTitle" ColumnName="ArchitectureTitle" />
+          <ScalarProperty Name="ArchitectureID" ColumnName="ArchitectureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentDevelopments">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentDevelopment">
+        <MappingFragment StoreEntitySet="ContentDevelopment">
+          <ScalarProperty Name="DevelopmentImage" ColumnName="DevelopmentImage" />
+          <ScalarProperty Name="DevelopmentContent" ColumnName="DevelopmentContent" />
+          <ScalarProperty Name="DevelopmentTitle" ColumnName="DevelopmentTitle" />
+          <ScalarProperty Name="DevelopmentID" ColumnName="DevelopmentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentStrategies">
+      <EntityTypeMapping TypeName="BlogBoardModel.ContentStrategy">
+        <MappingFragment StoreEntitySet="ContentStrategy">
+          <ScalarProperty Name="StrategyImage" ColumnName="StrategyImage" />
+          <ScalarProperty Name="StrategyContent" ColumnName="StrategyContent" />
+          <ScalarProperty Name="StrategyTitle" ColumnName="StrategyTitle" />
+          <ScalarProperty Name="StrategyID" ColumnName="StrategyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

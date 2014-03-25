@@ -1,0 +1,565 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BlogBoardModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BlogBoardEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ApplicantStates" EntityType="BlogBoardModel.ApplicantState" />
+    <EntitySet Name="Applications" EntityType="BlogBoardModel.Application" />
+    <EntitySet Name="ApplicationStatus1" EntityType="BlogBoardModel.ApplicationStatus" />
+    <EntitySet Name="AssignedToes" EntityType="BlogBoardModel.AssignedTo" />
+    <EntitySet Name="BlogAuthors" EntityType="BlogBoardModel.BlogAuthor" />
+    <EntitySet Name="BlogPosts" EntityType="BlogBoardModel.BlogPost" />
+    <EntitySet Name="BlogPostStatus1" EntityType="BlogBoardModel.BlogPostStatus" />
+    <EntitySet Name="ContentAbouts" EntityType="BlogBoardModel.ContentAbout" />
+    <EntitySet Name="ContentClients1" EntityType="BlogBoardModel.ContentClients" />
+    <EntitySet Name="ContentCommunities" EntityType="BlogBoardModel.ContentCommunity" />
+    <EntitySet Name="ContentConsultings" EntityType="BlogBoardModel.ContentConsulting" />
+    <EntitySet Name="ContentLegals" EntityType="BlogBoardModel.ContentLegal" />
+    <EntitySet Name="ContentProjects" EntityType="BlogBoardModel.ContentProject" />
+    <EntitySet Name="ContentSecurities" EntityType="BlogBoardModel.ContentSecurity" />
+    <EntitySet Name="JobApplicants" EntityType="BlogBoardModel.JobApplicant" />
+    <EntitySet Name="JobCategories" EntityType="BlogBoardModel.JobCategory" />
+    <EntitySet Name="JobPosts" EntityType="BlogBoardModel.JobPost" />
+    <EntitySet Name="JobPostStatus1" EntityType="BlogBoardModel.JobPostStatus" />
+    <EntitySet Name="OfficeAssigneds" EntityType="BlogBoardModel.OfficeAssigned" />
+    <AssociationSet Name="FK_JobApplicant_ApplicantState" Association="BlogBoardModel.FK_JobApplicant_ApplicantState">
+      <End Role="ApplicantState" EntitySet="ApplicantStates" />
+      <End Role="JobApplicant" EntitySet="JobApplicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_ApplicationStatus" Association="BlogBoardModel.FK_Application_ApplicationStatus">
+      <End Role="ApplicationStatus" EntitySet="ApplicationStatus1" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_AssignedTo" Association="BlogBoardModel.FK_Application_AssignedTo">
+      <End Role="AssignedTo" EntitySet="AssignedToes" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_JobApplicant" Association="BlogBoardModel.FK_Application_JobApplicant">
+      <End Role="JobApplicant" EntitySet="JobApplicants" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Application_JobPost" Association="BlogBoardModel.FK_Application_JobPost">
+      <End Role="JobPost" EntitySet="JobPosts" />
+      <End Role="Application" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogPost_BlogAuthor" Association="BlogBoardModel.FK_BlogPost_BlogAuthor">
+      <End Role="BlogAuthor" EntitySet="BlogAuthors" />
+      <End Role="BlogPost" EntitySet="BlogPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogPost_BlogPostStatus" Association="BlogBoardModel.FK_BlogPost_BlogPostStatus">
+      <End Role="BlogPostStatus" EntitySet="BlogPostStatus1" />
+      <End Role="BlogPost" EntitySet="BlogPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobPost_JobCategory" Association="BlogBoardModel.FK_JobPost_JobCategory">
+      <End Role="JobCategory" EntitySet="JobCategories" />
+      <End Role="JobPost" EntitySet="JobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobPost_JobPostStatus" Association="BlogBoardModel.FK_JobPost_JobPostStatus">
+      <End Role="JobPostStatus" EntitySet="JobPostStatus1" />
+      <End Role="JobPost" EntitySet="JobPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobPost_OfficeAssigned" Association="BlogBoardModel.FK_JobPost_OfficeAssigned">
+      <End Role="OfficeAssigned" EntitySet="OfficeAssigneds" />
+      <End Role="JobPost" EntitySet="JobPosts" />
+    </AssociationSet>
+    <EntitySet Name="BlogCategories" EntityType="BlogBoardModel.BlogCategory" />
+    <AssociationSet Name="FK_BlogPost_BlogCategory" Association="BlogBoardModel.FK_BlogPost_BlogCategory">
+      <End Role="BlogCategory" EntitySet="BlogCategories" />
+      <End Role="BlogPost" EntitySet="BlogPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobPost_AssignedTo" Association="BlogBoardModel.FK_JobPost_AssignedTo">
+      <End Role="AssignedTo" EntitySet="AssignedToes" />
+      <End Role="JobPost" EntitySet="JobPosts" />
+    </AssociationSet>
+    <EntitySet Name="ContentAboutUs" EntityType="BlogBoardModel.ContentAboutU" />
+    <EntitySet Name="ContentServices" EntityType="BlogBoardModel.ContentService" />
+    <EntitySet Name="ContentTeams" EntityType="BlogBoardModel.ContentTeam" />
+    <EntitySet Name="ContentArchitectures" EntityType="BlogBoardModel.ContentArchitecture" />
+    <EntitySet Name="ContentDevelopments" EntityType="BlogBoardModel.ContentDevelopment" />
+    <EntitySet Name="ContentStrategies" EntityType="BlogBoardModel.ContentStrategy" />
+  </EntityContainer>
+  <EntityType Name="ApplicantState">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="JobApplicants" Relationship="BlogBoardModel.FK_JobApplicant_ApplicantState" FromRole="ApplicantState" ToRole="JobApplicant" />
+  </EntityType>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="ApplicationID" />
+    </Key>
+    <Property Name="ApplicationID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationApplicantID" Type="Int32" Nullable="false" />
+    <Property Name="ApplicationJobID" Type="Int32" Nullable="false" />
+    <Property Name="ApplicationAssignedID" Type="Int32" />
+    <Property Name="ApplicationNotes" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="InterviewDate" Type="DateTime" Precision="0" />
+    <Property Name="ApplicationStatusID" Type="Int32" />
+    <NavigationProperty Name="ApplicationStatus" Relationship="BlogBoardModel.FK_Application_ApplicationStatus" FromRole="Application" ToRole="ApplicationStatus" />
+    <NavigationProperty Name="AssignedTo" Relationship="BlogBoardModel.FK_Application_AssignedTo" FromRole="Application" ToRole="AssignedTo" />
+    <NavigationProperty Name="JobApplicant" Relationship="BlogBoardModel.FK_Application_JobApplicant" FromRole="Application" ToRole="JobApplicant" />
+    <NavigationProperty Name="JobPost" Relationship="BlogBoardModel.FK_Application_JobPost" FromRole="Application" ToRole="JobPost" />
+  </EntityType>
+  <EntityType Name="ApplicationStatus">
+    <Key>
+      <PropertyRef Name="AppStatusID" />
+    </Key>
+    <Property Name="AppStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationStatusName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicationStatusDescription" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Applications" Relationship="BlogBoardModel.FK_Application_ApplicationStatus" FromRole="ApplicationStatus" ToRole="Application" />
+  </EntityType>
+  <EntityType Name="AssignedTo">
+    <Key>
+      <PropertyRef Name="AssignedID" />
+    </Key>
+    <Property Name="AssignedID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="AssignedName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AssignedEmail" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Applications" Relationship="BlogBoardModel.FK_Application_AssignedTo" FromRole="AssignedTo" ToRole="Application" />
+    <NavigationProperty Name="JobPosts" Relationship="BlogBoardModel.FK_JobPost_AssignedTo" FromRole="AssignedTo" ToRole="JobPost" />
+  </EntityType>
+  <EntityType Name="BlogAuthor">
+    <Key>
+      <PropertyRef Name="AuthorID" />
+    </Key>
+    <Property Name="AuthorID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="AuthorEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="BlogPosts" Relationship="BlogBoardModel.FK_BlogPost_BlogAuthor" FromRole="BlogAuthor" ToRole="BlogPost" />
+  </EntityType>
+  <EntityType Name="BlogPost">
+    <Key>
+      <PropertyRef Name="BlogPostID" />
+    </Key>
+    <Property Name="BlogPostID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BlogArticle" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DatePublished" Type="DateTime" Precision="0" />
+    <Property Name="BlogAuthorID" Type="Int32" Nullable="false" />
+    <Property Name="BlogStatusID" Type="Int32" Nullable="false" />
+    <Property Name="TweetTotal" Type="Int32" />
+    <Property Name="PlusTotal" Type="Int32" />
+    <Property Name="LikeTotal" Type="Int32" />
+    <Property Name="BlogImageURL" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="BlogAuthor" Relationship="BlogBoardModel.FK_BlogPost_BlogAuthor" FromRole="BlogPost" ToRole="BlogAuthor" />
+    <NavigationProperty Name="BlogPostStatus" Relationship="BlogBoardModel.FK_BlogPost_BlogPostStatus" FromRole="BlogPost" ToRole="BlogPostStatus" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <NavigationProperty Name="BlogCategory" Relationship="BlogBoardModel.FK_BlogPost_BlogCategory" FromRole="BlogPost" ToRole="BlogCategory" />
+  </EntityType>
+  <EntityType Name="BlogPostStatus">
+    <Key>
+      <PropertyRef Name="PubStatusID" />
+    </Key>
+    <Property Name="PubStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BlogStatusName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="BlogPosts" Relationship="BlogBoardModel.FK_BlogPost_BlogPostStatus" FromRole="BlogPostStatus" ToRole="BlogPost" />
+  </EntityType>
+  <EntityType Name="ContentAbout">
+    <Key>
+      <PropertyRef Name="AboutID" />
+    </Key>
+    <Property Name="AboutTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="AboutImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="AboutImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="AboutImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="AboutImage4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutTitle5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutContent5" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="AboutImage5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AboutID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ContentClients">
+    <Key>
+      <PropertyRef Name="ClientsID" />
+    </Key>
+    <Property Name="ClientsTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsTitle5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent5" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsTitle6" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage6" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent6" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsTitle7" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage7" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent7" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsTitle8" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage8" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent8" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsTitle9" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage9" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent9" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsTitle10" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsImage10" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsContent10" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ClientsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ContentCommunity">
+    <Key>
+      <PropertyRef Name="CommunityID" />
+    </Key>
+    <Property Name="CommunityTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityImage4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="CommunityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ContentConsulting">
+    <Key>
+      <PropertyRef Name="ConsultingID" />
+    </Key>
+    <Property Name="ConsultingTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ConsultingContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ConsultingImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ConsultingTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ConsultingContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ConsultingImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ConsultingTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ConsultingContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ConsultingImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ConsultingID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ContentLegal">
+    <Key>
+      <PropertyRef Name="LegalID" />
+    </Key>
+    <Property Name="LegalTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LegalContent1" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LegalTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LegalContent2" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LegalTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LegalContent3" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="LegalID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ContentProject">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectImage4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectTitle5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectContent5" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectImage5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ContentSecurity">
+    <Key>
+      <PropertyRef Name="SecurityID" />
+    </Key>
+    <Property Name="SecurityTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SecurityContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="SecurityTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SecurityContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="SecurityTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SecurityContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="SecurityTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SecurityContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+    <Property Name="SecurityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="JobApplicant">
+    <Key>
+      <PropertyRef Name="ApplicantID" />
+    </Key>
+    <Property Name="ApplicantID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicantFirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicantLastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicantPhone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicantEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicantAddress" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicantCity" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ApplicantStateID" Type="Int32" />
+    <Property Name="ApplicantZip" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="ResumePath" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ResumeText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="ApplicantState" Relationship="BlogBoardModel.FK_JobApplicant_ApplicantState" FromRole="JobApplicant" ToRole="ApplicantState" />
+    <NavigationProperty Name="Applications" Relationship="BlogBoardModel.FK_Application_JobApplicant" FromRole="JobApplicant" ToRole="Application" />
+  </EntityType>
+  <EntityType Name="JobCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="JobPosts" Relationship="BlogBoardModel.FK_JobPost_JobCategory" FromRole="JobCategory" ToRole="JobPost" />
+  </EntityType>
+  <EntityType Name="JobPost">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="JobName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="JobDescription" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="DatePosted" Type="DateTime" Precision="0" />
+    <Property Name="ClosingDate" Type="DateTime" Precision="0" />
+    <Property Name="JobPostStatusID" Type="Int32" Nullable="false" />
+    <Property Name="JobOfficeID" Type="Int32" />
+    <Property Name="LocationDescription" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="JobCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="PostToBlog" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Applications" Relationship="BlogBoardModel.FK_Application_JobPost" FromRole="JobPost" ToRole="Application" />
+    <NavigationProperty Name="JobCategory" Relationship="BlogBoardModel.FK_JobPost_JobCategory" FromRole="JobPost" ToRole="JobCategory" />
+    <NavigationProperty Name="JobPostStatus" Relationship="BlogBoardModel.FK_JobPost_JobPostStatus" FromRole="JobPost" ToRole="JobPostStatus" />
+    <NavigationProperty Name="OfficeAssigned" Relationship="BlogBoardModel.FK_JobPost_OfficeAssigned" FromRole="JobPost" ToRole="OfficeAssigned" />
+    <Property Type="Int32" Name="RecruiterAssignedTo" />
+    <NavigationProperty Name="AssignedTo" Relationship="BlogBoardModel.FK_JobPost_AssignedTo" FromRole="JobPost" ToRole="AssignedTo" />
+  </EntityType>
+  <EntityType Name="JobPostStatus">
+    <Key>
+      <PropertyRef Name="PostStatusID" />
+    </Key>
+    <Property Name="PostStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="JobPostStatusName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="JobPosts" Relationship="BlogBoardModel.FK_JobPost_JobPostStatus" FromRole="JobPostStatus" ToRole="JobPost" />
+  </EntityType>
+  <EntityType Name="OfficeAssigned">
+    <Key>
+      <PropertyRef Name="OfficeID" />
+    </Key>
+    <Property Name="OfficeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="OfficeName" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="JobPosts" Relationship="BlogBoardModel.FK_JobPost_OfficeAssigned" FromRole="OfficeAssigned" ToRole="JobPost" />
+  </EntityType>
+  <Association Name="FK_JobApplicant_ApplicantState">
+    <End Role="ApplicantState" Type="BlogBoardModel.ApplicantState" Multiplicity="0..1" />
+    <End Role="JobApplicant" Type="BlogBoardModel.JobApplicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplicantState">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="JobApplicant">
+        <PropertyRef Name="ApplicantStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_ApplicationStatus">
+    <End Role="ApplicationStatus" Type="BlogBoardModel.ApplicationStatus" Multiplicity="0..1" />
+    <End Role="Application" Type="BlogBoardModel.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ApplicationStatus">
+        <PropertyRef Name="AppStatusID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ApplicationStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_AssignedTo">
+    <End Role="AssignedTo" Type="BlogBoardModel.AssignedTo" Multiplicity="0..1" />
+    <End Role="Application" Type="BlogBoardModel.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssignedTo">
+        <PropertyRef Name="AssignedID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ApplicationAssignedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_JobApplicant">
+    <End Role="JobApplicant" Type="BlogBoardModel.JobApplicant" Multiplicity="1" />
+    <End Role="Application" Type="BlogBoardModel.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobApplicant">
+        <PropertyRef Name="ApplicantID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ApplicationApplicantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Application_JobPost">
+    <End Role="JobPost" Type="BlogBoardModel.JobPost" Multiplicity="1" />
+    <End Role="Application" Type="BlogBoardModel.Application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobPost">
+        <PropertyRef Name="JobID" />
+      </Principal>
+      <Dependent Role="Application">
+        <PropertyRef Name="ApplicationJobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogPost_BlogAuthor">
+    <End Role="BlogAuthor" Type="BlogBoardModel.BlogAuthor" Multiplicity="1" />
+    <End Role="BlogPost" Type="BlogBoardModel.BlogPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogAuthor">
+        <PropertyRef Name="AuthorID" />
+      </Principal>
+      <Dependent Role="BlogPost">
+        <PropertyRef Name="BlogAuthorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogPost_BlogPostStatus">
+    <End Role="BlogPostStatus" Type="BlogBoardModel.BlogPostStatus" Multiplicity="1" />
+    <End Role="BlogPost" Type="BlogBoardModel.BlogPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogPostStatus">
+        <PropertyRef Name="PubStatusID" />
+      </Principal>
+      <Dependent Role="BlogPost">
+        <PropertyRef Name="BlogStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobPost_JobCategory">
+    <End Role="JobCategory" Type="BlogBoardModel.JobCategory" Multiplicity="1" />
+    <End Role="JobPost" Type="BlogBoardModel.JobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobCategory">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="JobPost">
+        <PropertyRef Name="JobCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobPost_JobPostStatus">
+    <End Role="JobPostStatus" Type="BlogBoardModel.JobPostStatus" Multiplicity="1" />
+    <End Role="JobPost" Type="BlogBoardModel.JobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobPostStatus">
+        <PropertyRef Name="PostStatusID" />
+      </Principal>
+      <Dependent Role="JobPost">
+        <PropertyRef Name="JobPostStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobPost_OfficeAssigned">
+    <End Role="OfficeAssigned" Type="BlogBoardModel.OfficeAssigned" Multiplicity="0..1" />
+    <End Role="JobPost" Type="BlogBoardModel.JobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OfficeAssigned">
+        <PropertyRef Name="OfficeID" />
+      </Principal>
+      <Dependent Role="JobPost">
+        <PropertyRef Name="JobOfficeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BlogCategory">
+    <Key>
+      <PropertyRef Name="BlogCategoryID" />
+    </Key>
+    <Property Type="Int32" Name="BlogCategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="BlogCategoryName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BlogPosts" Relationship="BlogBoardModel.FK_BlogPost_BlogCategory" FromRole="BlogCategory" ToRole="BlogPost" />
+  </EntityType>
+  <Association Name="FK_BlogPost_BlogCategory">
+    <End Type="BlogBoardModel.BlogCategory" Role="BlogCategory" Multiplicity="1" />
+    <End Type="BlogBoardModel.BlogPost" Role="BlogPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogCategory">
+        <PropertyRef Name="BlogCategoryID" />
+      </Principal>
+      <Dependent Role="BlogPost">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobPost_AssignedTo">
+    <End Type="BlogBoardModel.AssignedTo" Role="AssignedTo" Multiplicity="0..1" />
+    <End Type="BlogBoardModel.JobPost" Role="JobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AssignedTo">
+        <PropertyRef Name="AssignedID" />
+      </Principal>
+      <Dependent Role="JobPost">
+        <PropertyRef Name="RecruiterAssignedTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ContentAboutU">
+    <Key>
+      <PropertyRef Name="AboutUsID" />
+    </Key>
+    <Property Type="Int32" Name="AboutUsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AboutUsTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AboutUsContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AboutUsImage" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ContentService">
+    <Key>
+      <PropertyRef Name="ServicesID" />
+    </Key>
+    <Property Name="ServicesID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="ServicesTitle" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ServicesContent" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="ServicesImage" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+  </EntityType>
+  <EntityType Name="ContentTeam">
+    <Key>
+      <PropertyRef Name="TeamID" />
+    </Key>
+    <Property Type="Int32" Name="TeamID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TeamName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TeamImage" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TeamTitle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TeamDescription" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ContentArchitecture">
+    <Key>
+      <PropertyRef Name="ArchitectureID" />
+    </Key>
+    <Property Type="Int32" Name="ArchitectureID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ArchitectureTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ArchitectureContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ArchitectureImage" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ContentDevelopment">
+    <Key>
+      <PropertyRef Name="DevelopmentID" />
+    </Key>
+    <Property Type="Int32" Name="DevelopmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DevelopmentTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DevelopmentContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DevelopmentImage" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ContentStrategy">
+    <Key>
+      <PropertyRef Name="StrategyID" />
+    </Key>
+    <Property Type="Int32" Name="StrategyID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="StrategyTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StrategyContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StrategyImage" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,48 @@
+﻿@model ClarusBlogBoard.Models.ContentArchitecture
+
+@{
+    ViewBag.Title = "Edit Architecture";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Edit Solutions Architecture</h2>
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Content Solutions Architecture</legend>
+
+        @Html.HiddenFor(model => model.ArchitectureID)
+
+        <div class="editor-label">
+            <h4>Architecture Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArchitectureTitle)
+            @Html.ValidationMessageFor(model => model.ArchitectureTitle)
+        </div>
+
+        <div class="editor-label">
+            <h4>Architecture Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.ArchitectureContent)
+            @Html.ValidationMessageFor(model => model.ArchitectureContent)
+        </div>
+
+        <div class="editor-label">
+            <h4>Architecture Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ArchitectureImage)
+            @Html.ValidationMessageFor(model => model.ArchitectureImage)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+

@@ -1,0 +1,201 @@
+﻿@model ClarusBlogBoard.Models.ContentProject
+@{
+    ViewBag.Title = "Clarus Project Management";
+}
+
+<script>
+    $(function () {
+        //Enable swiping...
+        var n = 4;
+        $('div.va-slice-5').click(function () {
+            n = 0;
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice5').addClass('nav-dot-current');
+        });
+        $('div.va-slice-4 h3').click(function () {
+            n = 1;
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice4').addClass('nav-dot-current');
+        });
+        $('div.va-slice-3 h3').click(function () {
+            n = 2;
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice3').addClass('nav-dot-current');
+        });
+        $('div.va-slice-2 h3').click(function () {
+            n = 3;
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice2').addClass('nav-dot-current');
+        });
+        $('div.va-slice-1 h3').click(function () {
+            n = 4;
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice1').addClass('nav-dot-current');
+        });
+
+        $('span.va-nav-prev').click(function () {
+            $('nav.dots span').removeClass('nav-dot-current');
+        });
+
+        $('span.va-nav-next').click(function () {
+            $('nav.dots span').removeClass('nav-dot-current');
+        });
+
+        $("#pmo").swipe({
+            //Generic swipe handler for all directions
+            swipe: function (event, direction, distance, duration, fingerCount) {
+
+                if (direction === "up") {
+                    if (n != 0) {
+                        $('span.va-nav-next').click();
+                        $('nav.dots span').removeClass('nav-dot-current');
+                        n--;
+                    }
+                }
+                if (direction === "down") {
+                    if (n != 4) {
+                        $('span.va-nav-prev').click();
+                        $('nav.dots span').removeClass('nav-dot-current');
+                        n++;
+                    }
+                }
+            },
+            threshold: 50
+        }); 
+    });
+
+    $(function () {
+        $('#slice1').click(function () {
+            n = 4;
+            $('div.va-slice-1 h3').click();
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice1').addClass('nav-dot-current');
+        });
+        $('#slice2').click(function () {
+            n = 3;
+            $('div.va-slice-2 h3').click();
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice2').addClass('nav-dot-current');
+        });
+        $('#slice3').click(function () {
+            n = 2;
+            $('div.va-slice-3 h3').click();
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice3').addClass('nav-dot-current');
+        });
+        $('#slice4').click(function () {
+            n = 1;
+            $('div.va-slice-4 h3').click();
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice4').addClass('nav-dot-current');
+        });
+        $('#slice5').click(function () {
+            n = 0;
+            $('div.va-slice-5 h3').click();
+            $('nav.dots span').removeClass('nav-dot-current');
+            $('span#slice5').addClass('nav-dot-current');
+        });
+    });
+</script>
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="@Url.Action("Details", "About", new { id = 1 })">About</a></li>
+                    <li><a href="#pmo">BPM</a></li>
+                    <li><a href="@Url.Action("Details", "Security", new { id = 1 })">Security</a></li>
+                    <li><a href="@Url.Action("Details", "Consulting", new { id = 1 })">Consulting</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                    <li><a href="@Url.Action("Jobs", "JobPost")">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @*<div class="scrollPast3 hidden-xs hidden-sm"></div>*@
+
+    <!-- pmo -->
+    <section class="clearfix wrapper" id="pmo">
+        <h2>Business Process Management</h2>
+        <hr />
+        <div id="va-accordion" class="va-container">
+            <div class="va-nav">
+                <span class="va-nav-prev">Previous</span>
+                <span class="va-nav-next">Next</span>
+            </div>
+            <div class="va-wrapper">
+                <div class="va-slice va-slice-1">
+                    <h3 class="va-title">@Html.DisplayFor(model => model.ProjectTitle1)</h3>
+                    <div class="va-content">
+                        <p class="whitespaced">@Html.DisplayFor(model => model.ProjectContent1)</p>
+                        <div class="va-img wide">
+                            <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.ProjectImage1))" alt="image01" /></div>
+                    </div>
+                </div>
+                <div class="va-slice va-slice-2">
+                    <h3 class="va-title">@Html.DisplayFor(model => model.ProjectTitle2)</h3>
+                    <div class="va-content">
+                        <p class="whitespaced">@Html.DisplayFor(model => model.ProjectContent2)</p>
+                        <div class="va-img wide">
+                            <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.ProjectImage2))" alt="image02" /></div>
+                    </div>
+                </div>
+                <div class="va-slice va-slice-3">
+                    <h3 class="va-title">@Html.DisplayFor(model => model.ProjectTitle3)</h3>
+                    <div class="va-content">
+                        <p class="whitespaced">@Html.DisplayFor(model => model.ProjectContent3)</p>
+                        <div class="va-img wide">
+                            <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.ProjectImage3))" alt="image03" /></div>
+                    </div>
+                </div>
+                <div class="va-slice va-slice-4">
+                    <h3 class="va-title">@Html.DisplayFor(model => model.ProjectTitle4)</h3>
+                    <div class="va-content">
+                        <p class="whitespaced">@Html.DisplayFor(model => model.ProjectContent4)</p>
+                        <div class="va-img wide">
+                            <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.ProjectImage4))" alt="image04" /></div>
+                    </div>
+                </div>
+                <div class="va-slice va-slice-5">
+                    <h3 class="va-title">@Html.DisplayFor(model => model.ProjectTitle5)</h3>
+                    <div class="va-content">
+                        <p class="whitespaced">@Html.DisplayFor(model => model.ProjectContent5)</p>
+                        <div class="va-img wide">
+                            <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.ProjectImage5))" alt="image05" /></div>
+                    </div>
+                </div>
+            </div>
+            <nav id="dots" class="dots">
+                <span id="slice1" class=""></span>
+                <span id="slice2" class=""></span>
+                <span id="slice3" class=""></span>
+                <span id="slice4" class=""></span>
+                <span id="slice5" class=""></span>
+            </nav>
+        </div>
+        
+
+    </section>
+    <!-- #pmo -->
+
+    @if (User.IsInRole("admin, superadmin"))
+    {
+        <div class="wrapper">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ProjectID })
+            </p>
+        </div>   
+    }
+
+</div>

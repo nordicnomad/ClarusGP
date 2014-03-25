@@ -1,0 +1,266 @@
+﻿@model ClarusBlogBoard.Models.ContentClients
+
+@{
+    ViewBag.Title = "Edit Clients";
+    Layout = "../Shared/_AdminPanel.cshtml";
+}
+
+    <div id="heading" class="page-header">
+        <h2>Edit Clients</h2>
+    </div>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Clients Content</legend>
+
+        <div class="editor-label">
+            <h4>Client 1 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle1)
+            @Html.ValidationMessageFor(model => model.ClientsTitle1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 1 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage1)
+            @Html.ValidationMessageFor(model => model.ClientsImage1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 1 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent1)
+            @Html.ValidationMessageFor(model => model.ClientsContent1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 2 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle2)
+            @Html.ValidationMessageFor(model => model.ClientsTitle2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 2 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage2)
+            @Html.ValidationMessageFor(model => model.ClientsImage2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 2 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent2)
+            @Html.ValidationMessageFor(model => model.ClientsContent2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 3 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle3)
+            @Html.ValidationMessageFor(model => model.ClientsTitle3)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 3 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage3)
+            @Html.ValidationMessageFor(model => model.ClientsImage3)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 3 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent3)
+            @Html.ValidationMessageFor(model => model.ClientsContent3)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 4 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle4)
+            @Html.ValidationMessageFor(model => model.ClientsTitle4)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 4 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage4)
+            @Html.ValidationMessageFor(model => model.ClientsImage4)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 4 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent4)
+            @Html.ValidationMessageFor(model => model.ClientsContent4)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 5 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle5)
+            @Html.ValidationMessageFor(model => model.ClientsTitle5)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 5 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage5)
+            @Html.ValidationMessageFor(model => model.ClientsImage5)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 5 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent5)
+            @Html.ValidationMessageFor(model => model.ClientsContent5)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 6 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle6)
+            @Html.ValidationMessageFor(model => model.ClientsTitle6)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 6 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage6)
+            @Html.ValidationMessageFor(model => model.ClientsImage6)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 6 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent6)
+            @Html.ValidationMessageFor(model => model.ClientsContent6)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 7 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle7)
+            @Html.ValidationMessageFor(model => model.ClientsTitle7)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 7 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage7)
+            @Html.ValidationMessageFor(model => model.ClientsImage7)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 7 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent7)
+            @Html.ValidationMessageFor(model => model.ClientsContent7)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 8 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle8)
+            @Html.ValidationMessageFor(model => model.ClientsTitle8)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 8 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage8)
+            @Html.ValidationMessageFor(model => model.ClientsImage8)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 8 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent8)
+            @Html.ValidationMessageFor(model => model.ClientsContent8)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 9 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle9)
+            @Html.ValidationMessageFor(model => model.ClientsTitle9)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 9 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage9)
+            @Html.ValidationMessageFor(model => model.ClientsImage9)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 9 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent9)
+            @Html.ValidationMessageFor(model => model.ClientsContent9)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 10 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsTitle10)
+            @Html.ValidationMessageFor(model => model.ClientsTitle10)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 10 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsImage10)
+            @Html.ValidationMessageFor(model => model.ClientsImage10)
+        </div>
+
+        <div class="editor-label">
+            <h4>Client 10 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClientsContent10)
+            @Html.ValidationMessageFor(model => model.ClientsContent10)
+        </div>
+
+        @Html.HiddenFor(model => model.ClientsID)
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+

@@ -1,0 +1,92 @@
+﻿@model ClarusBlogBoard.Models.BlogPost
+           
+
+@{
+    ViewBag.Title = Html.DisplayFor(model => model.BlogTitle);
+    //Layout = "~/Views/Shared/_BlogLayout.cshtml";
+
+    string facebookUrl = ("http://www.facebook.com/sharer.php?u=" + Request.Url.AbsoluteUri);
+    string linkedinUrl = ("http://www.linkedin.com/shareArticle?mini=true&url=" + Request.Url.AbsoluteUri);
+    string googleplusUrl = ("https://plus.google.com/share?url=" + Request.Url.AbsoluteUri);
+    string twitterUrl = ("http://twitter.com/share?url=" + Request.Url.AbsoluteUri);
+    
+}
+
+<nav class="navbar" id="navbar" role="navigation">
+    <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+            <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+        <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+            <ul class="nav nav-pills">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="@Url.Action("Details", "Legal", new { id = 1 })">Legal</a></li>
+                <li><a href="@Url.Action("Community", "BlogPost")">Community</a></li>
+                <li><a href="@Url.Action("Details", "Clients", new { id = 1 })">Clients</a></li>
+                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                <li><a href="@Url.Action("Careers", "JobPost")">Careers</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="blogArticle" class="row-fluid blogContain main"><!--Open Main Container-->
+               <div class="container">
+                   <article>
+                        <h1> @Html.DisplayFor(model => model.BlogTitle)
+                            <br><small>By @Html.DisplayFor(model => model.BlogAuthor.AuthorName) - @Html.DisplayFor(model => model.DatePublished)</small></h1>
+                        <div class="articleImage" style="background:url(@Url.Content("~/Content/img/blogImages/" + @Html.DisplayFor(model => model.BlogImageURL))) no-repeat center center;">
+                            <div class="articleShareTop">
+                                <p>Share This Article: 
+                                    <a href="@facebookUrl" target="_blank"><i class="icon-facebook"></i></a>
+                                    <a href="@linkedinUrl" target="_blank"><i class="icon-linkedin"></i></a>
+                                    <a href="@googleplusUrl" target="_blank"><i class="icon-google-plus"></i></a>
+                                    <a href="@twitterUrl" target="_blank"><i class="icon-twitter"></i></a>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="whitespaced">@Html.Raw(Server.HtmlDecode(Model.BlogArticle))</p>
+                        <div class="articleShareBottom">
+                                <p>Share This Article: 
+                                    <a href="@facebookUrl" target="_blank"><i class="icon-facebook socialIconFB"></i></a>
+                                    <a href="@linkedinUrl" target="_blank"><i class="icon-linkedin socialIconLI"></i></a>
+                                    <a href="@googleplusUrl" target="_blank"><i class="icon-google-plus socialIconGP"></i></a>
+                                    <a href="@twitterUrl" target="_blank"><i class="icon-twitter socialIconTW"></i></a>
+                                </p>
+                        </div>
+                   </article>
+                                          
+                   <aside>
+                        <h3>Related Articles</h3>
+                        <div class="articleNav">
+                            @foreach (var article in ViewBag.RelatedArticles)
+                            {
+                                
+                                <div class="recArticle">
+                                    <div class="recThumb" style="background: url(@Url.Content("~/Content/img/blogImages/" + @article.BlogImageURL)) no-repeat center center">
+                                        <h3>@article.BlogTitle </h3>
+                                    </div>
+                                    <div>
+                                        <a href="@Url.Action("Details", "BlogPost", new { id = article.BlogPostID })" class="btn btn-default recButton">Read Article</a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                   </aside>
+                   
+                </div>
+            @if (User.IsInRole("admin"))
+            {
+                <div class="wrapper">
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id=Model.BlogPostID })
+                    </p>
+                </div>
+            }            
+        </div><!--End Main Container-->
+

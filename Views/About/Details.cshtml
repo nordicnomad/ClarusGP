@@ -1,0 +1,120 @@
+﻿@model ClarusBlogBoard.Models.ContentAbout
+@{
+    ViewBag.Title = "About Clarus Group";
+}
+
+<script>
+    $(function () {
+        //Enable swiping...
+
+        var n = 0;
+
+        $("#da-slider").swipe({
+            //Generic swipe handler for all directions
+            swipe:function(event, direction, distance, duration, fingerCount) {
+                
+                if (direction === "right") {
+                    if (n != 0) {
+                        $('nav.da-dots > span').eq(n - 1).click();
+                        n--;
+                    }
+                }
+                if (direction === "left") {
+                    if (n != 4) {
+                        $('nav.da-dots > span').eq(n + 1).click();
+                        n++;
+                    }
+                }
+            },
+            threshold: 50
+        });
+    });
+</script>
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="@Url.Action("Details", "Project", new { id = 1 })">BPM</a></li>
+                    <li><a href="@Url.Action("Details", "Security", new { id = 1 })">Security</a></li>
+                    <li><a href="@Url.Action("Details", "Consulting", new { id = 1 })">Consulting</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                    <li><a href="@Url.Action("Jobs", "JobPost")">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @*<div class="scrollPast2 hidden-xs hidden-sm"></div>*@
+
+    <!-- About -->
+    <section class="clearfix wrapper contentWrapper" id="about">
+        <h2>About Clarus Group</h2>
+        <hr />
+        <div id="da-slider" class="da-slider">
+            <div class="da-slide">
+                <h2>@Html.DisplayFor(model => model.AboutTitle1)</h2>
+                <p class="whitespaced">@Html.DisplayFor(model => model.AboutContent1)</p>
+                <a href="@Url.Action("Details", "AboutUs", new { id = 1 })" class="da-link info">See Who We Are</a>
+                <div class="da-img wide">
+                    <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.AboutImage1))" alt="image01" /></div>
+            </div>
+            <div class="da-slide">
+                <h2>@Html.DisplayFor(model => model.AboutTitle2)</h2>
+                <p class="whitespaced">@Html.DisplayFor(model => model.AboutContent2)</p>
+                @*<a href="@Url.Action("Details", "Services", new { id = 1 })" class="da-link info">See What We Do</a>*@
+                <div class="da-img wide">
+                    <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.AboutImage2))" alt="image02" /></div>
+            </div>
+            <div class="da-slide">
+                <h2>@Html.DisplayFor(model => model.AboutTitle3)</h2>
+                <p class="whitespaced">@Html.DisplayFor(model => model.AboutContent3)</p>
+                <a href="@Url.Action("Team", "Team")" class="da-link info">Meet Our Team</a>
+                <div class="da-img wide">
+                    @*<img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.AboutImage3))" alt="image03" />*@</div>
+            </div>
+            <div class="da-slide">
+                <h2>@Html.DisplayFor(model => model.AboutTitle4)</h2>
+                <p class="whitespaced">@Html.DisplayFor(model => model.AboutContent4)</p>
+                <a href="@Url.Action("Contact", "Home")" class="da-link info">View Locations</a>
+
+                <div class="da-img wide">
+                    <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.AboutImage4))" alt="image04" /></div>
+            </div>
+            <div class="da-slide">
+                <h2>@Html.DisplayFor(model => model.AboutTitle5)</h2>
+                <p class="whitespaced">@Html.DisplayFor(model => model.AboutContent5)</p>
+                @*<a href="@Url.Action("Details", "Clients")" class="da-link info">Meet Our Clients</a>*@
+                <div class="da-img wide">
+                    <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.AboutImage5))" alt="image05" /></div>
+            </div>
+            <!--<nav class="da-arrows">
+                        <span class="da-arrows-prev"></span>
+                        <span class="da-arrows-next"></span>
+                    </nav>-->
+        </div>
+
+    </section>
+    <!-- #about -->
+
+    @if (User.IsInRole("admin, superadmin"))
+    {
+        <div class="wrapper">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.AboutID })
+            </p>
+        </div>
+    }
+
+</div>

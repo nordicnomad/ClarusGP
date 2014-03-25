@@ -1,0 +1,43 @@
+﻿@model ClarusBlogBoard.Models.BlogAuthor
+
+@{
+    ViewBag.Title = "Edit Author";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Edit Author</h2>
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Blog Author Information</legend>
+
+        @Html.HiddenFor(model => model.AuthorID)
+
+        <div class="editor-label">
+            <h4>Author Name</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AuthorName)
+            @Html.ValidationMessageFor(model => model.AuthorName)
+        </div>
+
+        <div class="editor-label">
+            <h4>Author Email</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AuthorEmail)
+            @Html.ValidationMessageFor(model => model.AuthorEmail)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Author List", "Index", null, new { @class = "btn btn-info" })
+</div>

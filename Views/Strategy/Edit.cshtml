@@ -1,0 +1,47 @@
+﻿@model ClarusBlogBoard.Models.ContentStrategy
+
+@{
+    ViewBag.Title = "Edit Strategy";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Edit Data Strategy</h2>
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Content Data Strategy</legend>
+
+        @Html.HiddenFor(model => model.StrategyID)
+
+        <div class="editor-label">
+            <h4>Strategy Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StrategyTitle)
+            @Html.ValidationMessageFor(model => model.StrategyTitle)
+        </div>
+
+        <div class="editor-label">
+            <h4>Strategy Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.StrategyContent)
+            @Html.ValidationMessageFor(model => model.StrategyContent)
+        </div>
+
+        <div class="editor-label">
+            <h4>Strategy Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StrategyImage)
+            @Html.ValidationMessageFor(model => model.StrategyImage)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}

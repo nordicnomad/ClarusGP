@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="author" content="Troy J Norris, http://www.troyjnorris.com" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/normalize.min.css")" />
+    <script src="@Url.Content("~/Scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js")"></script>
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/font-awesome.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/slitSlideStyle.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/slitSlideCustom.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/verticalAccordionStyle.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/hoverStyle.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/horizontalStyle.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/main.css")" />
+    <link rel="shortcut icon" href="http://clarusgp.com/wp-content/uploads/2013/07/clarusIcon.png">
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery-1.10.1.js")"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.touchSwipe.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery.vaccordion.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery.cslider.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery.slitslider.js")"></script>
+</head>
+<body data-spy="scroll" data-target="#navbar" data-offset="90">
+
+    
+        @RenderBody()
+    
+
+    
+
+    <div class="footer-container">
+        <div class="footerWrapper">
+            <div class="row-fluid clearfix">
+                <div class="col-lg-5">
+                    <div class="footerLinks">
+                        <a href="@Url.Action("Details", "Legal", new { id = 1 })" title="Clarus Legal Disclaimers">Legal</a>
+                        <a href="@Url.Action("Details", "Clients", new { id = 1 })" title="Clarus Clients">Clients</a>
+                        @*<a href="@Url.Action("Community", "BlogPost")" title="Clarus in the Community">Community</a>*@
+                        @if (User.IsInRole("admin, superadmin"))
+                        {
+                            @Html.ActionLink("Admin Panel", "AdminPanel", "Home")   
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Login", "LogOn", "Account")   
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footerCopyright">
+                        <h4>&copy;2013 Clarus Group</h4>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="socialsContain">
+                        <a href="https://www.facebook.com/clarusgp"><i class="icon-facebook-sign icon-4x socialIconFB"></i></a>
+                        <a href="http://www.linkedin.com/company/clarus-group"><i class="icon-linkedin-sign icon-4x socialIconLI"></i></a>
+                        <a href="https://plus.google.com/108767208451875023404/about"><i class="icon-google-plus-sign icon-4x socialIconGP"></i></a>
+                        <a href="https://twitter.com/clarusgp"><i class="icon-twitter-sign icon-4x socialIconTW"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/waypoints.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/waypoints-sticky.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/TweenMax.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery.superscrollorama.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery.ba-cond.min.js")"></script>
+    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery.easing.1.3.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery.mousewheel.js")"></script>
+    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/main.js")"></script>
+    <!-- smooth scroll script -->
+    <script>
+        $(function () {
+            $('a[href^="#"]').click(function (event) {
+                var id = $(this).attr("href");
+                var offset = 70;
+                var target = $(id).offset().top - offset;
+
+                $('html, body').animate({ scrollTop: target }, 2000);
+                event.preventDefault();
+            });
+        });
+    </script>
+    <!-- end smooth scroll -->
+    <!-- Twitter iFrame Call -->
+    <script>
+        !function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id; js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }
+        }
+        (document, "script", "twitter-wjs");
+    </script>
+</body>
+</html>

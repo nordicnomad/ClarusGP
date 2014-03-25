@@ -1,0 +1,129 @@
+﻿@model ClarusBlogBoard.Models.ContentSecurity
+
+@{
+    ViewBag.Title = "Clarus IT Security Solutions";
+}
+
+<script>
+    $(function () {
+        //Enable swiping...
+
+        var n = 0;
+
+        $("#slider").swipe({
+            //Generic swipe handler for all directions
+            swipe: function (event, direction, distance, duration, fingerCount) {
+
+                if (direction === "right") {
+                    if (n != 0) {
+                        $('nav.nav-dots > span').eq(n - 1).click();
+                        n--;
+                    }
+                }
+                if (direction === "left") {
+                    if (n != 3) {
+                        $('nav.nav-dots > span').eq(n + 1).click();
+                            n++;
+                    }
+                }
+            },
+            threshold: 50
+        });
+    });
+</script>
+
+<div class="main-container">
+
+        <nav class="navbar" id="navbar" role="navigation">
+            <div class="container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand pull-left" href="@Url.Action("Index","Home")"><img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+                <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                    <ul class="nav nav-pills">
+                        <li><a href="@Url.Action("Details","About", new { id=1 })">About</a></li>
+                        <li><a href="@Url.Action("Details","Project", new { id=1 })">BPM</a></li>
+                        <li><a href="#security">Security</a></li>
+                        <li><a href="@Url.Action("Details","Consulting", new { id=1 })">Consulting</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                        @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                        <li><a href="@Url.Action("Jobs","JobPost")">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    @*<div class="scrollPast1 hidden-xs hidden-sm"></div>*@
+
+        <!-- Security -->
+            <section class="clearfix demo-2 wrapper" id="security">
+                <h2>IT Security</h2>
+                    <hr />
+                <div id="slider" class="sl-slider-wrapper">
+
+                <div class="sl-slider">
+                
+                    <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+                        <div class="sl-slide-inner">
+                            <div class="bg-img bg-img-1"></div>
+                            <h3><i class="icon-cog securityIcons"></i> @Html.DisplayFor(model => model.SecurityTitle1)</h3>
+                            <blockquote>
+                            <p class="whitespaced">@Html.DisplayFor(model => model.SecurityContent1)</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+                        <div class="sl-slide-inner">
+                            <div class="bg-img bg-img-2"></div>
+                            <h3><i class="icon-unlock securityIcons"></i> @Html.DisplayFor(model => model.SecurityTitle2)</h3>
+                            <blockquote>
+                            <p class="whitespaced">@Html.DisplayFor(model => model.SecurityContent2)</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+                        <div class="sl-slide-inner">
+                            <div class="bg-img bg-img-3"></div>
+                            <h3><i class="icon-cloud securityIcons"></i> @Html.DisplayFor(model => model.SecurityTitle3)</h3>
+                            <blockquote>
+                            <p class="whitespaced">@Html.DisplayFor(model => model.SecurityContent3)<p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+                        <div class="sl-slide-inner">
+                            <div class="bg-img bg-img-4"></div>
+                            <h3><i class="icon-eye-open securityIcons"></i> @Html.DisplayFor(model => model.SecurityTitle4)</h3>
+                            <blockquote>
+                            <p class="whitespaced">@Html.DisplayFor(model => model.SecurityContent4)</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div><!-- /sl-slider -->
+
+                <nav id="nav-dots" class="nav-dots">
+                    <span class="nav-dot-current"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </nav>
+
+            </div><!-- /slider -->
+        </section> <!-- #security -->
+
+    @if (User.IsInRole("admin, superadmin"))
+    {
+        <div class="wrapper">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id=Model.SecurityID }) 
+            </p>
+        </div>
+    }
+
+    </div>

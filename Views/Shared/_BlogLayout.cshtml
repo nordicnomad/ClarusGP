@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>@ViewBag.Title</title>
+        <meta name="description" content="The Clarus Group of Kansas City, Washington D.C., and Baltimore. Providing Software Consulting and Technology Recruiting Services.">
+        <meta name="author" content="Troy J Norris, http://www.troyjnorris.com" >
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="@Url.Content("~/Content/css/normalize.min.css")">
+        <script src="@Url.Content("~/Scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js")"></script>
+        <link rel="stylesheet" href="@Url.Content("~/Content/css/bootstrap.min.css")">
+        <link rel="stylesheet" href="@Url.Content("~/Content/css/font-awesome.css")">
+        <link rel="stylesheet" href="@Url.Content("~/Content/css/hoverStyle.css")">
+        <link rel="stylesheet" href="@Url.Content("~/Content/css/main.css")">
+        <link rel="shortcut icon" href="http://clarusgp.com/wp-content/uploads/2013/07/clarusIcon.png">
+        <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/TweenMax.min.js")"></script>
+    </head>
+
+    <body>
+        
+        <header><!--Open Header-->
+            <nav class="navbar navbar-fixed-top" id="navbar" role="navigation">
+                    <div class="container">
+                        <a class="navbar-brand blogHome" href="#blogHome"><img src="@Url.Content("~/Content/img/blogLogo.png")" alt="Clarus Group Logo"/></a>
+                        <button type="button" class="navbar-toggle goLeft" data-toggle="collapse" data-target=".navbar-responsive-collapse1">
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                        </button>
+                        <div class="collapse nav-collapse navbar-responsive-collapse1 navBlock goLeft">
+                            <ul class="nav btn-group pull-left">
+                               <a class="btn btn-clarus2" href="@Url.Action("Index", "Home")">About</a>
+                               <a class="btn btn-clarus2 active" href="@Url.Action("Blog", "BlogPost")">Blog</a>
+                               <a class="btn btn-clarus2" href="@Url.Action("Jobs", "JobPost")">Careers</a>
+                            </ul>
+                        </div>
+                        <button type="button" class="navbar-toggle goRight" data-toggle="collapse" data-target=".navbar-responsive-collapse2">
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                              <span class="icon-bar"></span>
+                        </button>
+                        <div class="collapse nav-collapse navbar-responsive-collapse2 navBlock goRight">
+                            <ul class="nav btn-group pull-right">
+                               <a type="button" id ="RecentBTN" class="btn btn-clarus2 active" href="@Url.Action("Blog", "BlogPost", new { Status = 2 })">Recent</a>
+                               <a type="button" id="ArchiveBTN" class="btn btn-clarus2" href="@Url.Action("Blog", "BlogPost", new { Status = 3 })">Archive</a>
+                               <a type="button" id="CategoriesBTN" class="btn btn-clarus2 dropdown-toggle" data-toggle="dropdown" href="#">Categories</a>
+                               <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Blog", "BlogPost", new { Category = 1 })">News</a></li>
+                                    <li><a href="@Url.Action("Blog", "BlogPost", new { Category = 2 })">Community</a></li>
+                                    <li><a href="@Url.Action("Blog", "BlogPost", new { Category = 3 })">Job Postings</a></li>
+                                    
+                               </ul>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+        </header><!--End Header-->
+
+        <div class="clearfix" id="blogFold"><!--Open Banner Image slide over/under-->
+            <div class="bannerFold" id="banner"></div>
+            <div class="taglineFold" id="tagline"><h3>"A Different Kind of Consulting Company" <small class="wide">~ Kansas City | Denver | Baltimore </small></h3></div>
+            
+        </div><!--Close Banner Image slide over/under-->
+
+        @RenderBody()
+        
+        <div class="footer-container">
+            <div class="footerWrapper">
+                <div class="row-fluid clearfix">
+                    <div class="col-lg-6">
+                        <h2 id="contact">Contact Us</h2>
+                    </div>
+                </div>
+                <div class="row-fluid clearfix">
+                    <div class="col-lg-6 addressContain">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <address>
+                                <strong>Clarus Kansas City</strong><br>
+                                10801 Mastin St.<br>
+                                Overland Park, KS. 66210<br>
+                                <i class="icon-phone footIcon"></i><strong> Phone:</strong> 913-599-5255<br>
+                                <i class="icon-phone-sign footIcon"></i><strong> Fax:</strong> 913-548-4856<br>
+                                <i class="icon-envelope footIcon"></i><strong> Email:</strong> info@clarusgp.com
+                            </address>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <p><i class="icon-time footIcon"></i><strong> Hours:</strong></p>
+                                 <p><strong>Monday – Friday:</strong><br>
+                                 8:30am – 5:30pm</p>
+                                 <p><strong>Saturday – Sunday:</strong><br>
+                                    Closed</p>
+                        </div>
+                        
+                <h3>Additional Clarus Locations</h3>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <address>
+                                <strong>Clarus Denver</strong><br>
+                                14143 Denver West Parkway, Suite 100<br>
+                                Golden, CO. 80401<br>
+                                <i class="icon-phone footIcon"></i><strong> Phone:</strong> 303-827-2405<br>
+                            </address>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <address>
+                              <strong>Clarus Baltimore</strong><br>
+                              1405 Forge Ave<br>
+                              Baltimore, MD. 21209<br>
+                              <i class="icon-phone footIcon"></i><strong> Phone:</strong> (443) 856-4660
+                            </address>
+                        </div>
+                <h3>Other Links</h3>
+                        <div class="col-lg-12">
+                            <div class="footerLinks">
+                            <a href="@Url.Action("Details","Legal", new { id=1 })" title="Clarus Legal Disclaimers">Legal</a>
+                            <a href="@Url.Action("Details","Clients", new { id=1 })" title="Clarus Clients">Clients</a>
+                            <a href="@Url.Action("Community","BlogPost")" title="Clarus in the Community">Community</a>
+                            @if (User.IsInRole("admin, superadmin"))
+                            {
+                                @Html.ActionLink("Admin Panel", "AdminPanel", "Home")   
+                            }
+                            else 
+                            {
+                                @Html.ActionLink("Login", "LogOn", "Account")   
+                            }
+                        </div>
+                        </div>
+                    
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 mapSocialContain">
+                        <div class="col-lg-12 col-md-12 col-sm-12 socialsContain">
+                            <a href="https://www.facebook.com/clarusgp"><i class="icon-facebook-sign icon-4x socialIconFB"></i></a>    
+                            <a href="http://www.linkedin.com/company/clarus-group"><i class="icon-linkedin-sign icon-4x socialIconLI"></i></a>
+                            <a href="https://plus.google.com/108767208451875023404/about"><i class="icon-google-plus-sign icon-4x socialIconGP"></i></a>
+                            <a href="https://twitter.com/clarusgp"><i class="icon-twitter-sign icon-4x socialIconTW"></i></a>
+                        </div>
+                        <div class="col-lg-12 mapContainer">
+                            <div id="locationKCMO2" class="wide"><a title="Kansas City Jobs" href="@Url.Action("Careers", "JobPost", new { Location = "1" })"></a></div>
+                            <div id="locationBLMD2" class="wide"><a title="Baltimore Jobs" href="@Url.Action("Careers", "JobPost", new { Location = "3" })"></a></div>
+                            <div id="locationDNCO2" class="wide"><a title="Denver Jobs" href="@Url.Action("Careers", "JobPost", new { Location = "2" })"></a></div>
+                            <img src="@Url.Content("~/Content/img/LocationMapWhite.png")" alt="Clarus Group Locations Map" class="locationsMap wide" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery-1.10.1.js")"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.js"><\/script>')</script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/bootstrap.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/waypoints.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/waypoints-sticky.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/TweenMax.min.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/vendor/jquery.superscrollorama.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/Scripts/blog.js")"></script>
+        @if (ViewBag.NextArticleTitle != "")
+        {
+            
+        <script>
+            $(document).ready(function () {
+                $('#blogArticle').append($("<div class='popup hiding' id='article-finished'><a href='@Url.Action("Details", "BlogPost", new { id = ViewBag.NextArticleID })'><h4> Next Article <i class='icon-chevron-right'></i><i class='icon-chevron-right'></i><i class='icon-chevron-right'></i></h4></a><hr><h3>@ViewBag.NextArticleTitle</h3></div>"));
+                $('.footer-container').waypoint(function (direction) {
+                    $('#article-finished').toggleClass('hiding', direction === "up");
+                }, {
+                    offset: function () {
+                        return $.waypoints('viewportHeight') - $(this).height() + 400;
+                    }
+                });
+
+            });
+        </script>
+            
+        }
+        
+        <script>
+            var ButtonStatus = "@ViewBag.CurrentStatus";
+            var ButtonCategory = "@ViewBag.CurrentCategory";
+
+            $(document).ready(function () {
+                if (ButtonStatus === "3") {
+                    $('#RecentBTN').removeClass('active');
+                    $('#ArchiveBTN').addClass('active');
+                }
+                if (ButtonCategory != "") {
+                    $('#RecentBTN').removeClass('active');
+                    $('#CategoriesBTN').addClass('active');
+                }
+            });
+        </script>
+    </body>
+</html>

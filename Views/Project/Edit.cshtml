@@ -1,0 +1,145 @@
+﻿@model ClarusBlogBoard.Models.ContentProject
+
+@{
+    ViewBag.Title = "Edit Project Content";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+    <div id="heading" class="page-header">
+        <h2>Edit Project Management</h2>
+    </div>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Project Management Content</legend>
+
+        <div class="editor-label">
+            <h4>Slide 1 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectTitle1)
+            @Html.ValidationMessageFor(model => model.ProjectTitle1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 1 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectContent1)
+            @Html.ValidationMessageFor(model => model.ProjectContent1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 1 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectImage1)
+            @Html.ValidationMessageFor(model => model.ProjectImage1)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 2 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectTitle2)
+            @Html.ValidationMessageFor(model => model.ProjectTitle2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 2 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectContent2)
+            @Html.ValidationMessageFor(model => model.ProjectContent2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 2 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectImage2)
+            @Html.ValidationMessageFor(model => model.ProjectImage2)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 3 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectTitle3)
+            @Html.ValidationMessageFor(model => model.ProjectTitle3)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 3 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectContent3)
+            @Html.ValidationMessageFor(model => model.ProjectContent3)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 3 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectImage3)
+            @Html.ValidationMessageFor(model => model.ProjectImage3)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 4 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectTitle4)
+            @Html.ValidationMessageFor(model => model.ProjectTitle4)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 4 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectContent4)
+            @Html.ValidationMessageFor(model => model.ProjectContent4)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 4 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectImage4)
+            @Html.ValidationMessageFor(model => model.ProjectImage4)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 5 Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectTitle5)
+            @Html.ValidationMessageFor(model => model.ProjectTitle5)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 5 Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectContent5)
+            @Html.ValidationMessageFor(model => model.ProjectContent5)
+        </div>
+
+        <div class="editor-label">
+            <h4>Slide 5 Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectImage5)
+            @Html.ValidationMessageFor(model => model.ProjectImage5)
+        </div>
+
+        @Html.HiddenFor(model => model.ProjectID)
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+

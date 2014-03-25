@@ -1,0 +1,14 @@
+What a good c# mvc developer needs to know: 
+
+* The ASP.NET MVC routing engine - in particular, I'd look at how you can extend it!
+* How the framework passes parameters to your actions and how it decides which values to assign to which parameters and such
+* How the strong typing of parameters works, especially with reference types - this is quite a cool feature of ASP.NET MVC
+* How to implement form and model validation - look at the the client-side scripting that the framework generates for form validation and other stuff
+* Loosely- and strongly-typed views their partial counterparts
+* What kinds of data types the framework can send and receive, and how to do that
+* Error/exception handling - the way this is done in ASP.NET MVC is quite different to any other framework I've experienced
+* How ASP.NET MVC plays with tools like Entity Framework and LINQ-to-SQL
+* How Javascript (and jQuery\prototype\other) work with the framework and vice versa - in my experience, they work quite nicely together
+* ASP.NET ships with jQuery, I would suggest that understanding how ASP.NET uses jQuery for core elements like client side validation, as well as the concept of progressive enhancement would be useful
+
+* Exhaustive tutorials: http://www.asp.net/mvc/tutorials

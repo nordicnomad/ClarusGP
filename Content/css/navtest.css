@@ -1,0 +1,47 @@
+* {
+	outline: none;
+}
+.btn-test2 {
+	background-color: #0B2525;
+	border-radius:0;
+}
+.testnav {
+	border-left: 20px solid #0B6595;
+	padding-left: 0;
+}
+.testnav li a {
+	margin-left: 0;
+}
+.testnav li a:hover {
+	background-color: #0B6595;
+}
+ul.testnav {
+	position: absolute;
+	top: 76px;
+	right: -2000px;
+}
+.navtest-bar {
+	display: block;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	width: 21px;
+	height: 4px;
+	background-color: #fff;
+	border-radius: 1px;
+}
+.navtest-toggle {
+	position: absolute;
+	top: 9px;
+	right: 10px;
+	width: 48px;
+	height: 48px;
+	padding: 8px 12px;
+	background-color: #0B2525;
+	border: 2px solid #1985ba;
+	border-radius: 100%;
+}
+ul.slidesIn {
+	position: absolute;
+	top: 76px;
+	right: 0;
+}

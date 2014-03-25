@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f356d71c56a44345ab1c36b36cb29943" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="BlogBoardModel.ApplicantState" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.Application" Width="1.875" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.ApplicationStatus" Width="2.25" PointX="2.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.AssignedTo" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.BlogAuthor" Width="1.5" PointX="5.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.BlogPost" Width="1.5" PointX="8" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.BlogPostStatus" Width="1.5" PointX="5.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentAbout" Width="1.5" PointX="7.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentClients" Width="1.5" PointX="10.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentCommunity" Width="1.5" PointX="7.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentConsulting" Width="1.5" PointX="10.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentLegal" Width="1.5" PointX="12.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentProject" Width="1.5" PointX="12.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentSecurity" Width="1.5" PointX="12.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.JobApplicant" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.JobCategory" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.JobPost" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.JobPostStatus" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BlogBoardModel.OfficeAssigned" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BlogBoardModel.FK_JobApplicant_ApplicantState" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogBoardModel.FK_Application_ApplicationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogBoardModel.FK_Application_AssignedTo" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogBoardModel.FK_Application_JobApplicant" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogBoardModel.FK_Application_JobPost" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogBoardModel.FK_BlogPost_BlogAuthor" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogBoardModel.FK_BlogPost_BlogPostStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogBoardModel.FK_JobPost_JobCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogBoardModel.FK_JobPost_JobPostStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="BlogBoardModel.FK_JobPost_OfficeAssigned" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BlogBoardModel.BlogCategory" Width="1.5" PointX="9.875" PointY="13.75" />
+        <AssociationConnector Association="BlogBoardModel.FK_BlogPost_BlogCategory" />
+        <AssociationConnector Association="BlogBoardModel.FK_JobPost_AssignedTo" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentAboutU" Width="1.5" PointX="17.25" PointY="14.75" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentService" PointX="12.5" PointY="14.75" Width="1.5" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentTeam" Width="1.5" PointX="14.875" PointY="14.75" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentArchitecture" Width="1.5" PointX="12.625" PointY="17.375" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentDevelopment" Width="1.5" PointX="14.875" PointY="17.375" />
+        <EntityTypeShape EntityType="BlogBoardModel.ContentStrategy" Width="1.5" PointX="17.25" PointY="17.375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

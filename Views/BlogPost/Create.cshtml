@@ -1,0 +1,81 @@
+﻿@model ClarusBlogBoard.Models.BlogPost
+
+@{
+    ViewBag.Title = "Create Blog Post";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Create New Blog Post</h2>
+</div>
+
+@using (Html.BeginForm("Create", "BlogPost", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>BlogPost</legend>
+
+        <div class="editor-label">
+            <h4>Blog Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BlogTitle)
+            @Html.ValidationMessageFor(model => model.BlogTitle)
+        </div>
+
+        <div class="editor-label">
+            <h4>Article Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BlogArticle)
+            @Html.ValidationMessageFor(model => model.BlogArticle)
+        </div>
+
+        <div class="editor-label">
+            <h4>Published Date</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DatePublished)
+            @Html.ValidationMessageFor(model => model.DatePublished)
+        </div>
+
+        <div class="editor-label">
+            <h4>Author</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("BlogAuthorID", String.Empty)
+            @Html.ValidationMessageFor(model => model.BlogAuthorID)
+        </div>
+
+        <div class="editor-label">
+            <h4>Post Status</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("BlogStatusID", String.Empty)
+            @Html.ValidationMessageFor(model => model.BlogStatusID)
+        </div>
+
+        <div class="editor-label">
+            <h4>Category</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CategoryID", String.Empty)
+            @Html.ValidationMessageFor(model => model.CategoryID)
+        </div>
+
+        <div class="editor-label">
+            <h4>Image File</h4>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="image" id="image" />
+        </div>
+
+        <p>
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back", "Index")
+</div>

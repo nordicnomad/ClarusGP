@@ -1,0 +1,37 @@
+﻿@model ClarusBlogBoard.Models.ContentTeam
+
+@{
+    ViewBag.Title = "Delete Team Member";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+<div id="heading" class="page-header">
+    <h2>Delete</h2>
+</div>
+
+<h3 class="deleteQuestion">Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>@Html.DisplayFor(model => model.TeamName)</legend>
+
+    <div class="display-label"><h4>Image</h4></div>
+    <div class="display-field col-lg-4">
+        <img src="@Url.Content("~/Content/img/teamPhotos/"+@Html.DisplayFor(model => model.TeamImage))" class="userImage" />
+    </div>
+
+    <div class="display-label"><h4>Title</h4></div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TeamTitle)
+    </div>
+
+    <div class="display-label"><h4>description</h4></div>
+    <div class="display-field">
+        <p class="whitespaced">
+            @Html.DisplayFor(model => model.TeamDescription)
+        </p>
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+    </p>
+}

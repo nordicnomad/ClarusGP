@@ -1,0 +1,77 @@
+﻿@model ClarusBlogBoard.Models.BlogPost
+@{
+    ViewBag.Title = "Delete Blog Post";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Delete Blog Post</h2>
+</div>
+<div class="col-lg-6 jobDeleteInfo">
+    <h3 class="deleteQuestion">Are you sure you want to delete this?</h3>
+    <fieldset>
+        <legend>BlogPost</legend>
+
+        <div class="display-label">
+            <h4>Title</h4>
+        </div>
+        <div class="display-field">
+            <p>
+                @Html.DisplayFor(model => model.BlogTitle)
+            </p>
+        </div>
+
+        <div class="display-label">
+            <h4>Content</h4>
+        </div>
+        <div class="display-field">
+            <p class="whitespaced">
+                @Html.DisplayFor(model => model.BlogArticle)
+            </p>
+        </div>
+
+        <div class="display-label">
+            <h4>Publish Date</h4>
+        </div>
+        <div class="display-field">
+            <p>
+                @Html.DisplayFor(model => model.DatePublished)
+            </p>
+        </div>
+
+        <div class="display-label">
+            <h4>Author</h4>
+        </div>
+        <div class="display-field">
+            <p>
+                @Html.DisplayFor(model => model.BlogAuthor.AuthorName)
+            </p>
+        </div>
+
+        <div class="display-label">
+            <h4>Status</h4>
+        </div>
+        <div class="display-field">
+            <p>
+                @Html.DisplayFor(model => model.BlogPostStatus.BlogStatusName)
+            </p>
+        </div>
+
+        <div class="display-label">
+            <h4>Image File</h4>
+        </div>
+        <div class="display-field">
+            <p>
+                @Html.DisplayFor(model => model.BlogImageURL)
+            </p>
+        </div>
+    </fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Delete" class="btn btn-danger" />
+           
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+        </p>
+    }
+</div>

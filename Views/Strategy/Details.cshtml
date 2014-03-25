@@ -1,0 +1,51 @@
+﻿@model ClarusBlogBoard.Models.ContentStrategy
+
+@{
+    ViewBag.Title = "Enterprise Data Strategy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="@Url.Action("Details", "About", new { id = 1 })">About</a></li>
+                    <li><a href="@Url.Action("Details", "Project", new { id = 1 })">BPM</a></li>
+                    <li><a href="@Url.Action("Details", "Security", new { id = 1 })">Security</a></li>
+                    <li><a href="@Url.Action("Details", "Consulting", new { id = 1 })">Consulting</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                    <li><a href="@Url.Action("Jobs", "JobPost")">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="main clearfix wrapper" id="strategy">
+        <h1>@Html.DisplayFor(model => model.StrategyTitle)</h1>
+        <hr />
+        <div class="row">
+            <img src="@Url.Content("~/Content/img/" + @Html.DisplayFor(model => model.StrategyImage))" class="contentImage" />
+            <p class="whitespaced">@Html.DisplayFor(model => model.StrategyContent)</p>
+        </div>
+        @if (User.IsInRole("admin") || User.IsInRole("superadmin"))
+        {
+            <div>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id=Model.StrategyID })
+                </p>
+            </div>
+        }
+    </section>
+
+</div>
+    

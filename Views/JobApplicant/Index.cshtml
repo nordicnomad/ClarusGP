@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ClarusBlogBoard.Models.JobApplicant>
+
+@{
+    ViewBag.Title = "Resume Manager";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+    <div id="heading" class="page-header">
+        <h2>Job Applicants Resume Database</h2>
+    </div>
+
+        <div class="row col-lg-12">
+            @using (Html.BeginForm())
+            {
+                <div class="input-group col-lg-6 col-md-6 col-sm-12 col-xs-12 searchButton" id="search">
+                    <div class="input-group-btn">
+                        <input id="go" type="submit" value="Search" class="btn btn-xs btn-primary" tabindex="-1" />
+                    </div>
+                    <input type="text" class="form-control searchBox" name="searchString" placeholder="Search Resumes">
+                    <div class="input-group-btn">
+                        <input type="button" id="clear" value="Reset" class="btn btn-xs btn-default resumeReset" />
+                    </div>
+                </div>
+            }
+        </div>
+
+<section id="JobApplicantIndex">
+    @if (Model.Count() > 0)
+    {
+     
+        foreach (var item in Model) {
+            <div class="col-lg-5 jobIndexInfo">
+                <div>
+                    <h4>
+                         @Html.DisplayFor(modelItem => item.ApplicantFirstName) @Html.DisplayFor(modelItem => item.ApplicantLastName)
+                    </h4>
+                </div>
+                <div>
+                    <strong>Phone:</strong> @Html.DisplayFor(modelItem => item.ApplicantPhone) <br />
+                    <strong>Email:</strong> @Html.DisplayFor(modelItem => item.ApplicantEmail) <br />
+                    @if (item.ResumePath != null)
+                    {
+                    <strong>Resume:</strong> <a href="@Url.Content("~/Content/resumes/"+ Html.DisplayFor(modelItem => item.ResumePath))" target="_blank">Click Here to View</a>
+                    }
+                    else
+	                {
+                    <strong>City:</strong> @Html.DisplayFor(modelItem => item.ApplicantCity)       
+	                }
+                </div>
+                <div class="jobIndexBtns">
+                    <a href="@Url.Action("Edit", "JobApplicant", new { id=item.ApplicantID })" class="btn btn-xs btn-primary">Edit</a> 
+                    <a href="@Url.Action("Details", "JobApplicant", new { id=item.ApplicantID })" class="btn btn-xs btn-info">View</a>
+                    @if(User.IsInRole("superadmin")) {
+                        <a href="@Url.Action("Delete", "JobApplicant", new { id=item.ApplicantID })" class="btn btn-xs btn-warning">Delete</a>
+                    }
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h2>No items were returned by your search</h2>
+        <p>If searching by name, remember to do so as first name or last name only as these are different fields.</p>
+    }
+
+</section>

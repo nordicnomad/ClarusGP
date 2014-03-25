@@ -1,0 +1,1514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BlogBoardModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BlogBoardModelStoreContainer">
+          <EntitySet Name="ApplicantState" EntityType="BlogBoardModel.Store.ApplicantState" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Application" EntityType="BlogBoardModel.Store.Application" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ApplicationStatus" EntityType="BlogBoardModel.Store.ApplicationStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AssignedTo" EntityType="BlogBoardModel.Store.AssignedTo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogAuthor" EntityType="BlogBoardModel.Store.BlogAuthor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogCategory" EntityType="BlogBoardModel.Store.BlogCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogPost" EntityType="BlogBoardModel.Store.BlogPost" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BlogPostStatus" EntityType="BlogBoardModel.Store.BlogPostStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentAbout" EntityType="BlogBoardModel.Store.ContentAbout" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentAboutUs" EntityType="BlogBoardModel.Store.ContentAboutUs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentArchitecture" EntityType="BlogBoardModel.Store.ContentArchitecture" store:Type="Tables" store:Schema="dbo" store:Name="ContentArchitecture">
+            <DefiningQuery>SELECT 
+      [ContentArchitecture].[ArchitectureID] AS [ArchitectureID], 
+      [ContentArchitecture].[ArchitectureTitle] AS [ArchitectureTitle], 
+      [ContentArchitecture].[ArchitectureContent] AS [ArchitectureContent], 
+      [ContentArchitecture].[ArchitectureImage] AS [ArchitectureImage]
+      FROM [dbo].[ContentArchitecture] AS [ContentArchitecture]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ContentClients" EntityType="BlogBoardModel.Store.ContentClients" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentCommunity" EntityType="BlogBoardModel.Store.ContentCommunity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentConsulting" EntityType="BlogBoardModel.Store.ContentConsulting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentDevelopment" EntityType="BlogBoardModel.Store.ContentDevelopment" store:Type="Tables" store:Schema="dbo" store:Name="ContentDevelopment">
+            <DefiningQuery>SELECT 
+      [ContentDevelopment].[DevelopmentID] AS [DevelopmentID], 
+      [ContentDevelopment].[DevelopmentTitle] AS [DevelopmentTitle], 
+      [ContentDevelopment].[DevelopmentContent] AS [DevelopmentContent], 
+      [ContentDevelopment].[DevelopmentImage] AS [DevelopmentImage]
+      FROM [dbo].[ContentDevelopment] AS [ContentDevelopment]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ContentLegal" EntityType="BlogBoardModel.Store.ContentLegal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentProject" EntityType="BlogBoardModel.Store.ContentProject" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentSecurity" EntityType="BlogBoardModel.Store.ContentSecurity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentServices" EntityType="BlogBoardModel.Store.ContentServices" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentStrategy" EntityType="BlogBoardModel.Store.ContentStrategy" store:Type="Tables" store:Schema="dbo" store:Name="ContentStrategy">
+            <DefiningQuery>SELECT 
+      [ContentStrategy].[StrategyID] AS [StrategyID], 
+      [ContentStrategy].[StrategyTitle] AS [StrategyTitle], 
+      [ContentStrategy].[StrategyContent] AS [StrategyContent], 
+      [ContentStrategy].[StrategyImage] AS [StrategyImage]
+      FROM [dbo].[ContentStrategy] AS [ContentStrategy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ContentTeam" EntityType="BlogBoardModel.Store.ContentTeam" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="JobApplicant" EntityType="BlogBoardModel.Store.JobApplicant" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="JobCategory" EntityType="BlogBoardModel.Store.JobCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="JobPost" EntityType="BlogBoardModel.Store.JobPost" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="JobPostStatus" EntityType="BlogBoardModel.Store.JobPostStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OfficeAssigned" EntityType="BlogBoardModel.Store.OfficeAssigned" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Application_ApplicationStatus" Association="BlogBoardModel.Store.FK_Application_ApplicationStatus">
+            <End Role="ApplicationStatus" EntitySet="ApplicationStatus" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_AssignedTo" Association="BlogBoardModel.Store.FK_Application_AssignedTo">
+            <End Role="AssignedTo" EntitySet="AssignedTo" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_JobApplicant" Association="BlogBoardModel.Store.FK_Application_JobApplicant">
+            <End Role="JobApplicant" EntitySet="JobApplicant" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_JobPost" Association="BlogBoardModel.Store.FK_Application_JobPost">
+            <End Role="JobPost" EntitySet="JobPost" />
+            <End Role="Application" EntitySet="Application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_BlogAuthor" Association="BlogBoardModel.Store.FK_BlogPost_BlogAuthor">
+            <End Role="BlogAuthor" EntitySet="BlogAuthor" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_BlogCategory" Association="BlogBoardModel.Store.FK_BlogPost_BlogCategory">
+            <End Role="BlogCategory" EntitySet="BlogCategory" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_BlogPostStatus" Association="BlogBoardModel.Store.FK_BlogPost_BlogPostStatus">
+            <End Role="BlogPostStatus" EntitySet="BlogPostStatus" />
+            <End Role="BlogPost" EntitySet="BlogPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobApplicant_ApplicantState" Association="BlogBoardModel.Store.FK_JobApplicant_ApplicantState">
+            <End Role="ApplicantState" EntitySet="ApplicantState" />
+            <End Role="JobApplicant" EntitySet="JobApplicant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobPost_AssignedTo" Association="BlogBoardModel.Store.FK_JobPost_AssignedTo">
+            <End Role="AssignedTo" EntitySet="AssignedTo" />
+            <End Role="JobPost" EntitySet="JobPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobPost_JobCategory" Association="BlogBoardModel.Store.FK_JobPost_JobCategory">
+            <End Role="JobCategory" EntitySet="JobCategory" />
+            <End Role="JobPost" EntitySet="JobPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobPost_JobPostStatus" Association="BlogBoardModel.Store.FK_JobPost_JobPostStatus">
+            <End Role="JobPostStatus" EntitySet="JobPostStatus" />
+            <End Role="JobPost" EntitySet="JobPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobPost_OfficeAssigned" Association="BlogBoardModel.Store.FK_JobPost_OfficeAssigned">
+            <End Role="OfficeAssigned" EntitySet="OfficeAssigned" />
+            <End Role="JobPost" EntitySet="JobPost" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ApplicantState">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="nvarchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationApplicantID" Type="int" Nullable="false" />
+          <Property Name="ApplicationJobID" Type="int" Nullable="false" />
+          <Property Name="ApplicationAssignedID" Type="int" />
+          <Property Name="ApplicationNotes" Type="nvarchar" MaxLength="500" />
+          <Property Name="InterviewDate" Type="date" />
+          <Property Name="ApplicationStatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="ApplicationStatus">
+          <Key>
+            <PropertyRef Name="AppStatusID" />
+          </Key>
+          <Property Name="AppStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationStatusName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ApplicationStatusDescription" Type="nvarchar" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AssignedTo">
+          <Key>
+            <PropertyRef Name="AssignedID" />
+          </Key>
+          <Property Name="AssignedID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AssignedName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AssignedEmail" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BlogAuthor">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="AuthorEmail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BlogCategory">
+          <Key>
+            <PropertyRef Name="BlogCategoryID" />
+          </Key>
+          <Property Name="BlogCategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BlogCategoryName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BlogPost">
+          <Key>
+            <PropertyRef Name="BlogPostID" />
+          </Key>
+          <Property Name="BlogPostID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BlogTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="BlogArticle" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DatePublished" Type="date" />
+          <Property Name="BlogAuthorID" Type="int" Nullable="false" />
+          <Property Name="BlogStatusID" Type="int" Nullable="false" />
+          <Property Name="TweetTotal" Type="int" />
+          <Property Name="PlusTotal" Type="int" />
+          <Property Name="LikeTotal" Type="int" />
+          <Property Name="BlogImageURL" Type="nvarchar" MaxLength="200" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BlogPostStatus">
+          <Key>
+            <PropertyRef Name="PubStatusID" />
+          </Key>
+          <Property Name="PubStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BlogStatusName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ContentAbout">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutTitle1" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutContent1" Type="nvarchar" />
+          <Property Name="AboutImage1" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutTitle2" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutContent2" Type="nvarchar" />
+          <Property Name="AboutImage2" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutTitle3" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutContent3" Type="nvarchar" />
+          <Property Name="AboutImage3" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutTitle4" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutContent4" Type="nvarchar" />
+          <Property Name="AboutImage4" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutTitle5" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutContent5" Type="nvarchar" />
+          <Property Name="AboutImage5" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentAboutUs">
+          <Key>
+            <PropertyRef Name="AboutUsID" />
+          </Key>
+          <Property Name="AboutUsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AboutUsTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="AboutUsContent" Type="nvarchar(max)" />
+          <Property Name="AboutUsImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BlogBoard.dbo.ContentArchitecture' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ContentArchitecture">
+          <Key>
+            <PropertyRef Name="ArchitectureID" />
+          </Key>
+          <Property Name="ArchitectureID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ArchitectureTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ArchitectureContent" Type="nvarchar(max)" />
+          <Property Name="ArchitectureImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ContentClients">
+          <Key>
+            <PropertyRef Name="ClientsID" />
+          </Key>
+          <Property Name="ClientsTitle1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent1" Type="nvarchar" />
+          <Property Name="ClientsTitle2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent2" Type="nvarchar" />
+          <Property Name="ClientsTitle3" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage3" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent3" Type="nvarchar" />
+          <Property Name="ClientsTitle4" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage4" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent4" Type="nvarchar" />
+          <Property Name="ClientsTitle5" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage5" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent5" Type="nvarchar" />
+          <Property Name="ClientsTitle6" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage6" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent6" Type="nvarchar" />
+          <Property Name="ClientsTitle7" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage7" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent7" Type="nvarchar" />
+          <Property Name="ClientsTitle8" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage8" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent8" Type="nvarchar" />
+          <Property Name="ClientsTitle9" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage9" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent9" Type="nvarchar" />
+          <Property Name="ClientsTitle10" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsImage10" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientsContent10" Type="nvarchar" />
+          <Property Name="ClientsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentCommunity">
+          <Key>
+            <PropertyRef Name="CommunityID" />
+          </Key>
+          <Property Name="CommunityTitle1" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommunityImage1" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommunityContent1" Type="nvarchar" />
+          <Property Name="CommunityTitle2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommunityImage2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommunityContent2" Type="nvarchar" />
+          <Property Name="CommunityTitle3" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommunityImage3" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommunityContent3" Type="nvarchar" />
+          <Property Name="CommunityTitle4" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommunityImage4" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommunityContent4" Type="nvarchar" />
+          <Property Name="CommunityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentConsulting">
+          <Key>
+            <PropertyRef Name="ConsultingID" />
+          </Key>
+          <Property Name="ConsultingTitle1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsultingContent1" Type="nvarchar" />
+          <Property Name="ConsultingImage1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsultingTitle2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsultingContent2" Type="nvarchar" />
+          <Property Name="ConsultingImage2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsultingTitle3" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsultingContent3" Type="nvarchar" />
+          <Property Name="ConsultingImage3" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsultingID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BlogBoard.dbo.ContentDevelopment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ContentDevelopment">
+          <Key>
+            <PropertyRef Name="DevelopmentID" />
+          </Key>
+          <Property Name="DevelopmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DevelopmentTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="DevelopmentContent" Type="nvarchar(max)" />
+          <Property Name="DevelopmentImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ContentLegal">
+          <Key>
+            <PropertyRef Name="LegalID" />
+          </Key>
+          <Property Name="LegalTitle1" Type="nvarchar" MaxLength="50" />
+          <Property Name="LegalContent1" Type="nvarchar(max)" />
+          <Property Name="LegalTitle2" Type="nvarchar" MaxLength="50" />
+          <Property Name="LegalContent2" Type="nvarchar(max)" />
+          <Property Name="LegalTitle3" Type="nvarchar" MaxLength="50" />
+          <Property Name="LegalContent3" Type="nvarchar(max)" />
+          <Property Name="LegalID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentProject">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectTitle1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectContent1" Type="nvarchar" />
+          <Property Name="ProjectImage1" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectTitle2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectContent2" Type="nvarchar" />
+          <Property Name="ProjectImage2" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectTitle3" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectContent3" Type="nvarchar" />
+          <Property Name="ProjectImage3" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectTitle4" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectContent4" Type="nvarchar" />
+          <Property Name="ProjectImage4" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectTitle5" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectContent5" Type="nvarchar" />
+          <Property Name="ProjectImage5" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentSecurity">
+          <Key>
+            <PropertyRef Name="SecurityID" />
+          </Key>
+          <Property Name="SecurityTitle1" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityContent1" Type="nvarchar" />
+          <Property Name="SecurityTitle2" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityContent2" Type="nvarchar" />
+          <Property Name="SecurityTitle3" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityContent3" Type="nvarchar" />
+          <Property Name="SecurityTitle4" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityContent4" Type="nvarchar" />
+          <Property Name="SecurityID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentServices">
+          <Key>
+            <PropertyRef Name="ServicesID" />
+          </Key>
+          <Property Name="ServicesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ServicesTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ServicesContent" Type="nvarchar(max)" />
+          <Property Name="ServicesImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BlogBoard.dbo.ContentStrategy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ContentStrategy">
+          <Key>
+            <PropertyRef Name="StrategyID" />
+          </Key>
+          <Property Name="StrategyID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StrategyTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="StrategyContent" Type="nvarchar(max)" />
+          <Property Name="StrategyImage" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ContentTeam">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TeamName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="TeamImage" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="TeamTitle" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="TeamDescription" Type="nvarchar" />
+        </EntityType>
+        <EntityType Name="JobApplicant">
+          <Key>
+            <PropertyRef Name="ApplicantID" />
+          </Key>
+          <Property Name="ApplicantID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicantFirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ApplicantLastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ApplicantPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="ApplicantEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplicantAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplicantCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApplicantStateID" Type="int" />
+          <Property Name="ApplicantZip" Type="nchar" MaxLength="10" />
+          <Property Name="ResumePath" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResumeText" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="JobCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="JobPost">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JobName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="JobDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DatePosted" Type="date" />
+          <Property Name="ClosingDate" Type="date" />
+          <Property Name="JobPostStatusID" Type="int" Nullable="false" />
+          <Property Name="JobOfficeID" Type="int" />
+          <Property Name="LocationDescription" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="JobCategoryID" Type="int" Nullable="false" />
+          <Property Name="PostToBlog" Type="bit" Nullable="false" />
+          <Property Name="RecruiterAssignedTo" Type="int" />
+        </EntityType>
+        <EntityType Name="JobPostStatus">
+          <Key>
+            <PropertyRef Name="PostStatusID" />
+          </Key>
+          <Property Name="PostStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JobPostStatusName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OfficeAssigned">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeName" Type="nvarchar" Nullable="false" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK_Application_ApplicationStatus">
+          <End Role="ApplicationStatus" Type="BlogBoardModel.Store.ApplicationStatus" Multiplicity="0..1" />
+          <End Role="Application" Type="BlogBoardModel.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationStatus">
+              <PropertyRef Name="AppStatusID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ApplicationStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_AssignedTo">
+          <End Role="AssignedTo" Type="BlogBoardModel.Store.AssignedTo" Multiplicity="0..1" />
+          <End Role="Application" Type="BlogBoardModel.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssignedTo">
+              <PropertyRef Name="AssignedID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ApplicationAssignedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_JobApplicant">
+          <End Role="JobApplicant" Type="BlogBoardModel.Store.JobApplicant" Multiplicity="1" />
+          <End Role="Application" Type="BlogBoardModel.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobApplicant">
+              <PropertyRef Name="ApplicantID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ApplicationApplicantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_JobPost">
+          <End Role="JobPost" Type="BlogBoardModel.Store.JobPost" Multiplicity="1" />
+          <End Role="Application" Type="BlogBoardModel.Store.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPost">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ApplicationJobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_BlogAuthor">
+          <End Role="BlogAuthor" Type="BlogBoardModel.Store.BlogAuthor" Multiplicity="1" />
+          <End Role="BlogPost" Type="BlogBoardModel.Store.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogAuthor">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="BlogAuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_BlogCategory">
+          <End Role="BlogCategory" Type="BlogBoardModel.Store.BlogCategory" Multiplicity="1" />
+          <End Role="BlogPost" Type="BlogBoardModel.Store.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogCategory">
+              <PropertyRef Name="BlogCategoryID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_BlogPostStatus">
+          <End Role="BlogPostStatus" Type="BlogBoardModel.Store.BlogPostStatus" Multiplicity="1" />
+          <End Role="BlogPost" Type="BlogBoardModel.Store.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPostStatus">
+              <PropertyRef Name="PubStatusID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="BlogStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobApplicant_ApplicantState">
+          <End Role="ApplicantState" Type="BlogBoardModel.Store.ApplicantState" Multiplicity="0..1" />
+          <End Role="JobApplicant" Type="BlogBoardModel.Store.JobApplicant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicantState">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="JobApplicant">
+              <PropertyRef Name="ApplicantStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobPost_AssignedTo">
+          <End Role="AssignedTo" Type="BlogBoardModel.Store.AssignedTo" Multiplicity="0..1" />
+          <End Role="JobPost" Type="BlogBoardModel.Store.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssignedTo">
+              <PropertyRef Name="AssignedID" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="RecruiterAssignedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobPost_JobCategory">
+          <End Role="JobCategory" Type="BlogBoardModel.Store.JobCategory" Multiplicity="1" />
+          <End Role="JobPost" Type="BlogBoardModel.Store.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="JobCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobPost_JobPostStatus">
+          <End Role="JobPostStatus" Type="BlogBoardModel.Store.JobPostStatus" Multiplicity="1" />
+          <End Role="JobPost" Type="BlogBoardModel.Store.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPostStatus">
+              <PropertyRef Name="PostStatusID" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="JobPostStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobPost_OfficeAssigned">
+          <End Role="OfficeAssigned" Type="BlogBoardModel.Store.OfficeAssigned" Multiplicity="0..1" />
+          <End Role="JobPost" Type="BlogBoardModel.Store.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OfficeAssigned">
+              <PropertyRef Name="OfficeID" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="JobOfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BlogBoardModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BlogBoardEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ApplicantStates" EntityType="BlogBoardModel.ApplicantState" />
+          <EntitySet Name="Applications" EntityType="BlogBoardModel.Application" />
+          <EntitySet Name="ApplicationStatus1" EntityType="BlogBoardModel.ApplicationStatus" />
+          <EntitySet Name="AssignedToes" EntityType="BlogBoardModel.AssignedTo" />
+          <EntitySet Name="BlogAuthors" EntityType="BlogBoardModel.BlogAuthor" />
+          <EntitySet Name="BlogPosts" EntityType="BlogBoardModel.BlogPost" />
+          <EntitySet Name="BlogPostStatus1" EntityType="BlogBoardModel.BlogPostStatus" />
+          <EntitySet Name="ContentAbouts" EntityType="BlogBoardModel.ContentAbout" />
+          <EntitySet Name="ContentClients1" EntityType="BlogBoardModel.ContentClients" />
+          <EntitySet Name="ContentCommunities" EntityType="BlogBoardModel.ContentCommunity" />
+          <EntitySet Name="ContentConsultings" EntityType="BlogBoardModel.ContentConsulting" />
+          <EntitySet Name="ContentLegals" EntityType="BlogBoardModel.ContentLegal" />
+          <EntitySet Name="ContentProjects" EntityType="BlogBoardModel.ContentProject" />
+          <EntitySet Name="ContentSecurities" EntityType="BlogBoardModel.ContentSecurity" />
+          <EntitySet Name="JobApplicants" EntityType="BlogBoardModel.JobApplicant" />
+          <EntitySet Name="JobCategories" EntityType="BlogBoardModel.JobCategory" />
+          <EntitySet Name="JobPosts" EntityType="BlogBoardModel.JobPost" />
+          <EntitySet Name="JobPostStatus1" EntityType="BlogBoardModel.JobPostStatus" />
+          <EntitySet Name="OfficeAssigneds" EntityType="BlogBoardModel.OfficeAssigned" />
+          <AssociationSet Name="FK_JobApplicant_ApplicantState" Association="BlogBoardModel.FK_JobApplicant_ApplicantState">
+            <End Role="ApplicantState" EntitySet="ApplicantStates" />
+            <End Role="JobApplicant" EntitySet="JobApplicants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_ApplicationStatus" Association="BlogBoardModel.FK_Application_ApplicationStatus">
+            <End Role="ApplicationStatus" EntitySet="ApplicationStatus1" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_AssignedTo" Association="BlogBoardModel.FK_Application_AssignedTo">
+            <End Role="AssignedTo" EntitySet="AssignedToes" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_JobApplicant" Association="BlogBoardModel.FK_Application_JobApplicant">
+            <End Role="JobApplicant" EntitySet="JobApplicants" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Application_JobPost" Association="BlogBoardModel.FK_Application_JobPost">
+            <End Role="JobPost" EntitySet="JobPosts" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_BlogAuthor" Association="BlogBoardModel.FK_BlogPost_BlogAuthor">
+            <End Role="BlogAuthor" EntitySet="BlogAuthors" />
+            <End Role="BlogPost" EntitySet="BlogPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogPost_BlogPostStatus" Association="BlogBoardModel.FK_BlogPost_BlogPostStatus">
+            <End Role="BlogPostStatus" EntitySet="BlogPostStatus1" />
+            <End Role="BlogPost" EntitySet="BlogPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobPost_JobCategory" Association="BlogBoardModel.FK_JobPost_JobCategory">
+            <End Role="JobCategory" EntitySet="JobCategories" />
+            <End Role="JobPost" EntitySet="JobPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobPost_JobPostStatus" Association="BlogBoardModel.FK_JobPost_JobPostStatus">
+            <End Role="JobPostStatus" EntitySet="JobPostStatus1" />
+            <End Role="JobPost" EntitySet="JobPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobPost_OfficeAssigned" Association="BlogBoardModel.FK_JobPost_OfficeAssigned">
+            <End Role="OfficeAssigned" EntitySet="OfficeAssigneds" />
+            <End Role="JobPost" EntitySet="JobPosts" />
+          </AssociationSet>
+          <EntitySet Name="BlogCategories" EntityType="BlogBoardModel.BlogCategory" />
+          <AssociationSet Name="FK_BlogPost_BlogCategory" Association="BlogBoardModel.FK_BlogPost_BlogCategory">
+            <End Role="BlogCategory" EntitySet="BlogCategories" />
+            <End Role="BlogPost" EntitySet="BlogPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JobPost_AssignedTo" Association="BlogBoardModel.FK_JobPost_AssignedTo">
+            <End Role="AssignedTo" EntitySet="AssignedToes" />
+            <End Role="JobPost" EntitySet="JobPosts" />
+          </AssociationSet>
+          <EntitySet Name="ContentAboutUs" EntityType="BlogBoardModel.ContentAboutU" />
+          <EntitySet Name="ContentServices" EntityType="BlogBoardModel.ContentService" />
+          <EntitySet Name="ContentTeams" EntityType="BlogBoardModel.ContentTeam" />
+          <EntitySet Name="ContentArchitectures" EntityType="BlogBoardModel.ContentArchitecture" />
+          <EntitySet Name="ContentDevelopments" EntityType="BlogBoardModel.ContentDevelopment" />
+          <EntitySet Name="ContentStrategies" EntityType="BlogBoardModel.ContentStrategy" />
+        </EntityContainer>
+        <EntityType Name="ApplicantState">
+          <Key>
+            <PropertyRef Name="StateID" />
+          </Key>
+          <Property Name="StateID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="JobApplicants" Relationship="BlogBoardModel.FK_JobApplicant_ApplicantState" FromRole="ApplicantState" ToRole="JobApplicant" />
+        </EntityType>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationID" />
+          </Key>
+          <Property Name="ApplicationID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationApplicantID" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationJobID" Type="Int32" Nullable="false" />
+          <Property Name="ApplicationAssignedID" Type="Int32" />
+          <Property Name="ApplicationNotes" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="InterviewDate" Type="DateTime" Precision="0" />
+          <Property Name="ApplicationStatusID" Type="Int32" />
+          <NavigationProperty Name="ApplicationStatus" Relationship="BlogBoardModel.FK_Application_ApplicationStatus" FromRole="Application" ToRole="ApplicationStatus" />
+          <NavigationProperty Name="AssignedTo" Relationship="BlogBoardModel.FK_Application_AssignedTo" FromRole="Application" ToRole="AssignedTo" />
+          <NavigationProperty Name="JobApplicant" Relationship="BlogBoardModel.FK_Application_JobApplicant" FromRole="Application" ToRole="JobApplicant" />
+          <NavigationProperty Name="JobPost" Relationship="BlogBoardModel.FK_Application_JobPost" FromRole="Application" ToRole="JobPost" />
+        </EntityType>
+        <EntityType Name="ApplicationStatus">
+          <Key>
+            <PropertyRef Name="AppStatusID" />
+          </Key>
+          <Property Name="AppStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationStatusName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicationStatusDescription" Type="String" Nullable="false" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Applications" Relationship="BlogBoardModel.FK_Application_ApplicationStatus" FromRole="ApplicationStatus" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="AssignedTo">
+          <Key>
+            <PropertyRef Name="AssignedID" />
+          </Key>
+          <Property Name="AssignedID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AssignedName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AssignedEmail" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Applications" Relationship="BlogBoardModel.FK_Application_AssignedTo" FromRole="AssignedTo" ToRole="Application" />
+          <NavigationProperty Name="JobPosts" Relationship="BlogBoardModel.FK_JobPost_AssignedTo" FromRole="AssignedTo" ToRole="JobPost" />
+        </EntityType>
+        <EntityType Name="BlogAuthor">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AuthorName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="AuthorEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BlogPosts" Relationship="BlogBoardModel.FK_BlogPost_BlogAuthor" FromRole="BlogAuthor" ToRole="BlogPost" />
+        </EntityType>
+        <EntityType Name="BlogPost">
+          <Key>
+            <PropertyRef Name="BlogPostID" />
+          </Key>
+          <Property Name="BlogPostID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BlogArticle" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DatePublished" Type="DateTime" Precision="0" />
+          <Property Name="BlogAuthorID" Type="Int32" Nullable="false" />
+          <Property Name="BlogStatusID" Type="Int32" Nullable="false" />
+          <Property Name="TweetTotal" Type="Int32" />
+          <Property Name="PlusTotal" Type="Int32" />
+          <Property Name="LikeTotal" Type="Int32" />
+          <Property Name="BlogImageURL" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BlogAuthor" Relationship="BlogBoardModel.FK_BlogPost_BlogAuthor" FromRole="BlogPost" ToRole="BlogAuthor" />
+          <NavigationProperty Name="BlogPostStatus" Relationship="BlogBoardModel.FK_BlogPost_BlogPostStatus" FromRole="BlogPost" ToRole="BlogPostStatus" />
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <NavigationProperty Name="BlogCategory" Relationship="BlogBoardModel.FK_BlogPost_BlogCategory" FromRole="BlogPost" ToRole="BlogCategory" />
+        </EntityType>
+        <EntityType Name="BlogPostStatus">
+          <Key>
+            <PropertyRef Name="PubStatusID" />
+          </Key>
+          <Property Name="PubStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogStatusName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BlogPosts" Relationship="BlogBoardModel.FK_BlogPost_BlogPostStatus" FromRole="BlogPostStatus" ToRole="BlogPost" />
+        </EntityType>
+        <EntityType Name="ContentAbout">
+          <Key>
+            <PropertyRef Name="AboutID" />
+          </Key>
+          <Property Name="AboutTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="AboutImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="AboutImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="AboutImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="AboutImage4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutTitle5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutContent5" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="AboutImage5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AboutID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentClients">
+          <Key>
+            <PropertyRef Name="ClientsID" />
+          </Key>
+          <Property Name="ClientsTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsTitle5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent5" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsTitle6" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage6" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent6" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsTitle7" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage7" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent7" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsTitle8" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage8" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent8" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsTitle9" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage9" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent9" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsTitle10" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsImage10" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsContent10" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ClientsID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentCommunity">
+          <Key>
+            <PropertyRef Name="CommunityID" />
+          </Key>
+          <Property Name="CommunityTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityImage4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="CommunityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentConsulting">
+          <Key>
+            <PropertyRef Name="ConsultingID" />
+          </Key>
+          <Property Name="ConsultingTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ConsultingContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ConsultingImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ConsultingTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ConsultingContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ConsultingImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ConsultingTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ConsultingContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ConsultingImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ConsultingID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentLegal">
+          <Key>
+            <PropertyRef Name="LegalID" />
+          </Key>
+          <Property Name="LegalTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LegalContent1" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LegalTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LegalContent2" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LegalTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LegalContent3" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="LegalID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentProject">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectImage1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectImage2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectImage3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectImage4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectTitle5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectContent5" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectImage5" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="ContentSecurity">
+          <Key>
+            <PropertyRef Name="SecurityID" />
+          </Key>
+          <Property Name="SecurityTitle1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SecurityContent1" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="SecurityTitle2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SecurityContent2" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="SecurityTitle3" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SecurityContent3" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="SecurityTitle4" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SecurityContent4" Type="String" MaxLength="4000" Unicode="true" FixedLength="false" />
+          <Property Name="SecurityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="JobApplicant">
+          <Key>
+            <PropertyRef Name="ApplicantID" />
+          </Key>
+          <Property Name="ApplicantID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicantFirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicantLastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicantPhone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicantEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicantAddress" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicantCity" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ApplicantStateID" Type="Int32" />
+          <Property Name="ApplicantZip" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="ResumePath" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ResumeText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ApplicantState" Relationship="BlogBoardModel.FK_JobApplicant_ApplicantState" FromRole="JobApplicant" ToRole="ApplicantState" />
+          <NavigationProperty Name="Applications" Relationship="BlogBoardModel.FK_Application_JobApplicant" FromRole="JobApplicant" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="JobCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="JobPosts" Relationship="BlogBoardModel.FK_JobPost_JobCategory" FromRole="JobCategory" ToRole="JobPost" />
+        </EntityType>
+        <EntityType Name="JobPost">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="JobName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="JobDescription" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DatePosted" Type="DateTime" Precision="0" />
+          <Property Name="ClosingDate" Type="DateTime" Precision="0" />
+          <Property Name="JobPostStatusID" Type="Int32" Nullable="false" />
+          <Property Name="JobOfficeID" Type="Int32" />
+          <Property Name="LocationDescription" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="JobCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="PostToBlog" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Applications" Relationship="BlogBoardModel.FK_Application_JobPost" FromRole="JobPost" ToRole="Application" />
+          <NavigationProperty Name="JobCategory" Relationship="BlogBoardModel.FK_JobPost_JobCategory" FromRole="JobPost" ToRole="JobCategory" />
+          <NavigationProperty Name="JobPostStatus" Relationship="BlogBoardModel.FK_JobPost_JobPostStatus" FromRole="JobPost" ToRole="JobPostStatus" />
+          <NavigationProperty Name="OfficeAssigned" Relationship="BlogBoardModel.FK_JobPost_OfficeAssigned" FromRole="JobPost" ToRole="OfficeAssigned" />
+          <Property Type="Int32" Name="RecruiterAssignedTo" />
+          <NavigationProperty Name="AssignedTo" Relationship="BlogBoardModel.FK_JobPost_AssignedTo" FromRole="JobPost" ToRole="AssignedTo" />
+        </EntityType>
+        <EntityType Name="JobPostStatus">
+          <Key>
+            <PropertyRef Name="PostStatusID" />
+          </Key>
+          <Property Name="PostStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="JobPostStatusName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="JobPosts" Relationship="BlogBoardModel.FK_JobPost_JobPostStatus" FromRole="JobPostStatus" ToRole="JobPost" />
+        </EntityType>
+        <EntityType Name="OfficeAssigned">
+          <Key>
+            <PropertyRef Name="OfficeID" />
+          </Key>
+          <Property Name="OfficeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeName" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="JobPosts" Relationship="BlogBoardModel.FK_JobPost_OfficeAssigned" FromRole="OfficeAssigned" ToRole="JobPost" />
+        </EntityType>
+        <Association Name="FK_JobApplicant_ApplicantState">
+          <End Role="ApplicantState" Type="BlogBoardModel.ApplicantState" Multiplicity="0..1" />
+          <End Role="JobApplicant" Type="BlogBoardModel.JobApplicant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicantState">
+              <PropertyRef Name="StateID" />
+            </Principal>
+            <Dependent Role="JobApplicant">
+              <PropertyRef Name="ApplicantStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_ApplicationStatus">
+          <End Role="ApplicationStatus" Type="BlogBoardModel.ApplicationStatus" Multiplicity="0..1" />
+          <End Role="Application" Type="BlogBoardModel.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ApplicationStatus">
+              <PropertyRef Name="AppStatusID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ApplicationStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_AssignedTo">
+          <End Role="AssignedTo" Type="BlogBoardModel.AssignedTo" Multiplicity="0..1" />
+          <End Role="Application" Type="BlogBoardModel.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssignedTo">
+              <PropertyRef Name="AssignedID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ApplicationAssignedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_JobApplicant">
+          <End Role="JobApplicant" Type="BlogBoardModel.JobApplicant" Multiplicity="1" />
+          <End Role="Application" Type="BlogBoardModel.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobApplicant">
+              <PropertyRef Name="ApplicantID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ApplicationApplicantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Application_JobPost">
+          <End Role="JobPost" Type="BlogBoardModel.JobPost" Multiplicity="1" />
+          <End Role="Application" Type="BlogBoardModel.Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPost">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ApplicationJobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_BlogAuthor">
+          <End Role="BlogAuthor" Type="BlogBoardModel.BlogAuthor" Multiplicity="1" />
+          <End Role="BlogPost" Type="BlogBoardModel.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogAuthor">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="BlogAuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogPost_BlogPostStatus">
+          <End Role="BlogPostStatus" Type="BlogBoardModel.BlogPostStatus" Multiplicity="1" />
+          <End Role="BlogPost" Type="BlogBoardModel.BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogPostStatus">
+              <PropertyRef Name="PubStatusID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="BlogStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobPost_JobCategory">
+          <End Role="JobCategory" Type="BlogBoardModel.JobCategory" Multiplicity="1" />
+          <End Role="JobPost" Type="BlogBoardModel.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="JobCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobPost_JobPostStatus">
+          <End Role="JobPostStatus" Type="BlogBoardModel.JobPostStatus" Multiplicity="1" />
+          <End Role="JobPost" Type="BlogBoardModel.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPostStatus">
+              <PropertyRef Name="PostStatusID" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="JobPostStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobPost_OfficeAssigned">
+          <End Role="OfficeAssigned" Type="BlogBoardModel.OfficeAssigned" Multiplicity="0..1" />
+          <End Role="JobPost" Type="BlogBoardModel.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OfficeAssigned">
+              <PropertyRef Name="OfficeID" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="JobOfficeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BlogCategory">
+          <Key>
+            <PropertyRef Name="BlogCategoryID" />
+          </Key>
+          <Property Type="Int32" Name="BlogCategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="BlogCategoryName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BlogPosts" Relationship="BlogBoardModel.FK_BlogPost_BlogCategory" FromRole="BlogCategory" ToRole="BlogPost" />
+        </EntityType>
+        <Association Name="FK_BlogPost_BlogCategory">
+          <End Type="BlogBoardModel.BlogCategory" Role="BlogCategory" Multiplicity="1" />
+          <End Type="BlogBoardModel.BlogPost" Role="BlogPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogCategory">
+              <PropertyRef Name="BlogCategoryID" />
+            </Principal>
+            <Dependent Role="BlogPost">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JobPost_AssignedTo">
+          <End Type="BlogBoardModel.AssignedTo" Role="AssignedTo" Multiplicity="0..1" />
+          <End Type="BlogBoardModel.JobPost" Role="JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AssignedTo">
+              <PropertyRef Name="AssignedID" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="RecruiterAssignedTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ContentAboutU">
+          <Key>
+            <PropertyRef Name="AboutUsID" />
+          </Key>
+          <Property Type="Int32" Name="AboutUsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="AboutUsTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AboutUsContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AboutUsImage" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ContentService">
+          <Key>
+            <PropertyRef Name="ServicesID" />
+          </Key>
+          <Property Name="ServicesID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="ServicesTitle" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ServicesContent" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ServicesImage" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+        </EntityType>
+        <EntityType Name="ContentTeam">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Type="Int32" Name="TeamID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TeamName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TeamImage" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TeamTitle" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TeamDescription" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ContentArchitecture">
+          <Key>
+            <PropertyRef Name="ArchitectureID" />
+          </Key>
+          <Property Type="Int32" Name="ArchitectureID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ArchitectureTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ArchitectureContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ArchitectureImage" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ContentDevelopment">
+          <Key>
+            <PropertyRef Name="DevelopmentID" />
+          </Key>
+          <Property Type="Int32" Name="DevelopmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DevelopmentTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DevelopmentContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DevelopmentImage" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ContentStrategy">
+          <Key>
+            <PropertyRef Name="StrategyID" />
+          </Key>
+          <Property Type="Int32" Name="StrategyID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="StrategyTitle" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StrategyContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StrategyImage" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BlogBoardModelStoreContainer" CdmEntityContainer="BlogBoardEntities">
+          <EntitySetMapping Name="ApplicantStates">
+            <EntityTypeMapping TypeName="BlogBoardModel.ApplicantState">
+              <MappingFragment StoreEntitySet="ApplicantState">
+                <ScalarProperty Name="StateID" ColumnName="StateID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="BlogBoardModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="ApplicationApplicantID" ColumnName="ApplicationApplicantID" />
+                <ScalarProperty Name="ApplicationJobID" ColumnName="ApplicationJobID" />
+                <ScalarProperty Name="ApplicationAssignedID" ColumnName="ApplicationAssignedID" />
+                <ScalarProperty Name="ApplicationNotes" ColumnName="ApplicationNotes" />
+                <ScalarProperty Name="InterviewDate" ColumnName="InterviewDate" />
+                <ScalarProperty Name="ApplicationStatusID" ColumnName="ApplicationStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApplicationStatus1">
+            <EntityTypeMapping TypeName="BlogBoardModel.ApplicationStatus">
+              <MappingFragment StoreEntitySet="ApplicationStatus">
+                <ScalarProperty Name="AppStatusID" ColumnName="AppStatusID" />
+                <ScalarProperty Name="ApplicationStatusName" ColumnName="ApplicationStatusName" />
+                <ScalarProperty Name="ApplicationStatusDescription" ColumnName="ApplicationStatusDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssignedToes">
+            <EntityTypeMapping TypeName="BlogBoardModel.AssignedTo">
+              <MappingFragment StoreEntitySet="AssignedTo">
+                <ScalarProperty Name="AssignedID" ColumnName="AssignedID" />
+                <ScalarProperty Name="AssignedName" ColumnName="AssignedName" />
+                <ScalarProperty Name="AssignedEmail" ColumnName="AssignedEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogAuthors">
+            <EntityTypeMapping TypeName="BlogBoardModel.BlogAuthor">
+              <MappingFragment StoreEntitySet="BlogAuthor">
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+                <ScalarProperty Name="AuthorEmail" ColumnName="AuthorEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogPosts">
+            <EntityTypeMapping TypeName="BlogBoardModel.BlogPost">
+              <MappingFragment StoreEntitySet="BlogPost">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="BlogPostID" ColumnName="BlogPostID" />
+                <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+                <ScalarProperty Name="BlogArticle" ColumnName="BlogArticle" />
+                <ScalarProperty Name="DatePublished" ColumnName="DatePublished" />
+                <ScalarProperty Name="BlogAuthorID" ColumnName="BlogAuthorID" />
+                <ScalarProperty Name="BlogStatusID" ColumnName="BlogStatusID" />
+                <ScalarProperty Name="TweetTotal" ColumnName="TweetTotal" />
+                <ScalarProperty Name="PlusTotal" ColumnName="PlusTotal" />
+                <ScalarProperty Name="LikeTotal" ColumnName="LikeTotal" />
+                <ScalarProperty Name="BlogImageURL" ColumnName="BlogImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogPostStatus1">
+            <EntityTypeMapping TypeName="BlogBoardModel.BlogPostStatus">
+              <MappingFragment StoreEntitySet="BlogPostStatus">
+                <ScalarProperty Name="PubStatusID" ColumnName="PubStatusID" />
+                <ScalarProperty Name="BlogStatusName" ColumnName="BlogStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentAbouts">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentAbout">
+              <MappingFragment StoreEntitySet="ContentAbout">
+                <ScalarProperty Name="AboutTitle1" ColumnName="AboutTitle1" />
+                <ScalarProperty Name="AboutContent1" ColumnName="AboutContent1" />
+                <ScalarProperty Name="AboutImage1" ColumnName="AboutImage1" />
+                <ScalarProperty Name="AboutTitle2" ColumnName="AboutTitle2" />
+                <ScalarProperty Name="AboutContent2" ColumnName="AboutContent2" />
+                <ScalarProperty Name="AboutImage2" ColumnName="AboutImage2" />
+                <ScalarProperty Name="AboutTitle3" ColumnName="AboutTitle3" />
+                <ScalarProperty Name="AboutContent3" ColumnName="AboutContent3" />
+                <ScalarProperty Name="AboutImage3" ColumnName="AboutImage3" />
+                <ScalarProperty Name="AboutTitle4" ColumnName="AboutTitle4" />
+                <ScalarProperty Name="AboutContent4" ColumnName="AboutContent4" />
+                <ScalarProperty Name="AboutImage4" ColumnName="AboutImage4" />
+                <ScalarProperty Name="AboutTitle5" ColumnName="AboutTitle5" />
+                <ScalarProperty Name="AboutContent5" ColumnName="AboutContent5" />
+                <ScalarProperty Name="AboutImage5" ColumnName="AboutImage5" />
+                <ScalarProperty Name="AboutID" ColumnName="AboutID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentClients1">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentClients">
+              <MappingFragment StoreEntitySet="ContentClients">
+                <ScalarProperty Name="ClientsTitle1" ColumnName="ClientsTitle1" />
+                <ScalarProperty Name="ClientsImage1" ColumnName="ClientsImage1" />
+                <ScalarProperty Name="ClientsContent1" ColumnName="ClientsContent1" />
+                <ScalarProperty Name="ClientsTitle2" ColumnName="ClientsTitle2" />
+                <ScalarProperty Name="ClientsImage2" ColumnName="ClientsImage2" />
+                <ScalarProperty Name="ClientsContent2" ColumnName="ClientsContent2" />
+                <ScalarProperty Name="ClientsTitle3" ColumnName="ClientsTitle3" />
+                <ScalarProperty Name="ClientsImage3" ColumnName="ClientsImage3" />
+                <ScalarProperty Name="ClientsContent3" ColumnName="ClientsContent3" />
+                <ScalarProperty Name="ClientsTitle4" ColumnName="ClientsTitle4" />
+                <ScalarProperty Name="ClientsImage4" ColumnName="ClientsImage4" />
+                <ScalarProperty Name="ClientsContent4" ColumnName="ClientsContent4" />
+                <ScalarProperty Name="ClientsTitle5" ColumnName="ClientsTitle5" />
+                <ScalarProperty Name="ClientsImage5" ColumnName="ClientsImage5" />
+                <ScalarProperty Name="ClientsContent5" ColumnName="ClientsContent5" />
+                <ScalarProperty Name="ClientsTitle6" ColumnName="ClientsTitle6" />
+                <ScalarProperty Name="ClientsImage6" ColumnName="ClientsImage6" />
+                <ScalarProperty Name="ClientsContent6" ColumnName="ClientsContent6" />
+                <ScalarProperty Name="ClientsTitle7" ColumnName="ClientsTitle7" />
+                <ScalarProperty Name="ClientsImage7" ColumnName="ClientsImage7" />
+                <ScalarProperty Name="ClientsContent7" ColumnName="ClientsContent7" />
+                <ScalarProperty Name="ClientsTitle8" ColumnName="ClientsTitle8" />
+                <ScalarProperty Name="ClientsImage8" ColumnName="ClientsImage8" />
+                <ScalarProperty Name="ClientsContent8" ColumnName="ClientsContent8" />
+                <ScalarProperty Name="ClientsTitle9" ColumnName="ClientsTitle9" />
+                <ScalarProperty Name="ClientsImage9" ColumnName="ClientsImage9" />
+                <ScalarProperty Name="ClientsContent9" ColumnName="ClientsContent9" />
+                <ScalarProperty Name="ClientsTitle10" ColumnName="ClientsTitle10" />
+                <ScalarProperty Name="ClientsImage10" ColumnName="ClientsImage10" />
+                <ScalarProperty Name="ClientsContent10" ColumnName="ClientsContent10" />
+                <ScalarProperty Name="ClientsID" ColumnName="ClientsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentCommunities">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentCommunity">
+              <MappingFragment StoreEntitySet="ContentCommunity">
+                <ScalarProperty Name="CommunityTitle1" ColumnName="CommunityTitle1" />
+                <ScalarProperty Name="CommunityImage1" ColumnName="CommunityImage1" />
+                <ScalarProperty Name="CommunityContent1" ColumnName="CommunityContent1" />
+                <ScalarProperty Name="CommunityTitle2" ColumnName="CommunityTitle2" />
+                <ScalarProperty Name="CommunityImage2" ColumnName="CommunityImage2" />
+                <ScalarProperty Name="CommunityContent2" ColumnName="CommunityContent2" />
+                <ScalarProperty Name="CommunityTitle3" ColumnName="CommunityTitle3" />
+                <ScalarProperty Name="CommunityImage3" ColumnName="CommunityImage3" />
+                <ScalarProperty Name="CommunityContent3" ColumnName="CommunityContent3" />
+                <ScalarProperty Name="CommunityTitle4" ColumnName="CommunityTitle4" />
+                <ScalarProperty Name="CommunityImage4" ColumnName="CommunityImage4" />
+                <ScalarProperty Name="CommunityContent4" ColumnName="CommunityContent4" />
+                <ScalarProperty Name="CommunityID" ColumnName="CommunityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentConsultings">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentConsulting">
+              <MappingFragment StoreEntitySet="ContentConsulting">
+                <ScalarProperty Name="ConsultingTitle1" ColumnName="ConsultingTitle1" />
+                <ScalarProperty Name="ConsultingContent1" ColumnName="ConsultingContent1" />
+                <ScalarProperty Name="ConsultingImage1" ColumnName="ConsultingImage1" />
+                <ScalarProperty Name="ConsultingTitle2" ColumnName="ConsultingTitle2" />
+                <ScalarProperty Name="ConsultingContent2" ColumnName="ConsultingContent2" />
+                <ScalarProperty Name="ConsultingImage2" ColumnName="ConsultingImage2" />
+                <ScalarProperty Name="ConsultingTitle3" ColumnName="ConsultingTitle3" />
+                <ScalarProperty Name="ConsultingContent3" ColumnName="ConsultingContent3" />
+                <ScalarProperty Name="ConsultingImage3" ColumnName="ConsultingImage3" />
+                <ScalarProperty Name="ConsultingID" ColumnName="ConsultingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentLegals">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentLegal">
+              <MappingFragment StoreEntitySet="ContentLegal">
+                <ScalarProperty Name="LegalTitle1" ColumnName="LegalTitle1" />
+                <ScalarProperty Name="LegalContent1" ColumnName="LegalContent1" />
+                <ScalarProperty Name="LegalTitle2" ColumnName="LegalTitle2" />
+                <ScalarProperty Name="LegalContent2" ColumnName="LegalContent2" />
+                <ScalarProperty Name="LegalTitle3" ColumnName="LegalTitle3" />
+                <ScalarProperty Name="LegalContent3" ColumnName="LegalContent3" />
+                <ScalarProperty Name="LegalID" ColumnName="LegalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentProjects">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentProject">
+              <MappingFragment StoreEntitySet="ContentProject">
+                <ScalarProperty Name="ProjectTitle1" ColumnName="ProjectTitle1" />
+                <ScalarProperty Name="ProjectContent1" ColumnName="ProjectContent1" />
+                <ScalarProperty Name="ProjectImage1" ColumnName="ProjectImage1" />
+                <ScalarProperty Name="ProjectTitle2" ColumnName="ProjectTitle2" />
+                <ScalarProperty Name="ProjectContent2" ColumnName="ProjectContent2" />
+                <ScalarProperty Name="ProjectImage2" ColumnName="ProjectImage2" />
+                <ScalarProperty Name="ProjectTitle3" ColumnName="ProjectTitle3" />
+                <ScalarProperty Name="ProjectContent3" ColumnName="ProjectContent3" />
+                <ScalarProperty Name="ProjectImage3" ColumnName="ProjectImage3" />
+                <ScalarProperty Name="ProjectTitle4" ColumnName="ProjectTitle4" />
+                <ScalarProperty Name="ProjectContent4" ColumnName="ProjectContent4" />
+                <ScalarProperty Name="ProjectImage4" ColumnName="ProjectImage4" />
+                <ScalarProperty Name="ProjectTitle5" ColumnName="ProjectTitle5" />
+                <ScalarProperty Name="ProjectContent5" ColumnName="ProjectContent5" />
+                <ScalarProperty Name="ProjectImage5" ColumnName="ProjectImage5" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentSecurities">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentSecurity">
+              <MappingFragment StoreEntitySet="ContentSecurity">
+                <ScalarProperty Name="SecurityTitle1" ColumnName="SecurityTitle1" />
+                <ScalarProperty Name="SecurityContent1" ColumnName="SecurityContent1" />
+                <ScalarProperty Name="SecurityTitle2" ColumnName="SecurityTitle2" />
+                <ScalarProperty Name="SecurityContent2" ColumnName="SecurityContent2" />
+                <ScalarProperty Name="SecurityTitle3" ColumnName="SecurityTitle3" />
+                <ScalarProperty Name="SecurityContent3" ColumnName="SecurityContent3" />
+                <ScalarProperty Name="SecurityTitle4" ColumnName="SecurityTitle4" />
+                <ScalarProperty Name="SecurityContent4" ColumnName="SecurityContent4" />
+                <ScalarProperty Name="SecurityID" ColumnName="SecurityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobApplicants">
+            <EntityTypeMapping TypeName="BlogBoardModel.JobApplicant">
+              <MappingFragment StoreEntitySet="JobApplicant">
+                <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+                <ScalarProperty Name="ApplicantFirstName" ColumnName="ApplicantFirstName" />
+                <ScalarProperty Name="ApplicantLastName" ColumnName="ApplicantLastName" />
+                <ScalarProperty Name="ApplicantPhone" ColumnName="ApplicantPhone" />
+                <ScalarProperty Name="ApplicantEmail" ColumnName="ApplicantEmail" />
+                <ScalarProperty Name="ApplicantAddress" ColumnName="ApplicantAddress" />
+                <ScalarProperty Name="ApplicantCity" ColumnName="ApplicantCity" />
+                <ScalarProperty Name="ApplicantStateID" ColumnName="ApplicantStateID" />
+                <ScalarProperty Name="ApplicantZip" ColumnName="ApplicantZip" />
+                <ScalarProperty Name="ResumePath" ColumnName="ResumePath" />
+                <ScalarProperty Name="ResumeText" ColumnName="ResumeText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCategories">
+            <EntityTypeMapping TypeName="BlogBoardModel.JobCategory">
+              <MappingFragment StoreEntitySet="JobCategory">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobPosts">
+            <EntityTypeMapping TypeName="BlogBoardModel.JobPost">
+              <MappingFragment StoreEntitySet="JobPost">
+                <ScalarProperty Name="RecruiterAssignedTo" ColumnName="RecruiterAssignedTo" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobName" ColumnName="JobName" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="DatePosted" ColumnName="DatePosted" />
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="JobPostStatusID" ColumnName="JobPostStatusID" />
+                <ScalarProperty Name="JobOfficeID" ColumnName="JobOfficeID" />
+                <ScalarProperty Name="LocationDescription" ColumnName="LocationDescription" />
+                <ScalarProperty Name="JobCategoryID" ColumnName="JobCategoryID" />
+                <ScalarProperty Name="PostToBlog" ColumnName="PostToBlog" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobPostStatus1">
+            <EntityTypeMapping TypeName="BlogBoardModel.JobPostStatus">
+              <MappingFragment StoreEntitySet="JobPostStatus">
+                <ScalarProperty Name="PostStatusID" ColumnName="PostStatusID" />
+                <ScalarProperty Name="JobPostStatusName" ColumnName="JobPostStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OfficeAssigneds">
+            <EntityTypeMapping TypeName="BlogBoardModel.OfficeAssigned">
+              <MappingFragment StoreEntitySet="OfficeAssigned">
+                <ScalarProperty Name="OfficeID" ColumnName="OfficeID" />
+                <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogCategories">
+            <EntityTypeMapping TypeName="BlogBoardModel.BlogCategory">
+              <MappingFragment StoreEntitySet="BlogCategory">
+                <ScalarProperty Name="BlogCategoryName" ColumnName="BlogCategoryName" />
+                <ScalarProperty Name="BlogCategoryID" ColumnName="BlogCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentAboutUs">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentAboutU">
+              <MappingFragment StoreEntitySet="ContentAboutUs">
+                <ScalarProperty Name="AboutUsImage" ColumnName="AboutUsImage" />
+                <ScalarProperty Name="AboutUsContent" ColumnName="AboutUsContent" />
+                <ScalarProperty Name="AboutUsTitle" ColumnName="AboutUsTitle" />
+                <ScalarProperty Name="AboutUsID" ColumnName="AboutUsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentServices">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentService">
+              <MappingFragment StoreEntitySet="ContentServices">
+                <ScalarProperty Name="ServicesImage" ColumnName="ServicesImage" />
+                <ScalarProperty Name="ServicesContent" ColumnName="ServicesContent" />
+                <ScalarProperty Name="ServicesTitle" ColumnName="ServicesTitle" />
+                <ScalarProperty Name="ServicesID" ColumnName="ServicesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentTeams">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentTeam">
+              <MappingFragment StoreEntitySet="ContentTeam">
+                <ScalarProperty Name="TeamDescription" ColumnName="TeamDescription" />
+                <ScalarProperty Name="TeamTitle" ColumnName="TeamTitle" />
+                <ScalarProperty Name="TeamImage" ColumnName="TeamImage" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentArchitectures">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentArchitecture">
+              <MappingFragment StoreEntitySet="ContentArchitecture">
+                <ScalarProperty Name="ArchitectureImage" ColumnName="ArchitectureImage" />
+                <ScalarProperty Name="ArchitectureContent" ColumnName="ArchitectureContent" />
+                <ScalarProperty Name="ArchitectureTitle" ColumnName="ArchitectureTitle" />
+                <ScalarProperty Name="ArchitectureID" ColumnName="ArchitectureID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentDevelopments">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentDevelopment">
+              <MappingFragment StoreEntitySet="ContentDevelopment">
+                <ScalarProperty Name="DevelopmentImage" ColumnName="DevelopmentImage" />
+                <ScalarProperty Name="DevelopmentContent" ColumnName="DevelopmentContent" />
+                <ScalarProperty Name="DevelopmentTitle" ColumnName="DevelopmentTitle" />
+                <ScalarProperty Name="DevelopmentID" ColumnName="DevelopmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentStrategies">
+            <EntityTypeMapping TypeName="BlogBoardModel.ContentStrategy">
+              <MappingFragment StoreEntitySet="ContentStrategy">
+                <ScalarProperty Name="StrategyImage" ColumnName="StrategyImage" />
+                <ScalarProperty Name="StrategyContent" ColumnName="StrategyContent" />
+                <ScalarProperty Name="StrategyTitle" ColumnName="StrategyTitle" />
+                <ScalarProperty Name="StrategyID" ColumnName="StrategyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

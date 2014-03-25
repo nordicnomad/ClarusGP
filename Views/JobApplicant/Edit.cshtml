@@ -1,0 +1,104 @@
+﻿@model ClarusBlogBoard.Models.JobApplicant
+
+@{
+    ViewBag.Title = "Edit Job Applicant";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<h2>Edit Job Applicant</h2>
+
+@using (Html.BeginForm("Edit", "JobApplicant", null, FormMethod.Post, new { enctype = "multipart/form-data" })) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Job Applicant Information</legend>
+
+        @Html.HiddenFor(model => model.ApplicantID)
+
+        <div class="editor-label">
+            <h4>First Name</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicantFirstName)
+            @Html.ValidationMessageFor(model => model.ApplicantFirstName)
+        </div>
+
+        <div class="editor-label">
+            <h4>Last Name</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicantLastName)
+            @Html.ValidationMessageFor(model => model.ApplicantLastName)
+        </div>
+
+        <div class="editor-label">
+            <h4>Phone</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicantPhone)
+            @Html.ValidationMessageFor(model => model.ApplicantPhone)
+        </div>
+
+        <div class="editor-label">
+            <h4>Email Address</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicantEmail)
+            @Html.ValidationMessageFor(model => model.ApplicantEmail)
+        </div>
+
+        <div class="editor-label">
+            <h4>Address</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicantAddress)
+            @Html.ValidationMessageFor(model => model.ApplicantAddress)
+        </div>
+
+        <div class="editor-label">
+            <h4>City</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicantCity)
+            @Html.ValidationMessageFor(model => model.ApplicantCity)
+        </div>
+
+        <div class="editor-label">
+            <h4>State</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ApplicantStateID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ApplicantStateID)
+        </div>
+
+        <div class="editor-label">
+            <h4>ZIP Code</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicantZip)
+            @Html.ValidationMessageFor(model => model.ApplicantZip)
+        </div>
+
+        <div class="editor-label">
+            <h4>Resume File</h4>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="resume" id="resume" />
+        </div>
+
+        <div class="editor-label">
+            <h4>Resume Text</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ResumeText)
+            @Html.ValidationMessageFor(model => model.ResumeText)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

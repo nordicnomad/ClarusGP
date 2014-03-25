@@ -1,0 +1,43 @@
+﻿@model ClarusBlogBoard.Models.RemoveModel
+
+@{
+    ViewBag.Title = "Remove Clarus User";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+    <div id="heading" class="page-header">
+        <h2>Remove User</h2>
+    </div>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true, "User update was unsuccessful. Please try again.")
+    <div>
+        <fieldset>
+            <legend>Change User Role</legend>
+
+            <div class="editor-label">
+                <h4>Select a User</h4>
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("user")
+                @Html.ValidationMessage("user")
+            </div>
+
+            <div class="editor-label">
+                <h4>Select a Role</h4>
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("role")
+                @Html.ValidationMessage("role")
+            </div>
+
+
+
+            <p>
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </p>
+        </fieldset>
+    </div>
+}
+

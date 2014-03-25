@@ -1,0 +1,88 @@
+﻿@model ClarusBlogBoard.Models.JobApplicant
+@{
+    ViewBag.Title = "Upload Resume";
+}
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="@Url.Action("Details", "About", new { id = 1 })">About</a></li>
+                    <li><a href="@Url.Action("Details", "Project", new { id = 1 })">BPM</a></li>
+                    <li><a href="@Url.Action("Details", "Security", new { id = 1 })">Security</a></li>
+                    <li><a href="@Url.Action("Details", "Consulting", new { id = 1 })">Consulting</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    @*<li><a href="#">Blog</a></li>*@
+                    <li class="active"><a href="@Url.Action("Careers", "JobPost")">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="wrapper uploadWrapper">
+        <h2 class="applyTitle">Upload Resume for @Model.ApplicantFirstName @Model.ApplicantLastName</h2>
+        @using (Html.BeginForm("Upload", "JobApplicant", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)    
+
+            @Html.HiddenFor(model => model.ApplicantID)
+
+            @Html.HiddenFor(model => model.ApplicantFirstName)
+                    
+            @Html.HiddenFor(model => model.ApplicantLastName)
+                    
+            @Html.HiddenFor(model => model.ApplicantPhone)
+                    
+            @Html.HiddenFor(model => model.ApplicantEmail)
+                    
+            @Html.HiddenFor(model => model.ApplicantAddress)
+                
+            @Html.HiddenFor(model => model.ApplicantCity)
+                   
+            @Html.HiddenFor(model => model.ApplicantStateID)
+                    
+            @Html.HiddenFor(model => model.ApplicantZip)
+                  
+            
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h4>Upload Resume</h4>
+                </div>
+                <div class="col-lg-9">
+                    <input type="file" name="resume" id="resume" />
+
+                    @*@Html.TextBoxFor(model => model.ResumePath, new { @type = "file" })
+                    <input type="file" name="ResumePath" id="ResumePath" value="" />
+                    @Html.ValidationMessageFor(model => model.ResumePath)*@
+                </div>
+            </div>
+            <div class="row applyRow">
+                <div class="col-lg-3 control-label">
+                    <h5>or</h5>
+                    <h4>Paste Resume</h4>
+                </div>
+                <div class="col-lg-9">
+                    @Html.TextAreaFor(model => model.ResumeText, new { @class = "form-control", @rows = "15" })
+                    @Html.ValidationMessageFor(model => model.ResumeText)
+                </div>
+            </div>
+
+            <div class="row applyRow">
+                <p class="applyButton">
+                    <input type="submit" value="Complete Application" class="btn btn-primary" />
+                </p>
+            </div>
+    
+        }
+    </section>
+
+</div>

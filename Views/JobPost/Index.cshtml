@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ClarusBlogBoard.Models.JobPost>
+
+@{
+    ViewBag.Title = "Manage Job Posts";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+    
+    <div id="heading" class="page-header">
+        <h2>Job Posts Database</h2>
+    </div>
+
+        <div class="row col-lg-12">
+            @using (Html.BeginForm())
+            {
+                <div class="input-group col-lg-2 col-md-12 col-sm-12 col-xs-12 searchButton" id="search">
+                    <div class="input-group-btn">
+                        <input type="button" id="clear" value="Reset" class="btn btn-xs btn-default" />
+                    </div>
+                    <div class="input-group-btn">
+                        <input id="go" type="submit" value="Filter Jobs" class="btn btn-xs btn-primary" tabindex="-1" />
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Office", "Filter By Office")
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Status", "Filter By Status")
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Category", "Filter By Category")
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Recruiter", "Filter By Recruiter")
+                </div>
+            }
+        </div>
+
+<section id="jobIndexDisplay">
+    @foreach (var item in Model) {
+        <div class="col-lg-5 jobIndexInfo">
+            <div>
+                <h4>
+                     @Html.DisplayFor(modelItem => item.JobID) : @Html.DisplayFor(modelItem => item.JobName)
+                </h4>
+            </div>
+            <div>
+                <strong>Status:</strong> @Html.DisplayFor(modelItem => item.JobPostStatus.JobPostStatusName) | 
+                <strong>Location:</strong> @Html.DisplayFor(modelItem => item.LocationDescription) | 
+                <strong>Category:</strong> @Html.DisplayFor(modelItem => item.JobCategory.CategoryName)
+            </div>
+            <div class="jobIndexBtns">
+                <a href="@Url.Action("Edit", "JobPost", new { id=item.JobID })" class="btn btn-xs btn-primary">Edit</a> 
+                <a href="@Url.Action("Details", "JobPost", new { id=item.JobID })" class="btn btn-xs btn-info">View</a>
+                @if(User.IsInRole("superadmin")) {
+                    <a href="@Url.Action("Delete", "JobPost", new { id=item.JobID })" class="btn btn-xs btn-warning">Delete</a>
+                }
+            </div>
+        </div>
+    }
+</section>
+

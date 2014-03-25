@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ClarusBlogBoard.Models.BlogPost>
+@{
+    ViewBag.Title = "Community";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav class="navbar" id="navbar" role="navigation">
+    <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+            <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+        <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+            <ul class="nav nav-pills">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="@Url.Action("Details", "Legal", new { id = 1 })">Legal</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="@Url.Action("Details", "Clients", new { id = 1 })">Clients</a></li>
+                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                <li><a href="@Url.Action("Careers", "JobPost")">Careers</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@*<div class="scrollPast3 hidden-xs hidden-sm"></div>*@
+
+<section class="container blogWrapper" id="#community">
+
+
+    <h2>Clarus in the Community</h2>
+    <hr />
+
+    @foreach (var item in Model)
+    {
+                    
+        <div class="col-lg-11 blogPreview">
+            <div class="col-lg-6 communityPreviewThumb" style="background:url(@Url.Content("~/Content/img/blogImages/" + @Html.DisplayFor(modelItem => item.BlogImageURL))) no-repeat center center;">
+                
+                @*<a href="@Url.Action("Details", "BlogPost", new { ID = item.BlogPostID })" class="btn btn-default blogButton">Read More</a>*@
+            </div>
+            <div class="col-lg-6">
+
+                @{
+                            
+                    if (item.BlogArticle.Length > 300)
+                    {
+                        string articleSnippet = item.BlogArticle.Substring(0, 299);
+                        ViewBag.ArticleSnippet = articleSnippet;
+
+                    }
+                    else
+                    {
+                        string articleSnippet = item.BlogArticle;
+                        ViewBag.ArticleSnippet = articleSnippet;
+                    }
+                                
+                }
+                <h2 class="communityTitle">@Html.DisplayFor(modelItem => item.BlogTitle)</h2>
+                <p class="communitySnippet">@ViewBag.ArticleSnippet<a href="@Url.Action("Details", "BlogPost", new { ID = item.BlogPostID })">... Full Article</a></p>
+            </div>
+        </div>
+                    
+    }
+
+
+</section>
+

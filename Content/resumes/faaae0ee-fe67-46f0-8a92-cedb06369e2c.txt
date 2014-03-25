@@ -1,0 +1,46 @@
+Apps to build for project showcase App Gallery: 
+
+Apps
+1  __ Hello World, guest book. (First Page)
+2  __ Abusive Magic 8 Ball. (Featured)
+3  __ RPG dice roller. 
+4  __ RPG dynamic character sheets. 
+5  __ ToDo List. 
+6  __ Calculator. 
+7  __ Simple Social Network. 
+8  __ ATM Machine. 
+9  __ Tick Tac Toe. 
+10 __ Youtube Music Player. (Featured)
+11 __ Search Engine of all the articles I've ever shared on twitter. (Featured)
+12 __ Receipe Book. 
+13 __ Goal Tracker. 
+14 __ Theme loader based on time of day. 
+15 __ Image Gallery. 
+16 __ Discussion Forum. 
+17 __ Micro Blogging App. 
+18 __ iChing App. 
+19 __ Currency Converter. 
+20 __ Cloud File Storage.
+21 __ Tweet scheduler.
+22 __ Poker Game. (featured)
+23 __ Checkers. 
+24 __ Fireplace app. 
+25 __ pokemon game. 
+26 __ Github api. 
+27 __ 23 and Me health dashboard api. 
+28 __ bitly api, link shortener. 
+29 __ twillio api.
+30 __ Evernote api. 
+
+Website Templates
+1 __ Blog Engine
+2 __ Content Engine
+3 __ Theme Picker
+4 __ 10 Modern CSS themes
+5 __ 5 Modern Layouts
+
+Additional Large Projects
+1 __ Vestal Capital real estate tracker, "bug tracker"
+2 __ TalentHelix "Job Website"
+3 __ Design Store (to replace Cafe Press)
+4 __ Globe-Wernicke USA (Magento, connect to Amazon Fulfillment)

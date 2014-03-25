@@ -1,0 +1,38 @@
+﻿@model ClarusBlogBoard.Models.AssignedTo
+@{
+    ViewBag.Title = "Delete Recruiter";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Delete Recruiter</h2>
+</div>
+
+<div class="col-lg-6 jobDeleteInfo">
+
+    <h3 class="deleteQuestion">Are you sure you want to delete this record?</h3>
+    <fieldset>
+        <legend>Recruiter Information</legend>
+
+        <div class="display-label">
+            <h4>Recruiter Name</h4>
+        </div>
+        <div class="display-field">
+            <p>@Html.DisplayFor(model => model.AssignedName)</p>
+        </div>
+
+        <div class="display-label">
+            <h4>Recruiter Email</h4>
+        </div>
+        <div class="display-field">
+            <p>@Html.DisplayFor(model => model.AssignedEmail)</p>
+        </div>
+    </fieldset>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            @Html.ActionLink("Back to Recruiter List", "Index", null, new { @class = "btn btn-info" })
+        </p>
+    }
+</div>

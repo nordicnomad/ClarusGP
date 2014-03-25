@@ -1,0 +1,26 @@
+﻿@model ClarusBlogBoard.Models.AssignedTo
+
+@{
+    ViewBag.Title = "Recruiter Detail";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+    <div id="heading" class="page-header">
+        <h2>Recruiter Detail</h2>
+    </div>
+<fieldset>
+    <legend>Recruiter Information</legend>
+
+    <div class="display-label"><h4>Recruiter Name</h4></div>
+    <div class="display-field">
+        <p>@Html.DisplayFor(model => model.AssignedName)</p>
+    </div>
+
+    <div class="display-label"><h4>Recruiter Email</h4></div>
+    <div class="display-field">
+        <p>@Html.DisplayFor(model => model.AssignedEmail)</p>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AssignedID }, new { @class = "btn btn-primary" }) 
+    @Html.ActionLink("Back to Recruiter List", "Index", null, new { @class = "btn btn-info" })
+</p>

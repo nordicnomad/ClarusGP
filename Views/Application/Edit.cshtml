@@ -1,0 +1,73 @@
+﻿@model ClarusBlogBoard.Models.Application
+
+@{
+    ViewBag.Title = "Edit Application";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<h2>Edit Application</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Application Information</legend>
+
+        @Html.HiddenFor(model => model.ApplicationID)
+
+        <div class="editor-label">
+            <h4>Job Applicant</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ApplicationApplicantID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ApplicationApplicantID)
+        </div>
+
+        <div class="editor-label">
+            <h4>Job Applied For</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ApplicationJobID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ApplicationJobID)
+        </div>
+
+        <div class="editor-label">
+            <h4>Assigned To</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ApplicationAssignedID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ApplicationAssignedID)
+        </div>
+
+        <div class="editor-label">
+            <h4>Application Notes</h4>
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.ApplicationNotes, new { @class = "elastic" })
+            @Html.ValidationMessageFor(model => model.ApplicationNotes)
+        </div>
+
+        <div class="editor-label">
+            <h4>Interview Date</h4>
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.InterviewDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.InterviewDate)
+        </div>
+
+        <div class="editor-label">
+            <h4>Application Status</h4>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ApplicationStatusID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ApplicationStatusID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

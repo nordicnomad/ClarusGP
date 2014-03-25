@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ClarusBlogBoard.Models.ContentTeam>
+
+@{
+    ViewBag.Title = "Team Members Content";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+    <div id="heading" class="page-header">
+        <h2>Team Member List</h2>
+    </div>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+</p>
+
+<section id="jobIndexDisplay">
+    
+    @foreach (var item in Model) {
+        <div class="col-lg-5 jobIndexInfo">
+            <div class="col-lg-4">
+                <img src="@Url.Content("~/Content/img/teamPhotos/"+ @Html.DisplayFor(modelItem => item.TeamImage))" class="userImage" />
+            </div>
+            <div class="col-lg-8">
+                <div>
+                    <h3>@Html.DisplayFor(modelItem => item.TeamName)</h3>
+                </div>
+                <div>
+                    <h4>
+                        @Html.DisplayFor(modelItem => item.TeamTitle)
+                    </h4>
+                </div>
+                <div>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.TeamID}, new {@class="btn btn-xs btn-primary" })
+                    @Html.ActionLink("Details", "Details", new { id=item.TeamID}, new {@class="btn btn-xs btn-info" })
+                    @if(User.IsInRole("superadmin")) {
+                        @Html.ActionLink("Delete", "Delete", new { id=item.TeamID}, new {@class="btn btn-xs btn-warning" })
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+</section>

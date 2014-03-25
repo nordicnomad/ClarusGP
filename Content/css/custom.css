@@ -1,0 +1,64 @@
+a.navbar-brand > img {
+    width: 42px;
+    display: inline-block;
+}
+
+nav.navbar-default > a.navbar-brand {
+    color: #fff;
+}
+
+    nav.navbar-default > a.navbar-brand:hover {
+        color: #428bca;
+    }
+
+div.editor-label {
+    margin-left: 5%;
+}
+.editor-field {
+    margin-left: 5%;
+}
+input[type=submit] {
+    margin: 5%;
+}
+
+#jobIndexDisplay {
+    /*margin: 5%;*/ 
+    background-color: #fff; 
+}
+
+.jobIndexInfo, .jobDeleteInfo {
+    border: 1px solid #333;
+    padding: 10px 20px 10px 20px;
+    background-color: rgba(255,255,255,0.6);
+    margin: 10px;
+    box-shadow: 1px 1px 4px #000;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.jobIndexBtns {
+    margin-top: 10px;
+    display: inline-block;
+}
+    .jobIndexBtns > a {
+        margin-left: 10px;
+    }
+
+.whitespaced {
+    white-space: pre-wrap;
+}
+
+.deleteQuestion {
+    color: #ff0000;
+    text-align: center;
+}
+
+.jobDeleteInfo > div.display-label {
+    margin-left: 5%;
+}
+
+.jobDeleteInfo > div > p {
+    margin-left: 10%;
+}

@@ -1,0 +1,92 @@
+﻿@model ClarusBlogBoard.Models.JobPost
+@{
+    ViewBag.Title = Html.DisplayFor(model => model.JobName);
+
+    string facebookUrl = ("http://www.facebook.com/sharer.php?u=" + Request.Url.AbsoluteUri);
+    string linkedinUrl = ("http://www.linkedin.com/shareArticle?mini=true&url=" + Request.Url.AbsoluteUri);
+    string googleplusUrl = ("https://plus.google.com/share?url=" + Request.Url.AbsoluteUri);
+    string twitterUrl = ("http://twitter.com/share?url=" + Request.Url.AbsoluteUri);
+}
+
+<div class="main-container">
+
+    <nav class="navbar" id="navbar" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand pull-left" href="@Url.Action("Index", "Home")">
+                <img src="@Url.Content("~/Content/img/logo.png")" alt="Clarus Group Logo"/>Clarus Group</a>
+            <div class="collapse nav-collapse navbar-responsive-collapse pull-right" id="dropyDowny">
+                <ul class="nav nav-pills">
+                    <li><a href="@Url.Action("Details", "About", new { id = 1 })">About</a></li>
+                    <li><a href="@Url.Action("Details", "Project", new { id = 1 })">BPM</a></li>
+                    <li><a href="@Url.Action("Details", "Security", new { id = 1 })">Security</a></li>
+                    <li><a href="@Url.Action("Details", "Consulting", new { id = 1 })">Consulting</a></li>
+                    <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                    @*<li><a href="@Url.Action("Blog", "BlogPost")">Blog</a></li>*@
+                    <li class="active"><a href="@Url.Action("Careers", "JobPost")">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="wrapper">
+        <div class="fluid-row jobWrapper clearfix">
+
+            <div class="jobHeader col-lg-12">
+                <h1>@Html.DisplayFor(model => model.JobName)</h1>
+                <h3>@Html.DisplayFor(model => model.LocationDescription)</h3>
+            </div>
+            <div class="jobBodyHead col-lg-12">
+                <div class="col-lg-6">
+                    <strong>Date Posted:</strong> @Html.DisplayFor(model => model.DatePosted)
+                </div>
+                <div class="col-lg-6">
+                    <strong>Category:</strong> @Html.DisplayFor(model => model.JobCategory.CategoryName)
+                </div>
+            </div>
+            <div class="jobBody col-lg-12">
+                <h4>Description:</h4>
+                <p class="whitespaced">
+                    @Html.Raw(Server.HtmlDecode(Model.JobDescription))
+                </p>
+            </div>
+            <div class="jobBodyFooter col-lg-12">
+                <div class="col-lg-6">
+                    <p class="jobShare">Share This Job:
+                        <a href="@facebookUrl" target="_blank"><i class="icon-facebook"></i></a>
+                        <a href="@linkedinUrl" target="_blank"><i class="icon-linkedin"></i></a>
+                        <a href="@googleplusUrl" target="_blank"><i class="icon-google-plus"></i></a>
+                        <a href="@twitterUrl" target="_blank"><i class="icon-twitter"></i></a>
+                    </p>
+                </div>
+                @if (Model.ClosingDate != null)
+                {
+                    <div class="col-lg-6">
+                        <strong>Closing Date:</strong> @Html.DisplayFor(model => model.ClosingDate)
+                    </div>
+                }
+            </div>
+            <div class="jobFooter col-lg-12">
+                <a href="@Url.Action("Create", "JobApplicant", new { CurrentJobID = Model.JobID, CurrentJobName = Model.JobName })" class="btn btn-primary btn-block">Apply for this Job</a>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    @if (User.IsInRole("admin") || User.IsInRole("superadmin"))
+    {
+        <div class="wrapper">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.JobID })
+            </p>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ClarusBlogBoard.Models.BlogPost>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+
+    <div id="heading" class="page-header">
+        <h2>Blog Manager</h2>
+    </div>
+
+
+    <div class="row col-lg-12">
+            @using (Html.BeginForm())
+            {
+                <div class="input-group col-lg-3 col-md-6 col-sm-12 col-xs-12 searchButton" id="search">
+                    <div class="input-group-btn">
+                        <input type="button" id="clear" value="Reset" class="btn btn-xs btn-default" />
+                    </div>
+                    <div class="input-group-btn">
+                        <input id="go" type="submit" value="Filter Articles" class="btn btn-xs btn-primary" tabindex="-1" />
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Author", "Filter By Author")
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Status", "Filter By Status")
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 filterButton">
+                        @Html.DropDownList("Category", "Filter By Category")
+                </div>
+            }
+        </div>
+
+<section>
+    @foreach (var item in Model) {
+        <div class="col-lg-10 jobIndexInfo">
+            <div>
+                <h3>
+                    @if (item.DatePublished != null)
+                    {
+                     <span class="inline">@Html.DisplayFor(modelItem => item.DatePublished) | </span>
+                    }
+                     @Html.DisplayFor(modelItem => item.BlogTitle) 
+                </h3>
+            </div>
+            <div>
+                <strong>Status:</strong> @Html.DisplayFor(modelItem => item.BlogPostStatus.BlogStatusName) | 
+                <strong>Author:</strong> @Html.DisplayFor(modelItem => item.BlogAuthor.AuthorName) | 
+                <strong>Category:</strong> @Html.DisplayFor(modelItem => item.BlogCategory.BlogCategoryName) 
+                <div class="jobIndexBtns">
+                    <a href="@Url.Action("Edit", "BlogPost", new { id=item.BlogPostID })" class="btn btn-xs btn-primary">Edit</a> 
+                    <a href="@Url.Action("Details", "BlogPost", new { id=item.BlogPostID })" class="btn btn-xs btn-info">View</a>
+                    @if(User.IsInRole("superadmin")) {
+                        <a href="@Url.Action("Delete", "BlogPost", new { id=item.BlogPostID })" class="btn btn-xs btn-warning">Delete</a>
+                    }
+                </div>
+            </div>
+            
+        </div>
+    }
+</section>

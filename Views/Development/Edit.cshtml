@@ -1,0 +1,49 @@
+﻿@model ClarusBlogBoard.Models.ContentDevelopment
+
+@{
+    ViewBag.Title = "Edit Development";
+    Layout = "~/Views/Shared/_AdminPanel.cshtml";
+}
+
+<div id="heading" class="page-header">
+    <h2>Edit Application Development</h2>
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Content Application Development</legend>
+
+        @Html.HiddenFor(model => model.DevelopmentID)
+
+        <div class="editor-label">
+            <h4>Development Title</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DevelopmentTitle)
+            @Html.ValidationMessageFor(model => model.DevelopmentTitle)
+        </div>
+
+        <div class="editor-label">
+            <h4>Development Content</h4>
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.DevelopmentContent)
+            @Html.ValidationMessageFor(model => model.DevelopmentContent)
+        </div>
+
+        <div class="editor-label">
+            <h4>Development Image</h4>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DevelopmentImage)
+            @Html.ValidationMessageFor(model => model.DevelopmentImage)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+
